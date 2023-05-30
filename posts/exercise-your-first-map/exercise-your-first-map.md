@@ -1,3 +1,9 @@
+---
+title: "your-first-map"
+date: "2023-05-30"
+categories: [code, analysis]
+---
+
 **This notebook is an exercise in the [Geospatial Analysis](https://www.kaggle.com/learn/geospatial-analysis) course.  You can reference the tutorial at [this link](https://www.kaggle.com/alexisbcook/your-first-map).**
 
 ---

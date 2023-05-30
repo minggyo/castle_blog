@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/exercise-your-first-map/exercise-your-first-map.html",
       "/posts/Numpy/2022-03-04-numpy.html",
       "/posts/Pandas/pandas.html",
       "/posts/post-with-code/index.html",

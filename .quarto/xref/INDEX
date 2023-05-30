@@ -10,5 +10,11 @@
   },
   "posts/welcome/index.qmd": {
     "index.html": "bbd0ea1e"
+  },
+  "posts/Numpy/2022-03-04-numpy.md": {
+    "2022-03-04-numpy.html": "2b191a9b"
+  },
+  "posts/Pandas/pandas.md": {
+    "pandas.html": "d135fe67"
   }
 }

@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Numpy/2022-03-04-numpy.html",
+      "/posts/Pandas/pandas.html",
       "/posts/post-with-code/index.html",
       "/posts/welcome/index.html"
     ]

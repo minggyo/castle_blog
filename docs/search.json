@@ -11,7 +11,630 @@
     "href": "index.html",
     "title": "castle_blog",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMay 30, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nMay 27, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Numpy\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMay 30, 2023\n\n\n\n\n\n\n  \n\n\n\n\nPandas\n\n\n\n\n\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMay 30, 2023\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMay 30, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nMay 27, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html",
+    "href": "posts/Numpy/2022-03-04-numpy.html",
+    "title": "Numpy",
+    "section": "",
+    "text": "“numpy 기본 코드 실습(한글)”\n\n\ntoc:true\nbranch: master\nbadges: true\ncomments: true\nauthor: Jiho Yeo\ncategories: [jupyter, python]\n\n도구 - 넘파이(NumPy)\n*넘파이(NumPy)는 파이썬의 과학 컴퓨팅을 위한 기본 라이브러리입니다. 넘파이의 핵심은 강력한 N-차원 배열 객체입니다. 또한 선형 대수, 푸리에(Fourier) 변환, 유사 난수 생성과 같은 유용한 함수들도 제공합니다.”\n\n\n\n구글 코랩에서 실행하기"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#np.zeros",
+    "href": "posts/Numpy/2022-03-04-numpy.html#np.zeros",
+    "title": "Numpy",
+    "section": "np.zeros",
+    "text": "np.zeros\nzeros 함수는 0으로 채워진 배열을 만듭니다:\nnp.zeros(5)\narray([0., 0., 0., 0., 0.])\n2D 배열(즉, 행렬)을 만들려면 원하는 행과 열의 크기를 튜플로 전달합니다. 예를 들어 다음은 \\(3 \\times 4\\) 크기의 행렬입니다:\nnp.zeros((3,4))\narray([[0., 0., 0., 0.],\n       [0., 0., 0., 0.],\n       [0., 0., 0., 0.]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#용어",
+    "href": "posts/Numpy/2022-03-04-numpy.html#용어",
+    "title": "Numpy",
+    "section": "용어",
+    "text": "용어\n\n넘파이에서 각 차원을 축(axis) 이라고 합니다\n축의 개수를 랭크(rank) 라고 합니다.\n\n예를 들어, 위의 \\(3 \\times 4\\) 행렬은 랭크 2인 배열입니다(즉 2차원입니다).\n첫 번째 축의 길이는 3이고 두 번째 축의 길이는 4입니다.\n\n배열의 축 길이를 배열의 크기(shape)라고 합니다.\n\n예를 들어, 위 행렬의 크기는 (3, 4)입니다.\n랭크는 크기의 길이와 같습니다.\n\n배열의 사이즈(size)는 전체 원소의 개수입니다. 축의 길이를 모두 곱해서 구할 수 있습니다(가령, \\(3 \\times 4=12\\)).\n\na = np.zeros((3,4))\na\narray([[0., 0., 0., 0.],\n       [0., 0., 0., 0.],\n       [0., 0., 0., 0.]])\na.shape\n(3, 4)\na.ndim  # len(a.shape)와 같습니다\n2\na.size\n12"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#n-차원-배열",
+    "href": "posts/Numpy/2022-03-04-numpy.html#n-차원-배열",
+    "title": "Numpy",
+    "section": "N-차원 배열",
+    "text": "N-차원 배열\n임의의 랭크 수를 가진 N-차원 배열을 만들 수 있습니다. 예를 들어, 다음은 크기가 (2,3,4)인 3D 배열(랭크=3)입니다:\nnp.zeros((2,2,5))\narray([[[0., 0., 0., 0., 0.],\n        [0., 0., 0., 0., 0.]],\n\n       [[0., 0., 0., 0., 0.],\n        [0., 0., 0., 0., 0.]]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#배열-타입",
+    "href": "posts/Numpy/2022-03-04-numpy.html#배열-타입",
+    "title": "Numpy",
+    "section": "배열 타입",
+    "text": "배열 타입\n넘파이 배열의 타입은 ndarray입니다:\ntype(np.zeros((3,4)))\nnumpy.ndarray"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#np.ones",
+    "href": "posts/Numpy/2022-03-04-numpy.html#np.ones",
+    "title": "Numpy",
+    "section": "np.ones",
+    "text": "np.ones\nndarray를 만들 수 있는 넘파이 함수가 많습니다.\n다음은 1로 채워진 \\(3 \\times 4\\) 크기의 행렬입니다:\nnp.ones((3,4))\narray([[1., 1., 1., 1.],\n       [1., 1., 1., 1.],\n       [1., 1., 1., 1.]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#np.full",
+    "href": "posts/Numpy/2022-03-04-numpy.html#np.full",
+    "title": "Numpy",
+    "section": "np.full",
+    "text": "np.full\n주어진 값으로 지정된 크기의 배열을 초기화합니다. 다음은 π로 채워진 \\(3 \\times 4\\) 크기의 행렬입니다.\nnp.full((3,4), np.pi)\narray([[3.14159265, 3.14159265, 3.14159265, 3.14159265],\n       [3.14159265, 3.14159265, 3.14159265, 3.14159265],\n       [3.14159265, 3.14159265, 3.14159265, 3.14159265]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#np.empty",
+    "href": "posts/Numpy/2022-03-04-numpy.html#np.empty",
+    "title": "Numpy",
+    "section": "np.empty",
+    "text": "np.empty\n초기화되지 않은 \\(2 \\times 3\\) 크기의 배열을 만듭니다(배열의 내용은 예측이 불가능하며 메모리 상황에 따라 달라집니다):\nnp.empty((2,3))\narray([[0., 0., 0.],\n       [0., 0., 0.]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#np.array",
+    "href": "posts/Numpy/2022-03-04-numpy.html#np.array",
+    "title": "Numpy",
+    "section": "np.array",
+    "text": "np.array\narray 함수는 파이썬 리스트를 사용하여 ndarray를 초기화합니다:\nnp.array([[1,2,3,4], [10, 20, 30, 40]])\narray([[ 1,  2,  3,  4],\n       [10, 20, 30, 40]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#np.arange",
+    "href": "posts/Numpy/2022-03-04-numpy.html#np.arange",
+    "title": "Numpy",
+    "section": "np.arange",
+    "text": "np.arange\n파이썬의 기본 range 함수와 비슷한 넘파이 arange 함수를 사용하여 ndarray를 만들 수 있습니다:\nnp.arange(1, 5)\narray([1, 2, 3, 4])\n부동 소수도 가능합니다:\nnp.arange(1.0, 5.0)\narray([1., 2., 3., 4.])\n파이썬의 기본 range 함수처럼 건너 뛰는 정도를 지정할 수 있습니다:\nnp.arange(1, 5, 0.5)\narray([1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 4.5])\n부동 소수를 사용하면 원소의 개수가 일정하지 않을 수 있습니다. 예를 들면 다음과 같습니다:\nprint(np.arange(0, 5/3, 1/3)) # 부동 소수 오차 때문에, 최댓값은 4/3 또는 5/3이 됩니다.\nprint(np.arange(0, 5/3, 0.333333333))\nprint(np.arange(0, 5/3, 0.333333334))\n[0.         0.33333333 0.66666667 1.         1.33333333 1.66666667]\n[0.         0.33333333 0.66666667 1.         1.33333333 1.66666667]\n[0.         0.33333333 0.66666667 1.         1.33333334]\nmy_arr=np.arange(1000000)\nmy_list=list(range(1000000))\n\n%time for _ in range(10): my_arr2=my_arr*2\n%time for _ in range(10): my_list2=[x*2 for x in my_list]\nCPU times: total: 15.6 ms\nWall time: 32 ms\nCPU times: total: 578 ms\nWall time: 1.9 s\nmy_arr\narray([     0,      1,      2, ..., 999997, 999998, 999999])\nsize=10\nfor x in range(size): print(x**2)\n0\n1\n4\n9\n16\n25\n36\n49\n64\n81\nimport sys\nsize=10\n%timeit for x in range(size): x**2\n    \n%timeit for x in np.arange(size): x**2 # 별로임\n    \n%timeit np.arange(size) ** 2\n4.9 µs ± 520 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)\n5.51 µs ± 844 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)\n2.5 µs ± 394 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#np.linspace",
+    "href": "posts/Numpy/2022-03-04-numpy.html#np.linspace",
+    "title": "Numpy",
+    "section": "np.linspace",
+    "text": "np.linspace\n이런 이유로 부동 소수를 사용할 땐 arange 대신에 linspace 함수를 사용하는 것이 좋습니다. linspace 함수는 지정된 개수만큼 두 값 사이를 나눈 배열을 반환합니다(arange와는 다르게 최댓값이 포함됩니다):\nprint(np.linspace(0, 5/3, 6))\n[0.         0.33333333 0.66666667 1.         1.33333333 1.66666667]"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#np.rand와-np.randn",
+    "href": "posts/Numpy/2022-03-04-numpy.html#np.rand와-np.randn",
+    "title": "Numpy",
+    "section": "np.rand와 np.randn",
+    "text": "np.rand와 np.randn\n넘파이의 random 모듈에는 ndarray를 랜덤한 값으로 초기화할 수 있는 함수들이 많이 있습니다. 예를 들어, 다음은 (균등 분포인) 0과 1사이의 랜덤한 부동 소수로 \\(3 \\times 4\\) 행렬을 초기화합니다:\nnp.random.rand(3,4)\narray([[0.13003525, 0.703738  , 0.7997448 , 0.63561195],\n       [0.7119487 , 0.0541554 , 0.25371595, 0.9667086 ],\n       [0.15878586, 0.95380304, 0.39588323, 0.80324589]])\n다음은 평균이 0이고 분산이 1인 일변량 정규 분포(가우시안 분포)에서 샘플링한 랜덤한 부동 소수를 담은 \\(3 \\times 4\\) 행렬입니다:\nnp.random.randn(3,4)\narray([[ 0.0438647 ,  0.27080261, -0.36467917, -1.72379813],\n       [-0.5746902 , -0.09295854, -0.42498219, -0.05922019],\n       [ 0.48313977, -1.03476614,  1.04771218,  2.58565967]])\n이 분포의 모양을 알려면 맷플롯립을 사용해 그려보는 것이 좋습니다(더 자세한 것은 맷플롯립 튜토리얼을 참고하세요):\n%matplotlib inline\nimport matplotlib.pyplot as plt\nplt.hist(np.random.rand(100000), density=True, bins=100, histtype=\"step\", color=\"blue\", label=\"rand\")\nplt.hist(np.random.randn(100000), density=True, bins=100, histtype=\"step\", color=\"red\", label=\"randn\")\nplt.axis([-2.5, 2.5, 0, 1.1])\nplt.legend(loc = \"upper left\")\nplt.title(\"Random distributions\")\nplt.xlabel(\"Value\")\nplt.ylabel(\"Density\")\nplt.show()\n\n\n\npng"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#np.fromfunction",
+    "href": "posts/Numpy/2022-03-04-numpy.html#np.fromfunction",
+    "title": "Numpy",
+    "section": "np.fromfunction",
+    "text": "np.fromfunction\n함수를 사용하여 ndarray를 초기화할 수도 있습니다:\ndef my_function(z, y, x):\n    return x + 10 * y + 100 * z\n\nnp.fromfunction(my_function, (3, 2, 10))\narray([[[  0.,   1.,   2.,   3.,   4.,   5.,   6.,   7.,   8.,   9.],\n        [ 10.,  11.,  12.,  13.,  14.,  15.,  16.,  17.,  18.,  19.]],\n\n       [[100., 101., 102., 103., 104., 105., 106., 107., 108., 109.],\n        [110., 111., 112., 113., 114., 115., 116., 117., 118., 119.]],\n\n       [[200., 201., 202., 203., 204., 205., 206., 207., 208., 209.],\n        [210., 211., 212., 213., 214., 215., 216., 217., 218., 219.]]])\n넘파이는 먼저 크기가 (3, 2, 10)인 세 개의 ndarray(차원마다 하나씩)를 만듭니다. 각 배열은 축을 따라 좌표 값과 같은 값을 가집니다. 예를 들어, z 축에 있는 배열의 모든 원소는 z-축의 값과 같습니다:\n[[[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]\n  [ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.]]\n\n [[ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.]\n  [ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.]]\n\n [[ 2.  2.  2.  2.  2.  2.  2.  2.  2.  2.]\n  [ 2.  2.  2.  2.  2.  2.  2.  2.  2.  2.]]]\n위의 식 x + 10 * y + 100 * z에서 x, y, z는 사실 ndarray입니다(배열의 산술 연산에 대해서는 아래에서 설명합니다). 중요한 점은 함수 my_function이 원소마다 호출되는 것이 아니고 딱 한 번 호출된다는 점입니다. 그래서 매우 효율적으로 초기화할 수 있습니다."
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#dtype",
+    "href": "posts/Numpy/2022-03-04-numpy.html#dtype",
+    "title": "Numpy",
+    "section": "dtype",
+    "text": "dtype\n넘파이의 ndarray는 모든 원소가 동일한 타입(보통 숫자)을 가지기 때문에 효율적입니다. dtype 속성으로 쉽게 데이터 타입을 확인할 수 있습니다:\nc = np.arange(1, 5)\nprint(c.dtype, c)\nint32 [1 2 3 4]\nc = np.arange(1.0, 5.0)\nprint(c.dtype, c)\nfloat64 [1. 2. 3. 4.]\n넘파이가 데이터 타입을 결정하도록 내버려 두는 대신 dtype 매개변수를 사용해서 배열을 만들 때 명시적으로 지정할 수 있습니다:\nd = np.arange(1, 5, dtype=np.complex64)\nprint(d.dtype, d)\ncomplex64 [1.+0.j 2.+0.j 3.+0.j 4.+0.j]\n가능한 데이터 타입은 int8, int16, int32, int64, uint8|16|32|64, float16|32|64, complex64|128가 있습니다. 전체 리스트는 온라인 문서를 참고하세요."
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#itemsize",
+    "href": "posts/Numpy/2022-03-04-numpy.html#itemsize",
+    "title": "Numpy",
+    "section": "itemsize",
+    "text": "itemsize\nitemsize 속성은 각 아이템의 크기(바이트)를 반환합니다:\ne = np.arange(1, 5, dtype=np.complex64)\ne.itemsize\n8"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#data-버퍼",
+    "href": "posts/Numpy/2022-03-04-numpy.html#data-버퍼",
+    "title": "Numpy",
+    "section": "data 버퍼",
+    "text": "data 버퍼\n배열의 데이터는 1차원 바이트 버퍼로 메모리에 저장됩니다. data 속성을 사용해 참조할 수 있습니다(사용할 일은 거의 없겠지만요).\nf = np.array([[1,2],[1000, 2000]], dtype=np.int32)\nf.data\n<memory at 0x000001FFAF01C5F0>\n파이썬 2에서는 f.data가 버퍼이고 파이썬 3에서는 memoryview입니다.\nif (hasattr(f.data, \"tobytes\")):\n    data_bytes = f.data.tobytes() # python 3\nelse:\n    data_bytes = memoryview(f.data).tobytes() # python 2\n\ndata_bytes\nb'\\x01\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\xe8\\x03\\x00\\x00\\xd0\\x07\\x00\\x00'\n여러 개의 ndarray가 데이터 버퍼를 공유할 수 있습니다. 하나를 수정하면 다른 것도 바뀝니다. 잠시 후에 예를 살펴 보겠습니다."
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#자신을-변경",
+    "href": "posts/Numpy/2022-03-04-numpy.html#자신을-변경",
+    "title": "Numpy",
+    "section": "자신을 변경",
+    "text": "자신을 변경\nndarray의 shape 속성을 지정하면 간단히 크기를 바꿀 수 있습니다. 배열의 원소 개수는 동일하게 유지됩니다.\ng = np.arange(24)\nprint(g)\nprint(\"랭크:\", g.ndim)\n[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23]\n랭크: 1\ng.shape = (6, 4)\nprint(g)\nprint(\"랭크:\", g.ndim)\n[[ 0  1  2  3]\n [ 4  5  6  7]\n [ 8  9 10 11]\n [12 13 14 15]\n [16 17 18 19]\n [20 21 22 23]]\n랭크: 2\ng.shape = (2, 3, 4)\nprint(g)\nprint(\"랭크:\", g.ndim)\n[[[ 0  1  2  3]\n  [ 4  5  6  7]\n  [ 8  9 10 11]]\n\n [[12 13 14 15]\n  [16 17 18 19]\n  [20 21 22 23]]]\n랭크: 3\ng[1,1,1]\n17"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#reshape",
+    "href": "posts/Numpy/2022-03-04-numpy.html#reshape",
+    "title": "Numpy",
+    "section": "reshape",
+    "text": "reshape\nreshape 함수는 동일한 데이터를 가리키는 새로운 ndarray 객체를 반환합니다. 한 배열을 수정하면 다른 것도 함께 바뀝니다.\ng2 = g.reshape(4,6)\nprint(g2)\nprint(\"랭크:\", g2.ndim)\n[[ 0  1  2  3  4  5]\n [ 6  7  8  9 10 11]\n [12 13 14 15 16 17]\n [18 19 20 21 22 23]]\n랭크: 2\ng\narray([[[ 0,  1,  2,  3],\n        [ 4,  5,  6,  7],\n        [ 8,  9, 10, 11]],\n\n       [[12, 13, 14, 15],\n        [16, 17, 18, 19],\n        [20, 21, 22, 23]]])\n행 1, 열 2의 원소를 999로 설정합니다(인덱싱 방식은 아래를 참고하세요).\ng2[1, 2] = 999\ng2\narray([[  0,   1,   2,   3,   4,   5],\n       [  6,   7, 999,   9,  10,  11],\n       [ 12,  13,  14,  15,  16,  17],\n       [ 18,  19,  20,  21,  22,  23]])\n이에 상응하는 g의 원소도 수정됩니다.\ng\narray([[[  0,   1,   2,   3],\n        [  4,   5,   6,   7],\n        [999,   9,  10,  11]],\n\n       [[ 12,  13,  14,  15],\n        [ 16,  17,  18,  19],\n        [ 20,  21,  22,  23]]])\ng2=g.copy()"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#ravel",
+    "href": "posts/Numpy/2022-03-04-numpy.html#ravel",
+    "title": "Numpy",
+    "section": "ravel",
+    "text": "ravel\n마지막으로 ravel 함수는 동일한 데이터를 가리키는 새로운 1차원 ndarray를 반환합니다:\ng.ravel()\narray([  0,   1,   2,   3,   4,   5,   6,   7, 999,   9,  10,  11,  12,\n        13,  14,  15,  16,  17,  18,  19,  20,  21,  22,  23])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#규칙-1",
+    "href": "posts/Numpy/2022-03-04-numpy.html#규칙-1",
+    "title": "Numpy",
+    "section": "규칙 1",
+    "text": "규칙 1\n배열의 랭크가 동일하지 않으면 랭크가 맞을 때까지 랭크가 작은 배열 앞에 1을 추가합니다.\nh = np.arange(5).reshape(1, 1, 5)\nh\narray([[[0, 1, 2, 3, 4]]])\n여기에 (1,1,5) 크기의 3D 배열에 (5,) 크기의 1D 배열을 더해 보죠. 브로드캐스팅의 규칙 1이 적용됩니다!\nh + [10, 20, 30, 40, 50]  # 다음과 동일합니다: h + [[[10, 20, 30, 40, 50]]]\narray([[[10, 21, 32, 43, 54]]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#규칙-2",
+    "href": "posts/Numpy/2022-03-04-numpy.html#규칙-2",
+    "title": "Numpy",
+    "section": "규칙 2",
+    "text": "규칙 2\n특정 차원이 1인 배열은 그 차원에서 크기가 가장 큰 배열의 크기에 맞춰 동작합니다. 배열의 원소가 차원을 따라 반복됩니다.\nk = np.arange(6).reshape(2, 3)\nk\narray([[0, 1, 2],\n       [3, 4, 5]])\n(2,3) 크기의 2D ndarray에 (2,1) 크기의 2D 배열을 더해 보죠. 넘파이는 브로드캐스팅 규칙 2를 적용합니다:\nk + [[100], [200]]  # 다음과 같습니다: k + [[100, 100, 100], [200, 200, 200]]\narray([[100, 101, 102],\n       [203, 204, 205]])\n규칙 1과 2를 합치면 다음과 같이 동작합니다:\nk + [100, 200, 300]  # 규칙 1 적용: [[100, 200, 300]], 규칙 2 적용: [[100, 200, 300], [100, 200, 300]]\narray([[100, 201, 302],\n       [103, 204, 305]])\n또 매우 간단히 다음 처럼 해도 됩니다:\nk + 1000  # 다음과 같습니다: k + [[1000, 1000, 1000], [1000, 1000, 1000]]\narray([[1000, 1001, 1002],\n       [1003, 1004, 1005]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#규칙-3",
+    "href": "posts/Numpy/2022-03-04-numpy.html#규칙-3",
+    "title": "Numpy",
+    "section": "규칙 3",
+    "text": "규칙 3\n규칙 1 & 2을 적용했을 때 모든 배열의 크기가 맞아야 합니다.\ntry:\n    k + [33, 44]\nexcept ValueError as e:\n    print(e)\noperands could not be broadcast together with shapes (2,3) (2,) \n브로드캐스팅 규칙은 산술 연산 뿐만 아니라 넘파이 연산에서 많이 사용됩니다. 아래에서 더 보도록 하죠. 브로드캐스팅에 관한 더 자세한 정보는 온라인 문서를 참고하세요."
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#업캐스팅",
+    "href": "posts/Numpy/2022-03-04-numpy.html#업캐스팅",
+    "title": "Numpy",
+    "section": "업캐스팅",
+    "text": "업캐스팅\ndtype이 다른 배열을 합칠 때 넘파이는 (실제 값에 상관없이) 모든 값을 다룰 수 있는 타입으로 업캐스팅합니다.\nk1 = np.arange(0, 5, dtype=np.uint8)\nprint(k1.dtype, k1)\nuint8 [0 1 2 3 4]\nk2 = k1 + np.array([5, 6, 7, 8, 9], dtype=np.int8)\nprint(k2.dtype, k2)\nint16 [ 5  7  9 11 13]\n모든 int8과 uint8 값(-128에서 255까지)을 표현하기 위해 int16이 필요합니다. 이 코드에서는 uint8이면 충분하지만 업캐스팅되었습니다.\nk3 = k1 + 1.5\nprint(k3.dtype, k3)\nfloat64 [1.5 2.5 3.5 4.5 5.5]"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#ndarray-메서드",
+    "href": "posts/Numpy/2022-03-04-numpy.html#ndarray-메서드",
+    "title": "Numpy",
+    "section": "ndarray 메서드",
+    "text": "ndarray 메서드\n일부 함수는 ndarray 메서드로 제공됩니다. 예를 들면:\na = np.array([[-2.5, 3.1, 7], [10, 11, 12]])\nprint(a)\nprint(\"평균 =\", a.mean()) # axis=0 / axis=1\n[[-2.5  3.1  7. ]\n [10.  11.  12. ]]\n평균 = 6.766666666666667\n이 명령은 크기에 상관없이 ndarray에 있는 모든 원소의 평균을 계산합니다.\n다음은 유용한 ndarray 메서드입니다:\nfor func in (a.min, a.max, a.sum, a.prod, a.std, a.var):\n    print(func.__name__, \"=\", func())\nmin = -2.5\nmax = 12.0\nsum = 40.6\nprod = -71610.0\nstd = 5.084835843520964\nvar = 25.855555555555554\n이 함수들은 선택적으로 매개변수 axis를 사용합니다. 지정된 축을 따라 원소에 연산을 적용하는데 사용합니다. 예를 들면:\nc=np.arange(24).reshape(2,3,4)\nc\narray([[[ 0,  1,  2,  3],\n        [ 4,  5,  6,  7],\n        [ 8,  9, 10, 11]],\n\n       [[12, 13, 14, 15],\n        [16, 17, 18, 19],\n        [20, 21, 22, 23]]])\nc.sum(axis=0)  # 첫 번째 축을 따라 더함, 결과는 3x4 배열\narray([[12, 14, 16, 18],\n       [20, 22, 24, 26],\n       [28, 30, 32, 34]])\nc.sum(axis=1)  # 두 번째 축을 따라 더함, 결과는 2x4 배열\narray([[12, 15, 18, 21],\n       [48, 51, 54, 57]])\nc.sum(axis=2)\narray([[ 6, 22, 38],\n       [54, 70, 86]])\n여러 축에 대해서 더할 수도 있습니다:\nc.sum(axis=(0,2))  # 첫 번째 축과 세 번째 축을 따라 더함, 결과는 (3,) 배열\narray([ 60,  92, 124])\n0+1+2+3 + 12+13+14+15, 4+5+6+7 + 16+17+18+19, 8+9+10+11 + 20+21+22+23\n(60, 92, 124)"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#일반-함수",
+    "href": "posts/Numpy/2022-03-04-numpy.html#일반-함수",
+    "title": "Numpy",
+    "section": "일반 함수",
+    "text": "일반 함수\n넘파이는 일반 함수(universal function) 또는 ufunc라고 부르는 원소별 함수를 제공합니다. 예를 들면 square 함수는 원본 ndarray를 복사하여 각 원소를 제곱한 새로운 ndarray 객체를 반환합니다:\na = np.array([[-2.5, 3.1, 7], [10, 11, 12]])\nnp.square(a)\narray([[  6.25,   9.61,  49.  ],\n       [100.  , 121.  , 144.  ]])\n다음은 유용한 단항 일반 함수들입니다:\nprint(\"원본 ndarray\")\nprint(a)\nfor func in (np.abs, np.sqrt, np.exp, np.log, np.sign, np.ceil, np.modf, np.isnan, np.cos):\n    print(\"\\n\", func.__name__)\n    print(func(a))\n원본 ndarray\n[[-2.5  3.1  7. ]\n [10.  11.  12. ]]\n\n absolute\n[[ 2.5  3.1  7. ]\n [10.  11.  12. ]]\n\n sqrt\n[[       nan 1.76068169 2.64575131]\n [3.16227766 3.31662479 3.46410162]]\n\n exp\n[[8.20849986e-02 2.21979513e+01 1.09663316e+03]\n [2.20264658e+04 5.98741417e+04 1.62754791e+05]]\n\n log\n[[       nan 1.13140211 1.94591015]\n [2.30258509 2.39789527 2.48490665]]\n\n sign\n[[-1.  1.  1.]\n [ 1.  1.  1.]]\n\n ceil\n[[-2.  4.  7.]\n [10. 11. 12.]]\n\n modf\n(array([[-0.5,  0.1,  0. ],\n       [ 0. ,  0. ,  0. ]]), array([[-2.,  3.,  7.],\n       [10., 11., 12.]]))\n\n isnan\n[[False False False]\n [False False False]]\n\n cos\n[[-0.80114362 -0.99913515  0.75390225]\n [-0.83907153  0.0044257   0.84385396]]\n\n\nC:\\Users\\LG PC\\AppData\\Local\\Temp\\ipykernel_11368\\4103705789.py:5: RuntimeWarning: invalid value encountered in sqrt\n  print(func(a))\nC:\\Users\\LG PC\\AppData\\Local\\Temp\\ipykernel_11368\\4103705789.py:5: RuntimeWarning: invalid value encountered in log\n  print(func(a))"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#이항-일반-함수",
+    "href": "posts/Numpy/2022-03-04-numpy.html#이항-일반-함수",
+    "title": "Numpy",
+    "section": "이항 일반 함수",
+    "text": "이항 일반 함수\n두 개의 ndarray에 원소별로 적용되는 이항 함수도 많습니다. 두 배열이 동일한 크기가 아니면 브로드캐스팅 규칙이 적용됩니다:\na = np.array([1, -2, 3, 4])\nb = np.array([2, 8, -1, 7])\nnp.add(a, b)  # a + b 와 동일\narray([ 3,  6,  2, 11])\nnp.greater(a, b)  # a > b 와 동일\narray([False, False,  True, False])\nnp.maximum(a, b)\narray([2, 8, 3, 7])\nnp.copysign(a, b)\narray([ 1.,  2., -3.,  4.])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#차원-배열",
+    "href": "posts/Numpy/2022-03-04-numpy.html#차원-배열",
+    "title": "Numpy",
+    "section": "1차원 배열",
+    "text": "1차원 배열\n1차원 넘파이 배열은 보통의 파이썬 배열과 비슷하게 사용할 수 있습니다:\na = np.array([1, 5, 3, 19, 13, 7, 3])\na[3]\n19\na[2:5]\narray([ 3, 19, 13])\na[2:-1]\narray([ 3, 19, 13,  7])\na[:2]\narray([1, 5])\na[2::2]\narray([ 3, 13,  3])\na[::-1]\narray([ 3,  7, 13, 19,  3,  5,  1])\n물론 원소를 수정할 수 있죠:\na[3]=999\na\narray([  1,   5,   3, 999,  13,   7,   3])\n슬라이싱을 사용해 ndarray를 수정할 수 있습니다:\na[2:5] = [997, 998, 999]\na\narray([  1,   5, 997, 998, 999,   7,   3])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#보통의-파이썬-배열과-차이점",
+    "href": "posts/Numpy/2022-03-04-numpy.html#보통의-파이썬-배열과-차이점",
+    "title": "Numpy",
+    "section": "보통의 파이썬 배열과 차이점",
+    "text": "보통의 파이썬 배열과 차이점\n보통의 파이썬 배열과 대조적으로 ndarray 슬라이싱에 하나의 값을 할당하면 슬라이싱 전체에 복사됩니다. 위에서 언급한 브로드캐스팅 덕택입니다.\na[2:5] = -1\na\narray([ 1,  5, -1, -1, -1,  7,  3])\n\nList는 브로드캐스팅으로 할당이 안됨\nb=[1,5,3,19,13,7,3]\nb[2:5]=-1\n---------------------------------------------------------------------------\n\nTypeError                                 Traceback (most recent call last)\n\nCell In[82], line 2\n      1 b=[1,5,3,19,13,7,3]\n----> 2 b[2:5]=-1\n\n\nTypeError: can only assign an iterable\n또한 이런 식으로 ndarray 크기를 늘리거나 줄일 수 없습니다:\ntry:\n    a[2:5] = [1,2,3,4,5,6]  # 너무 길어요\nexcept ValueError as e:\n    print(e)\ncannot copy sequence with size 6 to array axis with dimension 3\n원소를 삭제할 수도 없습니다:\ntry:\n    del a[2:5]\nexcept ValueError as e:\n    print(e)\ncannot delete array elements\n중요한 점은 ndarray의 슬라이싱은 같은 데이터 버퍼를 바라보는 뷰(view)입니다. 슬라이싱된 객체를 수정하면 실제 원본 ndarray가 수정됩니다!\na_slice = a[2:6]\na_slice[1] = 1000\na  # 원본 배열이 수정됩니다!\narray([   1,    5,   -1, 1000,   -1,    7,    3])\na[3] = 2000\na_slice  # 비슷하게 원본 배열을 수정하면 슬라이싱 객체에도 반영됩니다!\narray([  -1, 2000,   -1,    7])\n데이터를 복사하려면 copy 메서드를 사용해야 합니다:\nanother_slice = a[2:6].copy()\nanother_slice[1] = 3000\na  # 원본 배열이 수정되지 않습니다\narray([   1,    5,   -1, 2000,   -1,    7,    3])\na[3] = 4000\nanother_slice  # 마찬가지로 원본 배열을 수정해도 복사된 배열은 바뀌지 않습니다\narray([  -1, 3000,   -1,    7])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#다차원-배열",
+    "href": "posts/Numpy/2022-03-04-numpy.html#다차원-배열",
+    "title": "Numpy",
+    "section": "다차원 배열",
+    "text": "다차원 배열\n다차원 배열은 비슷한 방식으로 각 축을 따라 인덱싱 또는 슬라이싱해서 사용합니다. 콤마로 구분합니다:\nb = np.arange(48).reshape(4, 12)\nb\narray([[ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11],\n       [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],\n       [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35],\n       [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]])\nb[(2,3),0:2]\narray([[24, 25],\n       [36, 37]])\nb[2:,0:2]\narray([[24, 25],\n       [36, 37]])\nb[1, 2]  # 행 1, 열 2\n14\nb[1, :]  # 행 1, 모든 열\narray([12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23])\nb[:, 1]  # 모든 행, 열 1\narray([ 1, 13, 25, 37])\n주의: 다음 두 표현에는 미묘한 차이가 있습니다:\nb[1, :]\narray([12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23])\nb[1:2, :]\narray([[12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]])\nb[1, :].shape\n(12,)\nb[1:2, :].shape\n(1, 12)\n첫 번째 표현식은 (12,) 크기인 1D 배열로 행이 하나입니다. 두 번째는 (1, 12) 크기인 2D 배열로 같은 행을 반환합니다."
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#팬시-인덱싱fancy-indexing",
+    "href": "posts/Numpy/2022-03-04-numpy.html#팬시-인덱싱fancy-indexing",
+    "title": "Numpy",
+    "section": "팬시 인덱싱(Fancy indexing)",
+    "text": "팬시 인덱싱(Fancy indexing)\n관심 대상의 인덱스 리스트를 지정할 수도 있습니다. 이를 팬시 인덱싱이라고 부릅니다.\nb\narray([[ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11],\n       [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],\n       [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35],\n       [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]])\nb[2:4,0:2]\narray([[24, 25],\n       [36, 37]])\nb[(2,3),0:2]\narray([[24, 25],\n       [36, 37]])\nb[(0,2), 2:5]  # 행 0과 2, 열 2에서 4(5-1)까지\narray([[ 2,  3,  4],\n       [26, 27, 28]])\nb[:, (-1, 2, -1)]  # 모든 행, 열 -1 (마지막), 2와 -1 (다시 반대 방향으로)\narray([[11,  2, 11],\n       [23, 14, 23],\n       [35, 26, 35],\n       [47, 38, 47]])\n여러 개의 인덱스 리스트를 지정하면 인덱스에 맞는 값이 포함된 1D ndarray를 반환됩니다.\nb\narray([[ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11],\n       [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],\n       [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35],\n       [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]])\nb[(-1, 2, -1, 2), (5, 9, 1, 9)]  # returns a 1D array with b[-1, 5], b[2, 9], b[-1, 1] and b[2, 9] (again)\narray([41, 33, 37, 33])\narray_2d=np.array([[5,10,15],\n                  [20,25,30],\n                  [35,40,45]])\n# 2차원 배열 `'array_2d'에서 첫 번째 행(row)의 모든 요소를 선택해 보세요.\narray_2d[1,:]\narray([20, 25, 30])\n# 2차원 배열 'array_2d'에서 두 번째 열의 모든 요소를 선택해 보세요.\narray_2d[:,2]\narray([15, 30, 45])\n# 2차원 배열 'array_2d'에서 다음 요소들을 선택해 보세요: 25, 30, 40, 45\narray_2d[1:3, 1:3]\narray([[25, 30],\n       [40, 45]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#고차원",
+    "href": "posts/Numpy/2022-03-04-numpy.html#고차원",
+    "title": "Numpy",
+    "section": "고차원",
+    "text": "고차원\n고차원에서도 동일한 방식이 적용됩니다. 몇 가지 예를 살펴 보겠습니다:\nc = b.reshape(4,2,6)\nc\narray([[[ 0,  1,  2,  3,  4,  5],\n        [ 6,  7,  8,  9, 10, 11]],\n\n       [[12, 13, 14, 15, 16, 17],\n        [18, 19, 20, 21, 22, 23]],\n\n       [[24, 25, 26, 27, 28, 29],\n        [30, 31, 32, 33, 34, 35]],\n\n       [[36, 37, 38, 39, 40, 41],\n        [42, 43, 44, 45, 46, 47]]])\nc[2, 1, 4]  # 행렬 2, 행 1, 열 4\n34\nc[2, :, 3]  # 행렬 2, 모든 행, 열 3\narray([27, 33])\n어떤 축에 대한 인덱스를 지정하지 않으면 이 축의 모든 원소가 반환됩니다:\nc[2, 1]  # 행렬 2, 행 1, 모든 열이 반환됩니다. c[2, 1, :]와 동일합니다.\narray([30, 31, 32, 33, 34, 35])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#생략-부호-...",
+    "href": "posts/Numpy/2022-03-04-numpy.html#생략-부호-...",
+    "title": "Numpy",
+    "section": "생략 부호 (...)",
+    "text": "생략 부호 (...)\n생략 부호(...)를 쓰면 모든 지정하지 않은 축의 원소를 포함합니다.\nc[2, ...]  #  행렬 2, 모든 행, 모든 열. c[2, :, :]와 동일\narray([[24, 25, 26, 27, 28, 29],\n       [30, 31, 32, 33, 34, 35]])\nc[2, 1, ...]  # 행렬 2, 행 1, 모든 열. c[2, 1, :]와 동일\narray([30, 31, 32, 33, 34, 35])\nc[2, ..., 3]  # 행렬 2, 모든 행, 열 3. c[2, :, 3]와 동일\narray([27, 33])\nc[..., 3]  # 모든 행렬, 모든 행, 열 3. c[:, :, 3]와 동일\narray([[ 3,  9],\n       [15, 21],\n       [27, 33],\n       [39, 45]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#불리언-인덱싱",
+    "href": "posts/Numpy/2022-03-04-numpy.html#불리언-인덱싱",
+    "title": "Numpy",
+    "section": "불리언 인덱싱",
+    "text": "불리언 인덱싱\n불리언 값을 가진 ndarray를 사용해 축의 인덱스를 지정할 수 있습니다.\nb = np.arange(48).reshape(4, 12)\nb\narray([[ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11],\n       [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],\n       [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35],\n       [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]])\nrows_on = np.array([True, False, True, False])\nb[rows_on, :]  # 행 0과 2, 모든 열. b[(0, 2), :]와 동일\narray([[ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11],\n       [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]])\ncols_on = np.array([False, True, False] * 4)\nb[:, cols_on]  # 모든 행, 열 1, 4, 7, 10\narray([[ 1,  4,  7, 10],\n       [13, 16, 19, 22],\n       [25, 28, 31, 34],\n       [37, 40, 43, 46]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#np.ix_",
+    "href": "posts/Numpy/2022-03-04-numpy.html#np.ix_",
+    "title": "Numpy",
+    "section": "np.ix_",
+    "text": "np.ix_\n여러 축에 걸쳐서는 불리언 인덱싱을 사용할 수 없고 ix_ 함수를 사용합니다:\nb[np.ix_((0,2),(1,4,7,10))]\narray([[ 1,  4,  7, 10],\n       [25, 28, 31, 34]])\nb[np.ix_(rows_on, cols_on)]\narray([[ 1,  4,  7, 10],\n       [25, 28, 31, 34]])\nnp.ix_(rows_on, cols_on)\n(array([[0],\n        [2]]),\n array([[ 1,  4,  7, 10]]))\nndarray와 같은 크기의 불리언 배열을 사용하면 해당 위치가 True인 모든 원소를 담은 1D 배열이 반환됩니다. 일반적으로 조건 연산자와 함께 사용합니다:\nb[b % 3 == 1]\narray([ 1,  4,  7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#vstack",
+    "href": "posts/Numpy/2022-03-04-numpy.html#vstack",
+    "title": "Numpy",
+    "section": "vstack",
+    "text": "vstack\nvstack 함수를 사용하여 수직으로 쌓아보죠:\nq4 = np.vstack((q1, q2, q3))\nq4\narray([[1., 1., 1., 1.],\n       [1., 1., 1., 1.],\n       [1., 1., 1., 1.],\n       [2., 2., 2., 2.],\n       [2., 2., 2., 2.],\n       [2., 2., 2., 2.],\n       [2., 2., 2., 2.],\n       [3., 3., 3., 3.],\n       [3., 3., 3., 3.],\n       [3., 3., 3., 3.]])\nq4.shape\n(10, 4)\nq1, q2, q3가 모두 같은 크기이므로 가능합니다(수직으로 쌓기 때문에 수직 축은 크기가 달라도 됩니다)."
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#hstack",
+    "href": "posts/Numpy/2022-03-04-numpy.html#hstack",
+    "title": "Numpy",
+    "section": "hstack",
+    "text": "hstack\nhstack을 사용해 수평으로도 쌓을 수 있습니다:\nq5 = np.hstack((q1, q3))\nq5\narray([[1., 1., 1., 1., 3., 3., 3., 3.],\n       [1., 1., 1., 1., 3., 3., 3., 3.],\n       [1., 1., 1., 1., 3., 3., 3., 3.]])\nq5.shape\n(3, 8)\nq1과 q3가 모두 3개의 행을 가지고 있기 때문에 가능합니다. q2는 4개의 행을 가지고 있기 때문에 q1, q3와 수평으로 쌓을 수 없습니다:\ntry:\n    q5 = np.hstack((q1, q2, q3))\nexcept ValueError as e:\n    print(e)\nall the input array dimensions for the concatenation axis must match exactly, but along dimension 0, the array at index 0 has size 3 and the array at index 1 has size 4"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#concatenate",
+    "href": "posts/Numpy/2022-03-04-numpy.html#concatenate",
+    "title": "Numpy",
+    "section": "concatenate",
+    "text": "concatenate\nconcatenate 함수는 지정한 축으로도 배열을 쌓습니다.\nq7 = np.concatenate((q1, q2, q3), axis=0)  # vstack과 동일\nq7\narray([[1., 1., 1., 1.],\n       [1., 1., 1., 1.],\n       [1., 1., 1., 1.],\n       [2., 2., 2., 2.],\n       [2., 2., 2., 2.],\n       [2., 2., 2., 2.],\n       [2., 2., 2., 2.],\n       [3., 3., 3., 3.],\n       [3., 3., 3., 3.],\n       [3., 3., 3., 3.]])\nq7.shape\n(10, 4)\n예상했겠지만 hstack은 axis=1으로 concatenate를 호출하는 것과 같습니다.\nq5 = np.hstack((q1, q3))\nq5\narray([[1., 1., 1., 1., 3., 3., 3., 3.],\n       [1., 1., 1., 1., 3., 3., 3., 3.],\n       [1., 1., 1., 1., 3., 3., 3., 3.]])\nnp.concatenate((q1,q3),axis=1)\narray([[1., 1., 1., 1., 3., 3., 3., 3.],\n       [1., 1., 1., 1., 3., 3., 3., 3.],\n       [1., 1., 1., 1., 3., 3., 3., 3.]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#stack",
+    "href": "posts/Numpy/2022-03-04-numpy.html#stack",
+    "title": "Numpy",
+    "section": "stack",
+    "text": "stack\nstack 함수는 새로운 축을 따라 배열을 쌓습니다. 모든 배열은 같은 크기를 가져야 합니다.\nq8 = np.stack((q1, q3))\nq8\narray([[[1., 1., 1., 1.],\n        [1., 1., 1., 1.],\n        [1., 1., 1., 1.]],\n\n       [[3., 3., 3., 3.],\n        [3., 3., 3., 3.],\n        [3., 3., 3., 3.]]])\nq8.shape\n(2, 3, 4)"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#행렬-전치",
+    "href": "posts/Numpy/2022-03-04-numpy.html#행렬-전치",
+    "title": "Numpy",
+    "section": "행렬 전치",
+    "text": "행렬 전치\nT 속성은 랭크가 2보다 크거나 같을 때 transpose()를 호출하는 것과 같습니다:\nm1 = np.arange(10).reshape(2,5)\nm1\narray([[0, 1, 2, 3, 4],\n       [5, 6, 7, 8, 9]])\nm1.T\narray([[0, 5],\n       [1, 6],\n       [2, 7],\n       [3, 8],\n       [4, 9]])\nT 속성은 랭크가 0이거나 1인 배열에는 아무런 영향을 미치지 않습니다:\nm2 = np.arange(5)\nm2\narray([0, 1, 2, 3, 4])\nm2.T\narray([0, 1, 2, 3, 4])\n먼저 1D 배열을 하나의 행이 있는 행렬(2D)로 바꾼다음 전치를 수행할 수 있습니다:\nm2r = m2.reshape(1,5)\nm2r\narray([[0, 1, 2, 3, 4]])\nm2r.T\narray([[0],\n       [1],\n       [2],\n       [3],\n       [4]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#행렬-곱셈",
+    "href": "posts/Numpy/2022-03-04-numpy.html#행렬-곱셈",
+    "title": "Numpy",
+    "section": "행렬 곱셈",
+    "text": "행렬 곱셈\n두 개의 행렬을 만들어 dot 메서드로 행렬 곱셈을 실행해 보죠.\nn1 = np.arange(10).reshape(2, 5)\nn1\narray([[0, 1, 2, 3, 4],\n       [5, 6, 7, 8, 9]])\nn2 = np.arange(15).reshape(5,3)\nn2\narray([[ 0,  1,  2],\n       [ 3,  4,  5],\n       [ 6,  7,  8],\n       [ 9, 10, 11],\n       [12, 13, 14]])\nn1.dot(n2)\narray([[ 90, 100, 110],\n       [240, 275, 310]])\n주의: 앞서 언급한 것처럼 n1*n2는 행렬 곱셈이 아니라 원소별 곱셈(또는 아다마르 곱이라 부릅니다)입니다."
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#역행렬과-유사-역행렬",
+    "href": "posts/Numpy/2022-03-04-numpy.html#역행렬과-유사-역행렬",
+    "title": "Numpy",
+    "section": "역행렬과 유사 역행렬",
+    "text": "역행렬과 유사 역행렬\nnumpy.linalg 모듈 안에 많은 선형 대수 함수들이 있습니다. 특히 inv 함수는 정방 행렬의 역행렬을 계산합니다:\nimport numpy.linalg as linalg\n\nm3 = np.array([[1,2,3],[5,7,11],[21,29,31]])\nm3\narray([[ 1,  2,  3],\n       [ 5,  7, 11],\n       [21, 29, 31]])\nlinalg.inv(m3)\narray([[-2.31818182,  0.56818182,  0.02272727],\n       [ 1.72727273, -0.72727273,  0.09090909],\n       [-0.04545455,  0.29545455, -0.06818182]])\npinv 함수를 사용하여 유사 역행렬을 계산할 수도 있습니다:\nlinalg.pinv(m3)\narray([[-2.31818182,  0.56818182,  0.02272727],\n       [ 1.72727273, -0.72727273,  0.09090909],\n       [-0.04545455,  0.29545455, -0.06818182]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#단위-행렬",
+    "href": "posts/Numpy/2022-03-04-numpy.html#단위-행렬",
+    "title": "Numpy",
+    "section": "단위 행렬",
+    "text": "단위 행렬\n행렬과 그 행렬의 역행렬을 곱하면 단위 행렬이 됩니다(작은 소숫점 오차가 있습니다):\nm3.dot(linalg.inv(m3))\narray([[ 1.00000000e+00, -1.66533454e-16,  0.00000000e+00],\n       [ 6.31439345e-16,  1.00000000e+00, -1.38777878e-16],\n       [ 5.21110932e-15, -2.38697950e-15,  1.00000000e+00]])\neye 함수는 NxN 크기의 단위 행렬을 만듭니다:\nnp.eye(3)\narray([[1., 0., 0.],\n       [0., 1., 0.],\n       [0., 0., 1.]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#qr-분해",
+    "href": "posts/Numpy/2022-03-04-numpy.html#qr-분해",
+    "title": "Numpy",
+    "section": "QR 분해",
+    "text": "QR 분해\nqr 함수는 행렬을 QR 분해합니다:\nq, r = linalg.qr(m3)\nq\narray([[-0.04627448,  0.98786672,  0.14824986],\n       [-0.23137241,  0.13377362, -0.96362411],\n       [-0.97176411, -0.07889213,  0.22237479]])\nr\narray([[-21.61018278, -29.89331494, -32.80860727],\n       [  0.        ,   0.62427688,   1.9894538 ],\n       [  0.        ,   0.        ,  -3.26149699]])\nq.dot(r)  # q.r는 m3와 같습니다\narray([[ 1.,  2.,  3.],\n       [ 5.,  7., 11.],\n       [21., 29., 31.]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#행렬식",
+    "href": "posts/Numpy/2022-03-04-numpy.html#행렬식",
+    "title": "Numpy",
+    "section": "행렬식",
+    "text": "행렬식\ndet 함수는 행렬식을 계산합니다:\nlinalg.det(m3)  # 행렬식 계산\n43.99999999999997"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#고윳값과-고유벡터",
+    "href": "posts/Numpy/2022-03-04-numpy.html#고윳값과-고유벡터",
+    "title": "Numpy",
+    "section": "고윳값과 고유벡터",
+    "text": "고윳값과 고유벡터\neig 함수는 정방 행렬의 고윳값과 고유벡터를 계산합니다:\neigenvalues, eigenvectors = linalg.eig(m3)\neigenvalues # λ\narray([42.26600592, -0.35798416, -2.90802176])\neigenvectors # v\narray([[-0.08381182, -0.76283526, -0.18913107],\n       [-0.3075286 ,  0.64133975, -0.6853186 ],\n       [-0.94784057, -0.08225377,  0.70325518]])\nm3.dot(eigenvectors) - eigenvalues * eigenvectors  # m3.v - λ*v = 0\narray([[ 8.88178420e-15,  2.22044605e-16, -3.10862447e-15],\n       [ 3.55271368e-15,  2.02615702e-15, -1.11022302e-15],\n       [ 3.55271368e-14,  3.33413852e-15, -8.43769499e-15]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#특잇값-분해",
+    "href": "posts/Numpy/2022-03-04-numpy.html#특잇값-분해",
+    "title": "Numpy",
+    "section": "특잇값 분해",
+    "text": "특잇값 분해\nsvd 함수는 행렬을 입력으로 받아 그 행렬의 특잇값 분해를 반환합니다:\nm4 = np.array([[1,0,0,0,2], [0,0,3,0,0], [0,0,0,0,0], [0,2,0,0,0]])\nm4\narray([[1, 0, 0, 0, 2],\n       [0, 0, 3, 0, 0],\n       [0, 0, 0, 0, 0],\n       [0, 2, 0, 0, 0]])\nU, S_diag, V = linalg.svd(m4)\nU\narray([[ 0.,  1.,  0.,  0.],\n       [ 1.,  0.,  0.,  0.],\n       [ 0.,  0.,  0., -1.],\n       [ 0.,  0.,  1.,  0.]])\nS_diag\narray([3.        , 2.23606798, 2.        , 0.        ])\nsvd 함수는 Σ의 대각 원소 값만 반환합니다. 전체 Σ 행렬은 다음과 같이 만듭니다:\nS = np.zeros((4, 5))\nS[np.diag_indices(4)] = S_diag\nS  # Σ\narray([[3.        , 0.        , 0.        , 0.        , 0.        ],\n       [0.        , 2.23606798, 0.        , 0.        , 0.        ],\n       [0.        , 0.        , 2.        , 0.        , 0.        ],\n       [0.        , 0.        , 0.        , 0.        , 0.        ]])\nV\narray([[-0.        ,  0.        ,  1.        , -0.        ,  0.        ],\n       [ 0.4472136 ,  0.        ,  0.        ,  0.        ,  0.89442719],\n       [-0.        ,  1.        ,  0.        , -0.        ,  0.        ],\n       [ 0.        ,  0.        ,  0.        ,  1.        ,  0.        ],\n       [-0.89442719,  0.        ,  0.        ,  0.        ,  0.4472136 ]])\nU.dot(S).dot(V) # U.Σ.V == m4\narray([[1., 0., 0., 0., 2.],\n       [0., 0., 3., 0., 0.],\n       [0., 0., 0., 0., 0.],\n       [0., 2., 0., 0., 0.]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#대각원소와-대각합",
+    "href": "posts/Numpy/2022-03-04-numpy.html#대각원소와-대각합",
+    "title": "Numpy",
+    "section": "대각원소와 대각합",
+    "text": "대각원소와 대각합\nnp.diag(m3)  # m3의 대각 원소입니다(왼쪽 위에서 오른쪽 아래)\narray([ 1,  7, 31])\nnp.trace(m3)  # np.diag(m3).sum()와 같습니다\n39"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#선형-방정식-풀기",
+    "href": "posts/Numpy/2022-03-04-numpy.html#선형-방정식-풀기",
+    "title": "Numpy",
+    "section": "선형 방정식 풀기",
+    "text": "선형 방정식 풀기\nsolve 함수는 다음과 같은 선형 방정식을 풉니다:\n\n\\(2x + 6y = 6\\)\n\\(5x + 3y = -9\\)\n\ncoeffs  = np.array([[2, 6], [5, 3]])\ndepvars = np.array([6, -9])\nsolution = linalg.solve(coeffs, depvars)\nsolution\narray([-3.,  2.])\nsolution을 확인해 보죠:\ncoeffs.dot(solution), depvars  # 네 같네요\n(array([ 6., -9.]), array([ 6, -9]))\n좋습니다! 다른 방식으로도 solution을 확인해 보죠:\nnp.allclose(coeffs.dot(solution), depvars)\nTrue"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#바이너리-.npy-포맷",
+    "href": "posts/Numpy/2022-03-04-numpy.html#바이너리-.npy-포맷",
+    "title": "Numpy",
+    "section": "바이너리 .npy 포맷",
+    "text": "바이너리 .npy 포맷\n랜덤 배열을 만들고 저장해 보죠.\na = np.random.rand(2,3)\na\narray([[0.5435938 , 0.92886307, 0.01535158],\n       [0.4157283 , 0.9102127 , 0.55129708]])\nnp.save(\"my_array\", a)\n끝입니다! 파일 이름의 확장자를 지정하지 않았기 때문에 넘파이는 자동으로 .npy를 붙입니다. 파일 내용을 확인해 보겠습니다:\nwith open(\"my_array.npy\", \"rb\") as f:\n    content = f.read()\n\ncontent\nb\"\\x93NUMPY\\x01\\x00v\\x00{'descr': '<f8', 'fortran_order': False, 'shape': (2, 3), }                                                          \\nY\\xc1\\xfc\\xd0\\x1ee\\xe1?\\xde{3\\t?\\xb9\\xed?\\x80V\\x08\\xef\\xa5p\\x8f?\\x96I}\\xe0J\\x9b\\xda?\\xe0U\\xfaav \\xed?\\xd8\\xe50\\xc59\\xa4\\xe1?\"\n이 파일을 넘파이 배열로 로드하려면 load 함수를 사용합니다:\na_loaded = np.load(\"my_array.npy\")\na_loaded\narray([[0.5435938 , 0.92886307, 0.01535158],\n       [0.4157283 , 0.9102127 , 0.55129708]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#텍스트-포맷",
+    "href": "posts/Numpy/2022-03-04-numpy.html#텍스트-포맷",
+    "title": "Numpy",
+    "section": "텍스트 포맷",
+    "text": "텍스트 포맷\n배열을 텍스트 포맷으로 저장해 보죠:\nnp.savetxt(\"my_array.csv\", a)\n파일 내용을 확인해 보겠습니다:\nwith open(\"my_array.csv\", \"rt\") as f:\n    print(f.read())\n5.435937959464737235e-01 9.288630656918674955e-01 1.535157809943688001e-02\n4.157283012656532994e-01 9.102126992826775620e-01 5.512970782648904944e-01\n이 파일은 탭으로 구분된 CSV 파일입니다. 다른 구분자를 지정할 수도 있습니다:\nnp.savetxt(\"my_array.csv\", a, delimiter=\",\")\n이 파일을 로드하려면 loadtxt 함수를 사용합니다:\na_loaded = np.loadtxt(\"my_array.csv\", delimiter=\",\")\na_loaded\narray([[0.5435938 , 0.92886307, 0.01535158],\n       [0.4157283 , 0.9102127 , 0.55129708]])"
+  },
+  {
+    "objectID": "posts/Numpy/2022-03-04-numpy.html#압축된-.npz-포맷",
+    "href": "posts/Numpy/2022-03-04-numpy.html#압축된-.npz-포맷",
+    "title": "Numpy",
+    "section": "압축된 .npz 포맷",
+    "text": "압축된 .npz 포맷\n여러 개의 배열을 압축된 한 파일로 저장하는 것도 가능합니다:\nb = np.arange(24, dtype=np.uint8).reshape(2, 3, 4)\nb\narray([[[ 0,  1,  2,  3],\n        [ 4,  5,  6,  7],\n        [ 8,  9, 10, 11]],\n\n       [[12, 13, 14, 15],\n        [16, 17, 18, 19],\n        [20, 21, 22, 23]]], dtype=uint8)\nnp.savez(\"my_arrays\", my_a=a, my_b=b)\n파일 내용을 확인해 보죠. .npz 파일 확장자가 자동으로 추가되었습니다.\nwith open(\"my_arrays.npz\", \"rb\") as f:\n    content = f.read()\n\nrepr(content)[:180] + \"[...]\"\n'b\"PK\\\\x03\\\\x04\\\\x14\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00!\\\\x00\\\\x063\\\\xcf\\\\xb9\\\\xb0\\\\x00\\\\x00\\\\x00\\\\xb0\\\\x00\\\\x00\\\\x00\\\\x08\\\\x00\\\\x14\\\\x00my_a.npy\\\\x01\\\\x00\\\\x10\\\\x00\\\\xb0\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\x00\\\\xb0\\\\x00\\\\x00\\\\x[...]'\n다음과 같이 이 파일을 로드할 수 있습니다:\nmy_arrays = np.load(\"my_arrays.npz\")\nmy_arrays\n<numpy.lib.npyio.NpzFile at 0x7f9791c73d60>\n게으른 로딩을 수행하는 딕셔너리와 유사한 객체입니다:\nmy_arrays.keys()\nKeysView(<numpy.lib.npyio.NpzFile object at 0x7f9791c73d60>)\nmy_arrays[\"my_a\"]\narray([[0.5435938 , 0.92886307, 0.01535158],\n       [0.4157283 , 0.9102127 , 0.55129708]])"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html",
+    "href": "posts/Pandas/pandas.html",
+    "title": "Pandas",
+    "section": "",
+    "text": "도구 - 판다스(pandas)\npandas 라이브러리는 사용하기 쉬운 고성능 데이터 구조와 데이터 분석 도구를 제공합니다. 주 데이터 구조는 DataFrame입니다. 이를 인-메모리(in-memory) 2D 테이블로 생각할 수 있습니다(열 이름과 행 레이블이 있는 스프레드시트와 비슷합니다). 엑셀에 있는 많은 기능을 프로그램에서 사용할 수 있습니다. 여기에는 피봇 테이블이나 다른 열을 기반으로 열을 계산하고 그래프 출력하는 기능 등이 포함됩니다. 열 값으로 행을 그룹핑할 수도 있습니다. 또한 SQL과 비슷하게 테이블을 조인할 수 있습니다. 판다스는 시계열 데이터를 다루는데도 뛰어납니다.\n필요 라이브러리:"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#series-만들기",
+    "href": "posts/Pandas/pandas.html#series-만들기",
+    "title": "Pandas",
+    "section": "Series 만들기",
+    "text": "Series 만들기\n첫 번째 Series 객체를 만들어 보죠!\ns = pd.Series([2,-1,3,5])\ns\n0    2\n1   -1\n2    3\n3    5\ndtype: int64"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#d-ndarray와-비슷합니다",
+    "href": "posts/Pandas/pandas.html#d-ndarray와-비슷합니다",
+    "title": "Pandas",
+    "section": "1D ndarray와 비슷합니다",
+    "text": "1D ndarray와 비슷합니다\nSeries 객체는 넘파이 ndarray와 비슷하게 동작합니다. 넘파이 함수에 매개변수로 종종 전달할 수 있습니다:\nimport numpy as np\nnp.exp(s)\n0      7.389056\n1      0.367879\n2     20.085537\n3    148.413159\ndtype: float64\nSeries 객체에 대한 산술 연산도 가능합니다. ndarray와 비슷하게 원소별로 적용됩니다:\ns + [1000,2000,3000,4000]\n0    1002\n1    1999\n2    3003\n3    4005\ndtype: int64\n넘파이와 비슷하게 Series에 하나의 숫자를 더하면 Series에 있는 모든 원소에 더해집니다. 이를 브로드캐스팅(broadcasting)이라고 합니다:\ns + 1000\n0    1002\n1     999\n2    1003\n3    1005\ndtype: int64\n*나 / 같은 모든 이항 연산과 심지어 조건 연산에서도 마찬가지입니다:\ns < 0\n0    False\n1     True\n2    False\n3    False\ndtype: bool"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#인덱스-레이블",
+    "href": "posts/Pandas/pandas.html#인덱스-레이블",
+    "title": "Pandas",
+    "section": "인덱스 레이블",
+    "text": "인덱스 레이블\nSeries 객체에 있는 각 원소는 인덱스 레이블(index label)이라 불리는 고유한 식별자를 가지고 있습니다. 기본적으로 Series에 있는 원소의 순서입니다(0에서 시작합니다). 하지만 수동으로 인덱스 레이블을 지정할 수도 있습니다:\ns2 = pd.Series([68, 83, 112, 68], index=[\"alice\", \"bob\", \"charles\", \"darwin\"])\ns2\nalice       68\nbob         83\ncharles    112\ndarwin      68\ndtype: int64\n그다음 dict처럼 Series를 사용할 수 있습니다:\ns2[\"bob\"]\n83\n일반 배열처럼 정수 인덱스를 사용하여 계속 원소에 접근할 수 있습니다:\ns2[1]\n83\n레이블이나 정수를 사용해 접근할 때 명확하게 하기 위해 레이블은 loc 속성을 사용하고 정수는 iloc 속성을 사용하는 것이 좋습니다:\ns2.loc[\"bob\"]\n83\ns2.iloc[1]\n83\nSeries는 인덱스 레이블을 슬라이싱할 수도 있습니다:\ns2.iloc[1:3]\nbob         83\ncharles    112\ndtype: int64\n기본 정수 레이블을 사용할 때 예상 외의 결과를 만들 수 있기 때문에 주의해야 합니다:\nsurprise = pd.Series([1000, 1001, 1002, 1003])\nsurprise\n0    1000\n1    1001\n2    1002\n3    1003\ndtype: int64\nsurprise_slice = surprise[2:]\nsurprise_slice\n2    1002\n3    1003\ndtype: int64\n보세요. 첫 번째 원소의 인덱스 레이블이 2입니다. 따라서 슬라이싱 결과에서 인덱스 레이블 0인 원소는 없습니다:\ntry:\n    surprise_slice[0]\nexcept KeyError as e:\n    print(\"키 에러:\", e)\n키 에러: 0\n하지만 iloc 속성을 사용해 정수 인덱스로 원소에 접근할 수 있습니다. Series 객체를 사용할 때 loc와 iloc를 사용하는 것이 좋은 이유입니다:\nsurprise_slice.iloc[0]\n1002\nsurprise_slice.loc[2]\n1002"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#dict에서-초기화",
+    "href": "posts/Pandas/pandas.html#dict에서-초기화",
+    "title": "Pandas",
+    "section": "dict에서 초기화",
+    "text": "dict에서 초기화\ndict에서 Series 객체를 만들 수 있습니다. 키는 인덱스 레이블로 사용됩니다:\nweights = {\"alice\": 68, \"bob\": 83, \"colin\": 86, \"darwin\": 68}\ns3 = pd.Series(weights)\ns3\nalice     68\nbob       83\ncolin     86\ndarwin    68\ndtype: int64\nSeries에 포함할 원소를 제어하고 index를 지정하여 명시적으로 순서를 결정할 수 있습니다:\ns4 = pd.Series(weights, index = [\"colin\", \"alice\"])\ns4\ncolin    86\nalice    68\ndtype: int64"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#자동-정렬",
+    "href": "posts/Pandas/pandas.html#자동-정렬",
+    "title": "Pandas",
+    "section": "자동 정렬",
+    "text": "자동 정렬\n여러 개의 Series 객체를 다룰 때 pandas는 자동으로 인덱스 레이블에 따라 원소를 정렬합니다.\nprint(s2.keys())\nprint(s3.keys())\n\ns2 + s3\nIndex(['alice', 'bob', 'charles', 'darwin'], dtype='object')\nIndex(['alice', 'bob', 'colin', 'darwin'], dtype='object')\n\n\n\n\n\nalice      136.0\nbob        166.0\ncharles      NaN\ncolin        NaN\ndarwin     136.0\ndtype: float64\n만들어진 Series는 s2와 s3의 인덱스 레이블의 합집합을 담고 있습니다. s2에 \"colin\"이 없고 s3에 \"charles\"가 없기 때문에 이 원소는 NaN 값을 가집니다(Not-a-Number는 누락이란 의미입니다).\n자동 정렬은 구조가 다고 누락된 값이 있는 여러 데이터를 다룰 때 매우 편리합니다. 하지만 올바른 인덱스 레이블을 지정하는 것을 잊는다면 원치않는 결과를 얻을 수 있습니다:\ns5 = pd.Series([1000,1000,1000,1000])\nprint(\"s2 =\", s2.values)\nprint(\"s5 =\", s5.values)\n\ns2 + s5\ns2 = [ 68  83 112  68]\ns5 = [1000 1000 1000 1000]\n\n\n\n\n\nalice     NaN\nbob       NaN\ncharles   NaN\ndarwin    NaN\n0         NaN\n1         NaN\n2         NaN\n3         NaN\ndtype: float64\n레이블이 하나도 맞지 않기 때문에 판다스가 이 Series를 정렬할 수 없습니다. 따라서 모두 NaN이 되었습니다."
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#스칼라로-초기화",
+    "href": "posts/Pandas/pandas.html#스칼라로-초기화",
+    "title": "Pandas",
+    "section": "스칼라로 초기화",
+    "text": "스칼라로 초기화\n스칼라와 인덱스 레이블의 리스트로 Series 객체를 초기화할 수도 있습니다: 모든 원소가 이 스칼라 값으로 설정됩니다.\nmeaning = pd.Series(42, [\"life\", \"universe\", \"everything\"])\nmeaning\nlife          42\nuniverse      42\neverything    42\ndtype: int64"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#series-이름",
+    "href": "posts/Pandas/pandas.html#series-이름",
+    "title": "Pandas",
+    "section": "Series 이름",
+    "text": "Series 이름\nSeries는 name을 가질 수 있습니다:\ns6 = pd.Series([83, 68], index=[\"bob\", \"alice\"], name=\"weights\")\ns6\nbob      83\nalice    68\nName: weights, dtype: int64"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#series-그래프-출력",
+    "href": "posts/Pandas/pandas.html#series-그래프-출력",
+    "title": "Pandas",
+    "section": "Series 그래프 출력",
+    "text": "Series 그래프 출력\n맷플롯립을 사용해 Series 데이터를 쉽게 그래프로 출력할 수 있습니다(맷플롯립에 대한 자세한 설명은 맷플롯립 튜토리얼을 참고하세요). 맷플롯립을 임포트하고 plot() 메서드를 호출하면 끝입니다:\n%matplotlib inline\nimport matplotlib.pyplot as plt\ntemperatures = [4.4,5.1,6.1,6.2,6.1,6.1,5.7,5.2,4.7,4.1,3.9,3.5]\ns7 = pd.Series(temperatures, name=\"Temperature\")\ns7.plot()\nplt.show()\n\n\n\npng\n\n\n데이터를 그래프로 출력하는데 많은 옵션이 있습니다. 여기에서 모두 나열할 필요는 없습니다. 특정 종류의 그래프(히스토그램, 파이 차트 등)가 필요하면 판다스 문서의 시각화 섹션에서 예제 코드를 참고하세요."
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#시간-범위",
+    "href": "posts/Pandas/pandas.html#시간-범위",
+    "title": "Pandas",
+    "section": "시간 범위",
+    "text": "시간 범위\n먼저 pd.date_range()를 사용해 시계열을 만들어 보죠. 이 함수는 2016년 10월 29일 5:30pm에서 시작하여 12시간마다 하나의 datetime을 담고 있는 DatetimeIndex를 반환합니다.\ndates = pd.date_range('2016/10/29 5:30pm', periods=12, freq='H')\ndates\nDatetimeIndex(['2016-10-29 17:30:00', '2016-10-29 18:30:00',\n               '2016-10-29 19:30:00', '2016-10-29 20:30:00',\n               '2016-10-29 21:30:00', '2016-10-29 22:30:00',\n               '2016-10-29 23:30:00', '2016-10-30 00:30:00',\n               '2016-10-30 01:30:00', '2016-10-30 02:30:00',\n               '2016-10-30 03:30:00', '2016-10-30 04:30:00'],\n              dtype='datetime64[ns]', freq='H')\n이 DatetimeIndex를 Series의 인덱스로 사용할수 있습니다:\ntemp_series = pd.Series(temperatures, dates)\ntemp_series\n2016-10-29 17:30:00    4.4\n2016-10-29 18:30:00    5.1\n2016-10-29 19:30:00    6.1\n2016-10-29 20:30:00    6.2\n2016-10-29 21:30:00    6.1\n2016-10-29 22:30:00    6.1\n2016-10-29 23:30:00    5.7\n2016-10-30 00:30:00    5.2\n2016-10-30 01:30:00    4.7\n2016-10-30 02:30:00    4.1\n2016-10-30 03:30:00    3.9\n2016-10-30 04:30:00    3.5\nFreq: H, dtype: float64\n이 시리즈를 그래프로 출력해 보죠:\ntemp_series.plot(kind=\"bar\")\n\nplt.grid(True)\nplt.show()\n\n\n\npng\n\n\ntemp_series\n2016-10-29 17:30:00    4.4\n2016-10-29 18:30:00    5.1\n2016-10-29 19:30:00    6.1\n2016-10-29 20:30:00    6.2\n2016-10-29 21:30:00    6.1\n2016-10-29 22:30:00    6.1\n2016-10-29 23:30:00    5.7\n2016-10-30 00:30:00    5.2\n2016-10-30 01:30:00    4.7\n2016-10-30 02:30:00    4.1\n2016-10-30 03:30:00    3.9\n2016-10-30 04:30:00    3.5\nFreq: H, dtype: float64"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#리샘플링",
+    "href": "posts/Pandas/pandas.html#리샘플링",
+    "title": "Pandas",
+    "section": "리샘플링",
+    "text": "리샘플링\n판다스는 매우 간단하게 시계열을 리샘플링할 수 있습니다. resample() 메서드를 호출하고 새로운 주기를 지정하면 됩니다:\ntemp_series_freq_2H = temp_series.resample(\"2H\")\ntemp_series_freq_2H\n<pandas.core.resample.DatetimeIndexResampler object at 0x000002016345B2B0>\n리샘플링 연산은 사실 지연된 연산입니다. 그래서 Series 객체 대신 DatetimeIndexResampler 객체가 반환됩니다. 실제 리샘플링 연산을 수행하려면 mean() 같은 메서드를 호출할 수 있습니다. 이 메서드는 연속적인 시간 쌍에 대해 평균을 계산합니다:\ntemp_series_freq_2H = temp_series_freq_2H.mean()\ntemp_series_freq_2H\n2016-10-29 16:00:00    4.40\n2016-10-29 18:00:00    5.60\n2016-10-29 20:00:00    6.15\n2016-10-29 22:00:00    5.90\n2016-10-30 00:00:00    4.95\n2016-10-30 02:00:00    4.00\n2016-10-30 04:00:00    3.50\nFreq: 2H, dtype: float64\n결과를 그래프로 출력해 보죠:\ntemp_series_freq_2H.plot(kind=\"bar\")\nplt.show()\n\n\n\npng\n\n\n2시간 간격으로 어떻게 값이 수집되었는지 확인해 보세요. 예를 들어 6-8pm 간격을 보면 6:30pm에서 5.1이고 7:30pm에서 6.1입니다. 리샘플링 후에 5.1과 6.1의 평균인 5.6 하나를 얻었습니다. 평균말고 어떤 집계 함수(aggregation function)도 사용할 수 있습니다. 예를 들어 각 기간에서 최솟값을 찾을 수 있습니다:\ntemp_series_freq_2H = temp_series.resample(\"2H\").min()\ntemp_series_freq_2H\n2016-10-29 16:00:00    4.4\n2016-10-29 18:00:00    5.1\n2016-10-29 20:00:00    6.1\n2016-10-29 22:00:00    5.7\n2016-10-30 00:00:00    4.7\n2016-10-30 02:00:00    3.9\n2016-10-30 04:00:00    3.5\nFreq: 2H, dtype: float64\n또는 동일한 효과를 내는 apply() 메서드를 사용할 수 있습니다:\ntemp_series_freq_2H = temp_series.resample(\"2H\").apply(np.min)\ntemp_series_freq_2H\n2016-10-29 16:00:00    4.4\n2016-10-29 18:00:00    5.1\n2016-10-29 20:00:00    6.1\n2016-10-29 22:00:00    5.7\n2016-10-30 00:00:00    4.7\n2016-10-30 02:00:00    3.9\n2016-10-30 04:00:00    3.5\nFreq: 2H, dtype: float64"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#업샘플링과-보간",
+    "href": "posts/Pandas/pandas.html#업샘플링과-보간",
+    "title": "Pandas",
+    "section": "업샘플링과 보간",
+    "text": "업샘플링과 보간\n다운샘플링의 예를 보았습니다. 하지만 업샘플링(즉, 빈도를 높입니다)도 할 수 있습니다. 하지만 데이터에 구멍을 만듭니다:\ntemp_series_freq_15min = temp_series.resample(\"15Min\").mean()\ntemp_series_freq_15min.head(n=10) # `head`는 상위 n 개의 값만 출력합니다\n2016-10-29 17:30:00    4.4\n2016-10-29 17:45:00    NaN\n2016-10-29 18:00:00    NaN\n2016-10-29 18:15:00    NaN\n2016-10-29 18:30:00    5.1\n2016-10-29 18:45:00    NaN\n2016-10-29 19:00:00    NaN\n2016-10-29 19:15:00    NaN\n2016-10-29 19:30:00    6.1\n2016-10-29 19:45:00    NaN\nFreq: 15T, dtype: float64\n한가지 방법은 보간으로 사이를 채우는 것입니다. 이렇게 하려면 interpolate() 메서드를 호출합니다. 기본값은 선형 보간이지만 3차 보간(cubic interpolation) 같은 다른 방법을 선택할 수 있습니다:\ntemp_series_freq_15min = temp_series.resample(\"15Min\").interpolate(method=\"cubic\")\ntemp_series_freq_15min.head(n=10)\n2016-10-29 17:30:00    4.400000\n2016-10-29 17:45:00    4.452911\n2016-10-29 18:00:00    4.605113\n2016-10-29 18:15:00    4.829758\n2016-10-29 18:30:00    5.100000\n2016-10-29 18:45:00    5.388992\n2016-10-29 19:00:00    5.669887\n2016-10-29 19:15:00    5.915839\n2016-10-29 19:30:00    6.100000\n2016-10-29 19:45:00    6.203621\nFreq: 15T, dtype: float64\ntemp_series.plot(label=\"Period: 1 hour\")\ntemp_series_freq_15min.plot(label=\"Period: 15 minutes\")\nplt.legend()\nplt.show()\n\n\n\npng"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#시간대",
+    "href": "posts/Pandas/pandas.html#시간대",
+    "title": "Pandas",
+    "section": "시간대",
+    "text": "시간대\n기본적으로 datetime은 단순합니다. 시간대(timezone)을 고려하지 않죠. 따라서 2016-10-30 02:30는 파리나 뉴욕이나 2016년 10월 30일 2:30pm입니다. tz_localize() 메서드로 시간대를 고려한 datetime을 만들 수 있습니다:\ntemp_series_ny = temp_series.tz_localize(\"America/New_York\")\ntemp_series_ny\n2016-10-29 17:30:00-04:00    4.4\n2016-10-29 18:30:00-04:00    5.1\n2016-10-29 19:30:00-04:00    6.1\n2016-10-29 20:30:00-04:00    6.2\n2016-10-29 21:30:00-04:00    6.1\n2016-10-29 22:30:00-04:00    6.1\n2016-10-29 23:30:00-04:00    5.7\n2016-10-30 00:30:00-04:00    5.2\n2016-10-30 01:30:00-04:00    4.7\n2016-10-30 02:30:00-04:00    4.1\n2016-10-30 03:30:00-04:00    3.9\n2016-10-30 04:30:00-04:00    3.5\ndtype: float64\n모든 datetime에 -04:00이 추가됩니다. 즉 모든 시간은 UTC - 4시간을 의미합니다.\n다음처럼 파리 시간대로 바꿀 수 있습니다:\ntemp_series_paris = temp_series_ny.tz_convert(\"Europe/Paris\")\ntemp_series_paris\n2016-10-29 23:30:00+02:00    4.4\n2016-10-30 00:30:00+02:00    5.1\n2016-10-30 01:30:00+02:00    6.1\n2016-10-30 02:30:00+02:00    6.2\n2016-10-30 02:30:00+01:00    6.1\n2016-10-30 03:30:00+01:00    6.1\n2016-10-30 04:30:00+01:00    5.7\n2016-10-30 05:30:00+01:00    5.2\n2016-10-30 06:30:00+01:00    4.7\n2016-10-30 07:30:00+01:00    4.1\n2016-10-30 08:30:00+01:00    3.9\n2016-10-30 09:30:00+01:00    3.5\ndtype: float64\nUTC와의 차이가 +02:00에서 +01:00으로 바뀐 것을 알 수 있습니다. 이는 프랑스가 10월 30일 3am에 겨울 시간으로 바꾸기 때문입니다(2am으로 바뀝니다). 따라서 2:30am이 두 번 등장합니다! 시간대가 없는 표현으로 돌아가 보죠(시간대가 없이 지역 시간으로 매시간 로그를 기록하는 경우 이와 비슷할 것입니다):\ntemp_series_paris_naive = temp_series_paris.tz_localize(None)\ntemp_series_paris_naive\n2016-10-29 23:30:00    4.4\n2016-10-30 00:30:00    5.1\n2016-10-30 01:30:00    6.1\n2016-10-30 02:30:00    6.2\n2016-10-30 02:30:00    6.1\n2016-10-30 03:30:00    6.1\n2016-10-30 04:30:00    5.7\n2016-10-30 05:30:00    5.2\n2016-10-30 06:30:00    4.7\n2016-10-30 07:30:00    4.1\n2016-10-30 08:30:00    3.9\n2016-10-30 09:30:00    3.5\ndtype: float64\n이렇게 되면 02:30이 정말 애매합니다. 시간대가 없는 datetime을 파리 시간대로 바꿀 때 에러가 발생합니다:\ntry:\n    temp_series_paris_naive.tz_localize(\"Europe/Paris\")\nexcept Exception as e:\n    print(type(e))\n    print(e)\n<class 'pytz.exceptions.AmbiguousTimeError'>\nCannot infer dst time from 2016-10-30 02:30:00, try using the 'ambiguous' argument\n다행히 ambiguous 매개변수를 사용하면 판다스가 타임스탬프의 순서를 기반으로 적절한 DST(일광 절약 시간제)를 추측합니다:\ntemp_series_paris_naive.tz_localize(\"Europe/Paris\", ambiguous=\"infer\")\n2016-10-29 23:30:00+02:00    4.4\n2016-10-30 00:30:00+02:00    5.1\n2016-10-30 01:30:00+02:00    6.1\n2016-10-30 02:30:00+02:00    6.2\n2016-10-30 02:30:00+01:00    6.1\n2016-10-30 03:30:00+01:00    6.1\n2016-10-30 04:30:00+01:00    5.7\n2016-10-30 05:30:00+01:00    5.2\n2016-10-30 06:30:00+01:00    4.7\n2016-10-30 07:30:00+01:00    4.1\n2016-10-30 08:30:00+01:00    3.9\n2016-10-30 09:30:00+01:00    3.5\ndtype: float64"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#기간",
+    "href": "posts/Pandas/pandas.html#기간",
+    "title": "Pandas",
+    "section": "기간",
+    "text": "기간\npd.period_range() 함수는 DatetimeIndex가 아니라 PeriodIndex를 반환합니다. 예를 들어 2016과 2017년의 전체 분기를 가져와 보죠:\nquarters = pd.period_range('2016Q1', periods=8, freq='Q')\nquarters\nPeriodIndex(['2016Q1', '2016Q2', '2016Q3', '2016Q4', '2017Q1', '2017Q2',\n             '2017Q3', '2017Q4'],\n            dtype='period[Q-DEC]')\nPeriodIndex에 숫자 N을 추가하면 PeriodIndex 빈도의 N 배만큼 이동시킵니다:\nquarters + 3\nPeriodIndex(['2016Q4', '2017Q1', '2017Q2', '2017Q3', '2017Q4', '2018Q1',\n             '2018Q2', '2018Q3'],\n            dtype='period[Q-DEC]', freq='Q-DEC')\nasfreq() 메서드를 사용하면 PeriodIndex의 빈도를 바꿀 수 있습니다. 모든 기간이 늘어나거나 줄어듭니다. 예를 들어 분기 기간을 모두 월별 기간으로 바꾸어 보죠:\nquarters.asfreq(\"M\")\nPeriodIndex(['2016-03', '2016-06', '2016-09', '2016-12', '2017-03', '2017-06',\n             '2017-09', '2017-12'],\n            dtype='period[M]', freq='M')\n기본적으로 asfreq는 각 기간의 끝에 맞춥니다. 기간의 시작에 맞추도록 변경할 수 있습니다:\nquarters.asfreq(\"M\", how=\"start\")\nPeriodIndex(['2016-01', '2016-04', '2016-07', '2016-10', '2017-01', '2017-04',\n             '2017-07', '2017-10'],\n            dtype='period[M]', freq='M')\n간격을 늘릴 수도 있습니다:\nquarters.asfreq(\"A\")\nPeriodIndex(['2016', '2016', '2016', '2016', '2017', '2017', '2017', '2017'], dtype='period[A-DEC]', freq='A-DEC')\n물론 PeriodIndex로 Series를 만들 수 있습니다:\nquarterly_revenue = pd.Series([300, 320, 290, 390, 320, 360, 310, 410], index = quarters)\nquarterly_revenue\n2016Q1    300\n2016Q2    320\n2016Q3    290\n2016Q4    390\n2017Q1    320\n2017Q2    360\n2017Q3    310\n2017Q4    410\nFreq: Q-DEC, dtype: int64\nquarterly_revenue.plot(kind=\"line\")\nplt.show()\n\n\n\npng\n\n\nto_timestamp를 호출해서 기간을 타임스탬프로 변경할 수 있습니다. 기본적으로 기간의 첫 번째 날을 반환합니다. 하지만 how와 freq를 지정해서 기간의 마지막 시간을 얻을 수 있습니다:\nlast_hours = quarterly_revenue.to_timestamp(how=\"end\", freq=\"H\")\nlast_hours\n2016-03-31 23:59:59.999999999    300\n2016-06-30 23:59:59.999999999    320\n2016-09-30 23:59:59.999999999    290\n2016-12-31 23:59:59.999999999    390\n2017-03-31 23:59:59.999999999    320\n2017-06-30 23:59:59.999999999    360\n2017-09-30 23:59:59.999999999    310\n2017-12-31 23:59:59.999999999    410\ndtype: int64\nto_peroid를 호출하면 다시 기간으로 돌아갑니다:\nlast_hours.to_period()\n2016Q1    300\n2016Q2    320\n2016Q3    290\n2016Q4    390\n2017Q1    320\n2017Q2    360\n2017Q3    310\n2017Q4    410\nFreq: Q-DEC, dtype: int64\n판다스는 여러 가지 시간 관련 함수를 많이 제공합니다. 온라인 문서를 확인해 보세요. 예를 하나 들면 2016년 매월 마지막 업무일의 9시를 얻는 방법은 다음과 같습니다:\nmonths_2016 = pd.period_range(\"2016\", periods=12, freq=\"M\")\none_day_after_last_days = months_2016.asfreq(\"D\") + 1\nlast_bdays = one_day_after_last_days.to_timestamp() - pd.tseries.offsets.BDay()\nlast_bdays.to_period(\"H\") + 9\nPeriodIndex(['2016-01-29 09:00', '2016-02-29 09:00', '2016-03-31 09:00',\n             '2016-04-29 09:00', '2016-05-31 09:00', '2016-06-30 09:00',\n             '2016-07-29 09:00', '2016-08-31 09:00', '2016-09-30 09:00',\n             '2016-10-31 09:00', '2016-11-30 09:00', '2016-12-30 09:00'],\n            dtype='period[H]', freq='H')\nmonths_2016 = pd.period_range(\"2016\", periods=12, freq=\"M\")\nmonths_2016\nPeriodIndex(['2016-01', '2016-02', '2016-03', '2016-04', '2016-05', '2016-06',\n             '2016-07', '2016-08', '2016-09', '2016-10', '2016-11', '2016-12'],\n            dtype='period[M]')"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#dataframe-만들기",
+    "href": "posts/Pandas/pandas.html#dataframe-만들기",
+    "title": "Pandas",
+    "section": "DataFrame 만들기",
+    "text": "DataFrame 만들기\nSeries 객체의 딕셔너리를 전달하여 데이터프레임을 만들 수 있습니다:\npeople_dict = {\n    \"weight\": pd.Series([68, 83, 112], index=[\"alice\", \"bob\", \"charles\"]),\n    \"birthyear\": pd.Series([1984, 1985, 1992], index=[\"bob\", \"alice\", \"charles\"], name=\"year\"),\n    \"children\": pd.Series([0, 3], index=[\"charles\", \"bob\"]),\n    \"hobby\": pd.Series([\"Biking\", \"Dancing\"], index=[\"alice\", \"bob\"]),\n}\npeople = pd.DataFrame(people_dict)\npeople\n\n\n\n\n\n\n\n\n\nweight\n\n\nbirthyear\n\n\nchildren\n\n\nhobby\n\n\n\n\n\n\nalice\n\n\n68\n\n\n1985\n\n\nNaN\n\n\nBiking\n\n\n\n\nbob\n\n\n83\n\n\n1984\n\n\n3.0\n\n\nDancing\n\n\n\n\ncharles\n\n\n112\n\n\n1992\n\n\n0.0\n\n\nNaN\n\n\n\n\n\n\n\nNone이랑 NaN은 다름\n몇가지 알아 두어야 할 것은 다음과 같습니다:\n\nSeries는 인덱스를 기반으로 자동으로 정렬됩니다.\n누란된 값은 NaN으로 표현됩니다.\nSeries 이름은 무시됩니다(\"year\"란 이름은 삭제됩니다).\nDataFrame은 주피터 노트북에서 멋지게 출력됩니다!\n\n예상하는 방식으로 열을 참조할 수 있고 Serires 객체가 반환됩니다:\npeople[\"birthyear\"]\nalice      1985\nbob        1984\ncharles    1992\nName: birthyear, dtype: int64\npeople.birthyear\nalice      1985\nbob        1984\ncharles    1992\nName: birthyear, dtype: int64\n동시에 여러 개의 열을 선택할 수 있습니다:\npeople[[\"birthyear\", \"hobby\"]]\n\n\n\n\n\n\n\n\n\nbirthyear\n\n\nhobby\n\n\n\n\n\n\nalice\n\n\n1985\n\n\nBiking\n\n\n\n\nbob\n\n\n1984\n\n\nDancing\n\n\n\n\ncharles\n\n\n1992\n\n\nNaN\n\n\n\n\n\n\npeople.loc['bob',[\"birthyear\", 'hobby']]\nbirthyear       1984\nhobby        Dancing\nName: bob, dtype: object\n열 리스트나 행 인덱스 레이블을 DataFrame 생성자에 전달하면 해당 열과 행으로 채워진 데이터프레임이 반환됩니다. 예를 들면:\nd2 = pd.DataFrame(\n        people_dict,\n        columns=[\"birthyear\", \"weight\", \"height\"],\n        index=[\"bob\", \"alice\", \"eugene\"]\n     )\nd2\n\n\n\n\n\n\n\n\n\nbirthyear\n\n\nweight\n\n\nheight\n\n\n\n\n\n\nbob\n\n\n1984.0\n\n\n83.0\n\n\nNaN\n\n\n\n\nalice\n\n\n1985.0\n\n\n68.0\n\n\nNaN\n\n\n\n\neugene\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\n\n\n\n\nDataFrame을 만드는 또 다른 편리한 방법은 ndarray나 리스트의 리스트로 모든 값을 생성자에게 전달하고 열 이름과 행 인덱스 레이블을 각기 지정하는 것입니다:\nvalues = [\n            [1985, np.nan, \"Biking\",   68],\n            [1984, 3,      \"Dancing\",  83],\n            [1992, 0,      np.nan,    112]\n         ]\nd3 = pd.DataFrame(\n        values,\n        columns=[\"birthyear\", \"children\", \"hobby\", \"weight\"],\n        index=[\"alice\", \"bob\", \"charles\"]\n     )\nd3\n\n\n\n\n\n\n\n\n\nbirthyear\n\n\nchildren\n\n\nhobby\n\n\nweight\n\n\n\n\n\n\nalice\n\n\n1985\n\n\nNaN\n\n\nBiking\n\n\n68\n\n\n\n\nbob\n\n\n1984\n\n\n3.0\n\n\nDancing\n\n\n83\n\n\n\n\ncharles\n\n\n1992\n\n\n0.0\n\n\nNaN\n\n\n112\n\n\n\n\n\n\n누락된 값을 지정하려면 np.nan이나 넘파이 마스크 배열을 사용합니다:\nmasked_array = np.ma.asarray(values, dtype=np.object)\nmasked_array[(0, 2), (1, 2)] = np.ma.masked\nd3 = pd.DataFrame(\n        masked_array,\n        columns=[\"birthyear\", \"children\", \"hobby\", \"weight\"],\n        index=[\"alice\", \"bob\", \"charles\"]\n     )\nd3\n\n\n\n\n\n\n\n\n\nbirthyear\n\n\nchildren\n\n\nhobby\n\n\nweight\n\n\n\n\n\n\nalice\n\n\n1985\n\n\nNaN\n\n\nBiking\n\n\n68\n\n\n\n\nbob\n\n\n1984\n\n\n3\n\n\nDancing\n\n\n83\n\n\n\n\ncharles\n\n\n1992\n\n\n0\n\n\nNaN\n\n\n112\n\n\n\n\n\n\nndarray 대신에 DataFrame 객체를 전달할 수도 있습니다:\nd4 = pd.DataFrame(\n         d3,\n         columns=[\"hobby\", \"children\"],\n         index=[\"alice\", \"bob\"]\n     )\nd4\n\n\n\n\n\n\n\n\n\nhobby\n\n\nchildren\n\n\n\n\n\n\nalice\n\n\nBiking\n\n\nNaN\n\n\n\n\nbob\n\n\nDancing\n\n\n3\n\n\n\n\n\n\n딕셔너리의 딕셔너리(또는 리스트의 리스트)로 DataFrame을 만들 수 있습니다:\npeople = pd.DataFrame({\n    \"birthyear\": {\"alice\":1985, \"bob\": 1984, \"charles\": 1992},\n    \"hobby\": {\"alice\":\"Biking\", \"bob\": \"Dancing\"},\n    \"weight\": {\"alice\":68, \"bob\": 83, \"charles\": 112},\n    \"children\": {\"bob\": 3, \"charles\": 0}\n})\npeople\n\n\n\n\n\n\n\n\n\nbirthyear\n\n\nhobby\n\n\nweight\n\n\nchildren\n\n\n\n\n\n\nalice\n\n\n1985\n\n\nBiking\n\n\n68\n\n\nNaN\n\n\n\n\nbob\n\n\n1984\n\n\nDancing\n\n\n83\n\n\n3.0\n\n\n\n\ncharles\n\n\n1992\n\n\nNaN\n\n\n112\n\n\n0.0"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#멀티-인덱싱",
+    "href": "posts/Pandas/pandas.html#멀티-인덱싱",
+    "title": "Pandas",
+    "section": "멀티 인덱싱",
+    "text": "멀티 인덱싱\n모든 열이 같은 크기의 튜플이면 멀티 인덱스로 인식합니다. 열 인덱스 레이블에도 같은 방식이 적용됩니다. 예를 들면:\nd5 = pd.DataFrame(\n  {\n    (\"public\", \"birthyear\"):\n        {(\"Paris\",\"alice\"):1985, (\"Paris\",\"bob\"): 1984, (\"London\",\"charles\"): 1992},\n    (\"public\", \"hobby\"):\n        {(\"Paris\",\"alice\"):\"Biking\", (\"Paris\",\"bob\"): \"Dancing\"},\n    (\"private\", \"weight\"):\n        {(\"Paris\",\"alice\"):68, (\"Paris\",\"bob\"): 83, (\"London\",\"charles\"): 112},\n    (\"private\", \"children\"):\n        {(\"Paris\", \"alice\"):np.nan, (\"Paris\",\"bob\"): 3, (\"London\",\"charles\"): 0}\n  }\n)\nd5\n\n\n\n\n\n\n\n\n\n\n\npublic\n\n\nprivate\n\n\n\n\n\n\n\n\nbirthyear\n\n\nhobby\n\n\nweight\n\n\nchildren\n\n\n\n\n\n\nParis\n\n\nalice\n\n\n1985\n\n\nBiking\n\n\n68\n\n\nNaN\n\n\n\n\nbob\n\n\n1984\n\n\nDancing\n\n\n83\n\n\n3.0\n\n\n\n\nLondon\n\n\ncharles\n\n\n1992\n\n\nNaN\n\n\n112\n\n\n0.0\n\n\n\n\n\n\n이제 \"public\" 열을 모두 담은 DataFrame을 손쉽게 만들 수 있습니다:\nd5[\"public\"]\n\n\n\n\n\n\n\n\n\n\n\nbirthyear\n\n\nhobby\n\n\n\n\n\n\nParis\n\n\nalice\n\n\n1985\n\n\nBiking\n\n\n\n\nbob\n\n\n1984\n\n\nDancing\n\n\n\n\nLondon\n\n\ncharles\n\n\n1992\n\n\nNaN\n\n\n\n\n\n\nd5[\"public\", \"hobby\"]  # d5[\"public\"][\"hobby\"]와 같습니다.\nParis   alice       Biking\n        bob        Dancing\nLondon  charles        NaN\nName: (public, hobby), dtype: object\nd5[\"public\"][\"hobby\"]\nParis   alice       Biking\n        bob        Dancing\nLondon  charles        NaN\nName: hobby, dtype: object"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#레벨-낮추기",
+    "href": "posts/Pandas/pandas.html#레벨-낮추기",
+    "title": "Pandas",
+    "section": "레벨 낮추기",
+    "text": "레벨 낮추기\nd5를 다시 확인해 보죠:\nd5\n\n\n\n\n\n\n\n\n\n\n\npublic\n\n\nprivate\n\n\n\n\n\n\n\n\nbirthyear\n\n\nhobby\n\n\nweight\n\n\nchildren\n\n\n\n\n\n\nParis\n\n\nalice\n\n\n1985\n\n\nBiking\n\n\n68\n\n\nNaN\n\n\n\n\nbob\n\n\n1984\n\n\nDancing\n\n\n83\n\n\n3.0\n\n\n\n\nLondon\n\n\ncharles\n\n\n1992\n\n\nNaN\n\n\n112\n\n\n0.0\n\n\n\n\n\n\n열의 레벨(level)이 2개이고 인덱스 레벨이 2개입니다. droplevel()을 사용해 열 레벨을 낮출 수 있습니다(인덱스도 마찬가지입니다):\nd5.columns = d5.columns.droplevel(level = 0)\nd5\n\n\n\n\n\n\n\n\n\n\n\nbirthyear\n\n\nhobby\n\n\nweight\n\n\nchildren\n\n\n\n\n\n\nParis\n\n\nalice\n\n\n1985\n\n\nBiking\n\n\n68\n\n\nNaN\n\n\n\n\nbob\n\n\n1984\n\n\nDancing\n\n\n83\n\n\n3.0\n\n\n\n\nLondon\n\n\ncharles\n\n\n1992\n\n\nNaN\n\n\n112\n\n\n0.0"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#전치",
+    "href": "posts/Pandas/pandas.html#전치",
+    "title": "Pandas",
+    "section": "전치",
+    "text": "전치\nT 속성을 사용해 열과 인덱스를 바꿀 수 있습니다:\nd6 = d5.T\nd6\n\n\n\n\n\n\n\n\n\nParis\n\n\nLondon\n\n\n\n\n\n\nalice\n\n\nbob\n\n\ncharles\n\n\n\n\n\n\nbirthyear\n\n\n1985\n\n\n1984\n\n\n1992\n\n\n\n\nhobby\n\n\nBiking\n\n\nDancing\n\n\nNaN\n\n\n\n\nweight\n\n\n68\n\n\n83\n\n\n112\n\n\n\n\nchildren\n\n\nNaN\n\n\n3.0\n\n\n0.0"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#레벨-스택과-언스택",
+    "href": "posts/Pandas/pandas.html#레벨-스택과-언스택",
+    "title": "Pandas",
+    "section": "레벨 스택과 언스택",
+    "text": "레벨 스택과 언스택\nstack() 메서드는 가장 낮은 열 레벨을 가장 낮은 인덱스 뒤에 추가합니다:\nd7 = d6.stack()\nd7\n\n\n\n\n\n\n\n\n\n\n\nLondon\n\n\nParis\n\n\n\n\n\n\nbirthyear\n\n\nalice\n\n\nNaN\n\n\n1985\n\n\n\n\nbob\n\n\nNaN\n\n\n1984\n\n\n\n\ncharles\n\n\n1992\n\n\nNaN\n\n\n\n\nhobby\n\n\nalice\n\n\nNaN\n\n\nBiking\n\n\n\n\nbob\n\n\nNaN\n\n\nDancing\n\n\n\n\nweight\n\n\nalice\n\n\nNaN\n\n\n68\n\n\n\n\nbob\n\n\nNaN\n\n\n83\n\n\n\n\ncharles\n\n\n112\n\n\nNaN\n\n\n\n\nchildren\n\n\nbob\n\n\nNaN\n\n\n3.0\n\n\n\n\ncharles\n\n\n0.0\n\n\nNaN\n\n\n\n\n\n\nNaN 값이 생겼습니다. 이전에 없던 조합이 생겼기 때문입니다(예를 들어 London에 bob이 없었습니다).\nunstack()을 호출하면 반대가 됩니다. 여기에서도 많은 NaN 값이 생성됩니다.\nd8 = d7.unstack()\nd8\n\n\n\n\n\n\n\n\n\nLondon\n\n\nParis\n\n\n\n\n\n\nalice\n\n\nbob\n\n\ncharles\n\n\nalice\n\n\nbob\n\n\ncharles\n\n\n\n\n\n\nbirthyear\n\n\nNaN\n\n\nNaN\n\n\n1992\n\n\n1985\n\n\n1984\n\n\nNaN\n\n\n\n\nchildren\n\n\nNaN\n\n\nNaN\n\n\n0\n\n\nNaN\n\n\n3\n\n\nNaN\n\n\n\n\nhobby\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\nBiking\n\n\nDancing\n\n\nNaN\n\n\n\n\nweight\n\n\nNaN\n\n\nNaN\n\n\n112\n\n\n68\n\n\n83\n\n\nNaN\n\n\n\n\n\n\nunstack을 다시 호출하면 Series 객체가 만들어 집니다:\nd9 = d8.unstack()\nd9\nLondon  alice    birthyear        NaN\n                 children         NaN\n                 hobby            NaN\n                 weight           NaN\n        bob      birthyear        NaN\n                 children         NaN\n                 hobby            NaN\n                 weight           NaN\n        charles  birthyear       1992\n                 children           0\n                 hobby            NaN\n                 weight           112\nParis   alice    birthyear       1985\n                 children         NaN\n                 hobby         Biking\n                 weight            68\n        bob      birthyear       1984\n                 children           3\n                 hobby        Dancing\n                 weight            83\n        charles  birthyear        NaN\n                 children         NaN\n                 hobby            NaN\n                 weight           NaN\ndtype: object\nstack()과 unstack() 메서드를 사용할 때 스택/언스택할 level을 선택할 수 있습니다. 심지어 한 번에 여러 개의 레벨을 스택/언스택할 수도 있습니다:\nd10 = d9.unstack(level = (0,1))\nd10\n\n\n\n\n\n\n\n\n\nLondon\n\n\nParis\n\n\n\n\n\n\nalice\n\n\nbob\n\n\ncharles\n\n\nalice\n\n\nbob\n\n\ncharles\n\n\n\n\n\n\nbirthyear\n\n\nNaN\n\n\nNaN\n\n\n1992\n\n\n1985\n\n\n1984\n\n\nNaN\n\n\n\n\nchildren\n\n\nNaN\n\n\nNaN\n\n\n0\n\n\nNaN\n\n\n3\n\n\nNaN\n\n\n\n\nhobby\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\nBiking\n\n\nDancing\n\n\nNaN\n\n\n\n\nweight\n\n\nNaN\n\n\nNaN\n\n\n112\n\n\n68\n\n\n83\n\n\nNaN"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#pivot",
+    "href": "posts/Pandas/pandas.html#pivot",
+    "title": "Pandas",
+    "section": "pivot",
+    "text": "pivot\nimport pandas._testing as tm\n\ndef unpivot(frame):\n    N, K = frame.shape\n    data = {\n        \"value\": frame.to_numpy().ravel(\"F\"),\n        \"variable\": np.asarray(frame.columns).repeat(N),\n        \"date\": np.tile(np.asarray(frame.index), K),\n    }\n    return pd.DataFrame(data, columns=[\"date\", \"variable\", \"value\"])\n\n\ndf = unpivot(tm.makeTimeDataFrame(3))\n\ndf\n\n\n\n\n\n\n\n\n\ndate\n\n\nvariable\n\n\nvalue\n\n\n\n\n\n\n0\n\n\n2000-01-03\n\n\nA\n\n\n0.464331\n\n\n\n\n1\n\n\n2000-01-04\n\n\nA\n\n\n-0.034784\n\n\n\n\n2\n\n\n2000-01-05\n\n\nA\n\n\n-0.335404\n\n\n\n\n3\n\n\n2000-01-03\n\n\nB\n\n\n-1.071562\n\n\n\n\n4\n\n\n2000-01-04\n\n\nB\n\n\n-0.576895\n\n\n\n\n5\n\n\n2000-01-05\n\n\nB\n\n\n0.038224\n\n\n\n\n6\n\n\n2000-01-03\n\n\nC\n\n\n-0.788063\n\n\n\n\n7\n\n\n2000-01-04\n\n\nC\n\n\n-0.955937\n\n\n\n\n8\n\n\n2000-01-05\n\n\nC\n\n\n0.205413\n\n\n\n\n9\n\n\n2000-01-03\n\n\nD\n\n\n-0.817418\n\n\n\n\n10\n\n\n2000-01-04\n\n\nD\n\n\n-0.587026\n\n\n\n\n11\n\n\n2000-01-05\n\n\nD\n\n\n0.950815\n\n\n\n\n\n\nfiltered = df[df[\"variable\"] == \"A\"]\n\nfiltered\n\n\n\n\n\n\n\n\n\ndate\n\n\nvariable\n\n\nvalue\n\n\n\n\n\n\n0\n\n\n2000-01-03\n\n\nA\n\n\n0.464331\n\n\n\n\n1\n\n\n2000-01-04\n\n\nA\n\n\n-0.034784\n\n\n\n\n2\n\n\n2000-01-05\n\n\nA\n\n\n-0.335404\n\n\n\n\n\n\npivoted = df.pivot(index=\"date\", columns=\"variable\", values=\"value\")\n\npivoted\n\n\n\n\n\n\n\nvariable\n\n\nA\n\n\nB\n\n\nC\n\n\nD\n\n\n\n\ndate\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2000-01-03\n\n\n0.464331\n\n\n-1.071562\n\n\n-0.788063\n\n\n-0.817418\n\n\n\n\n2000-01-04\n\n\n-0.034784\n\n\n-0.576895\n\n\n-0.955937\n\n\n-0.587026\n\n\n\n\n2000-01-05\n\n\n-0.335404\n\n\n0.038224\n\n\n0.205413\n\n\n0.950815\n\n\n\n\n\n\npivoted[\"A\"]\ndate\n2000-01-03    0.464331\n2000-01-04   -0.034784\n2000-01-05   -0.335404\nName: A, dtype: float64\npivoted.columns\nIndex(['A', 'B', 'C', 'D'], dtype='object', name='variable')\npivoted.index\nDatetimeIndex(['2000-01-03', '2000-01-04', '2000-01-05'], dtype='datetime64[ns]', name='date', freq=None)\ndf[\"value2\"] = df[\"value\"] * 2\n\npivoted = df.pivot(index=\"date\", columns=\"variable\")\n\npivoted\n\n\n\n\n\n\n\n\n\nvalue\n\n\nvalue2\n\n\n\n\nvariable\n\n\nA\n\n\nB\n\n\nC\n\n\nD\n\n\nA\n\n\nB\n\n\nC\n\n\nD\n\n\n\n\ndate\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2000-01-03\n\n\n0.464331\n\n\n-1.071562\n\n\n-0.788063\n\n\n-0.817418\n\n\n0.928662\n\n\n-2.143124\n\n\n-1.576125\n\n\n-1.634836\n\n\n\n\n2000-01-04\n\n\n-0.034784\n\n\n-0.576895\n\n\n-0.955937\n\n\n-0.587026\n\n\n-0.069568\n\n\n-1.153790\n\n\n-1.911875\n\n\n-1.174053\n\n\n\n\n2000-01-05\n\n\n-0.335404\n\n\n0.038224\n\n\n0.205413\n\n\n0.950815\n\n\n-0.670808\n\n\n0.076449\n\n\n0.410825\n\n\n1.901630\n\n\n\n\n\n\npivoted.columns\nMultiIndex([( 'value', 'A'),\n            ( 'value', 'B'),\n            ( 'value', 'C'),\n            ( 'value', 'D'),\n            ('value2', 'A'),\n            ('value2', 'B'),\n            ('value2', 'C'),\n            ('value2', 'D')],\n           names=[None, 'variable'])\npivoted[\"value2\"]\n\n\n\n\n\n\n\nvariable\n\n\nA\n\n\nB\n\n\nC\n\n\nD\n\n\n\n\ndate\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2000-01-03\n\n\n0.928662\n\n\n-2.143124\n\n\n-1.576125\n\n\n-1.634836\n\n\n\n\n2000-01-04\n\n\n-0.069568\n\n\n-1.153790\n\n\n-1.911875\n\n\n-1.174053\n\n\n\n\n2000-01-05\n\n\n-0.670808\n\n\n0.076449\n\n\n0.410825\n\n\n1.901630"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#대부분의-메서드는-수정된-복사본을-반환합니다",
+    "href": "posts/Pandas/pandas.html#대부분의-메서드는-수정된-복사본을-반환합니다",
+    "title": "Pandas",
+    "section": "대부분의 메서드는 수정된 복사본을 반환합니다",
+    "text": "대부분의 메서드는 수정된 복사본을 반환합니다\n눈치챘겠지만 stack()과 unstack() 메서드는 객체를 수정하지 않습니다. 대신 복사본을 만들어 반환합니다. 판다스에 있는 대부분의 메서드들이 이렇게 동작합니다."
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#행-참조하기",
+    "href": "posts/Pandas/pandas.html#행-참조하기",
+    "title": "Pandas",
+    "section": "행 참조하기",
+    "text": "행 참조하기\npeople DataFrame으로 돌아가 보죠:\npeople\n\n\n\n\n\n\n\n\n\nbirthyear\n\n\nhobby\n\n\nweight\n\n\nchildren\n\n\n\n\n\n\nalice\n\n\n1985\n\n\nBiking\n\n\n68\n\n\nNaN\n\n\n\n\nbob\n\n\n1984\n\n\nDancing\n\n\n83\n\n\n3.0\n\n\n\n\ncharles\n\n\n1992\n\n\nNaN\n\n\n112\n\n\n0.0\n\n\n\n\n\n\nloc 속성으로 열 대신 행을 참조할 수 있습니다. DataFrame의 열 이름이 행 인덱스 레이블로 매핑된 Series 객체가 반환됩니다:\npeople.loc[:,\"birthyear\"]\nalice      1985\nbob        1984\ncharles    1992\nName: birthyear, dtype: int64\npeople.loc[\"charles\"]\nbirthyear    1992\nhobby         NaN\nweight        112\nchildren        0\nName: charles, dtype: object\niloc 속성을 사용해 정수 인덱스로 행을 참조할 수 있습니다:\npeople.iloc[2]\nbirthyear    1992\nhobby         NaN\nweight        112\nchildren        0\nName: charles, dtype: object\n행을 슬라이싱할 수 있으며 DataFrame 객체가 반환됩니다:\npeople.iloc[1:3]\n\n\n\n\n\n\n\n\n\nbirthyear\n\n\nhobby\n\n\nweight\n\n\nchildren\n\n\n\n\n\n\nbob\n\n\n1984\n\n\nDancing\n\n\n83\n\n\n3.0\n\n\n\n\ncharles\n\n\n1992\n\n\nNaN\n\n\n112\n\n\n0.0\n\n\n\n\n\n\n마자믹으로 불리언 배열을 전달하여 해당하는 행을 가져올 수 있습니다:\npeople[np.array([True, False, True])]\n\n\n\n\n\n\n\n\n\nbirthyear\n\n\nhobby\n\n\nweight\n\n\nchildren\n\n\n\n\n\n\nalice\n\n\n1985\n\n\nBiking\n\n\n68\n\n\nNaN\n\n\n\n\ncharles\n\n\n1992\n\n\nNaN\n\n\n112\n\n\n0.0\n\n\n\n\n\n\n불리언 표현식을 사용할 때 아주 유용합니다:\npeople[people[\"birthyear\"] < 1990]\n\n\n\n\n\n\n\n\n\nbirthyear\n\n\nhobby\n\n\nweight\n\n\nchildren\n\n\n\n\n\n\nalice\n\n\n1985\n\n\nBiking\n\n\n68\n\n\nNaN\n\n\n\n\nbob\n\n\n1984\n\n\nDancing\n\n\n83\n\n\n3.0"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#열-추가-삭제",
+    "href": "posts/Pandas/pandas.html#열-추가-삭제",
+    "title": "Pandas",
+    "section": "열 추가, 삭제",
+    "text": "열 추가, 삭제\nDataFrame을 Series의 딕셔너리처럼 다룰 수 있습니다. 따라서 다음 같이 쓸 수 있습니다:\npeople\n\n\n\n\n\n\n\n\n\nbirthyear\n\n\nhobby\n\n\nweight\n\n\nchildren\n\n\n\n\n\n\nalice\n\n\n1985\n\n\nBiking\n\n\n68\n\n\nNaN\n\n\n\n\nbob\n\n\n1984\n\n\nDancing\n\n\n83\n\n\n3.0\n\n\n\n\ncharles\n\n\n1992\n\n\nNaN\n\n\n112\n\n\n0.0\n\n\n\n\n\n\npeople[\"age\"] = 2018 - people[\"birthyear\"]  # \"age\" 열을 추가합니다\npeople[\"over 30\"] = people[\"age\"] > 30      # \"over 30\" 열을 추가합니다\nbirthyears = people.pop(\"birthyear\")\ndel people[\"children\"]\n\npeople\n\n\n\n\n\n\n\n\n\nweight\n\n\nheight\n\n\nhobby\n\n\nage\n\n\nover 30\n\n\n\n\n\n\nalice\n\n\n68\n\n\n172\n\n\nBiking\n\n\n33\n\n\nTrue\n\n\n\n\nbob\n\n\n83\n\n\n181\n\n\nDancing\n\n\n34\n\n\nTrue\n\n\n\n\ncharles\n\n\n112\n\n\n185\n\n\nNaN\n\n\n26\n\n\nFalse\n\n\n\n\n\n\nbirthyears\nalice      1985\nbob        1984\ncharles    1992\nName: birthyear, dtype: int64\n새로운 열을 추가할 때 행의 개수는 같아야 합니다. 누락된 행은 NaN으로 채워지고 추가적인 행은 무시됩니다:\npeople[\"pets\"] = pd.Series({\"bob\": 0, \"charles\": 5, \"eugene\":1})  # alice 누락됨, eugene은 무시됨\npeople\n\n\n\n\n\n\n\n\n\nweight\n\n\nheight\n\n\nhobby\n\n\nage\n\n\nover 30\n\n\npets\n\n\n\n\n\n\nalice\n\n\n68\n\n\n172\n\n\nBiking\n\n\n33\n\n\nTrue\n\n\nNaN\n\n\n\n\nbob\n\n\n83\n\n\n181\n\n\nDancing\n\n\n34\n\n\nTrue\n\n\n0.0\n\n\n\n\ncharles\n\n\n112\n\n\n185\n\n\nNaN\n\n\n26\n\n\nFalse\n\n\n5.0\n\n\n\n\n\n\n새로운 열을 추가할 때 기본적으로 (오른쪽) 끝에 추가됩니다. insert() 메서드를 사용해 다른 곳에 열을 추가할 수 있습니다:\npeople.insert(1, \"height\", [172, 181, 185])\npeople\n---------------------------------------------------------------------------\n\nValueError                                Traceback (most recent call last)\n\nCell In[42], line 1\n----> 1 people.insert(1, \"height\", [172, 181, 185])\n      2 people\n\n\nFile c:\\Users\\LG PC\\anaconda3\\lib\\site-packages\\pandas\\core\\frame.py:4817, in DataFrame.insert(self, loc, column, value, allow_duplicates)\n   4811     raise ValueError(\n   4812         \"Cannot specify 'allow_duplicates=True' when \"\n   4813         \"'self.flags.allows_duplicate_labels' is False.\"\n   4814     )\n   4815 if not allow_duplicates and column in self.columns:\n   4816     # Should this be a different kind of error??\n-> 4817     raise ValueError(f\"cannot insert {column}, already exists\")\n   4818 if not isinstance(loc, int):\n   4819     raise TypeError(\"loc must be int\")\n\n\nValueError: cannot insert height, already exists"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#새로운-열-할당하기",
+    "href": "posts/Pandas/pandas.html#새로운-열-할당하기",
+    "title": "Pandas",
+    "section": "새로운 열 할당하기",
+    "text": "새로운 열 할당하기\nassign() 메서드를 호출하여 새로운 열을 만들 수도 있습니다. 이는 새로운 DataFrame 객체를 반환하며 원본 객체는 변경되지 않습니다:\npeople.assign(\n    body_mass_index = people[\"weight\"] / (people[\"height\"] / 100) ** 2,\n    has_pets = people[\"pets\"] > 0\n) # 무시해도 됌\n\n\n\n\n\n\n\n\n\nweight\n\n\nheight\n\n\nhobby\n\n\nage\n\n\nover 30\n\n\npets\n\n\nbody_mass_index\n\n\nhas_pets\n\n\n\n\n\n\nalice\n\n\n68\n\n\n172\n\n\nBiking\n\n\n33\n\n\nTrue\n\n\nNaN\n\n\n22.985398\n\n\nFalse\n\n\n\n\nbob\n\n\n83\n\n\n181\n\n\nDancing\n\n\n34\n\n\nTrue\n\n\n0.0\n\n\n25.335002\n\n\nFalse\n\n\n\n\ncharles\n\n\n112\n\n\n185\n\n\nNaN\n\n\n26\n\n\nFalse\n\n\n5.0\n\n\n32.724617\n\n\nTrue\n\n\n\n\n\n\n할당문 안에서 만든 열은 접근할 수 없습니다:\ntry:\n    people.assign(\n        body_mass_index = people[\"weight\"] / (people[\"height\"] / 100) ** 2,\n        overweight = people[\"body_mass_index\"] > 25\n    )\nexcept KeyError as e:\n    print(\"키 에러:\", e)\n키 에러: 'body_mass_index'\n해결책은 두 개의 연속된 할당문으로 나누는 것입니다:\nd6 = people.assign(body_mass_index = people[\"weight\"] / (people[\"height\"] / 100) ** 2)\nd6.assign(overweight = d6[\"body_mass_index\"] > 25)\n\n\n\n\n\n\n\n\n\nweight\n\n\nheight\n\n\nhobby\n\n\nage\n\n\nover 30\n\n\npets\n\n\nbody_mass_index\n\n\noverweight\n\n\n\n\n\n\nalice\n\n\n68\n\n\n172\n\n\nBiking\n\n\n33\n\n\nTrue\n\n\nNaN\n\n\n22.985398\n\n\nFalse\n\n\n\n\nbob\n\n\n83\n\n\n181\n\n\nDancing\n\n\n34\n\n\nTrue\n\n\n0.0\n\n\n25.335002\n\n\nTrue\n\n\n\n\ncharles\n\n\n112\n\n\n185\n\n\nNaN\n\n\n26\n\n\nFalse\n\n\n5.0\n\n\n32.724617\n\n\nTrue\n\n\n\n\n\n\n임시 변수 d6를 만들면 불편합니다. assign() 메서드를 연결하고 싶겠지만 people 객체가 첫 번째 할당문에서 실제로 수정되지 않기 때문에 작동하지 않습니다:\ntry:\n    (people\n         .assign(body_mass_index = people[\"weight\"] / (people[\"height\"] / 100) ** 2)\n         .assign(overweight = people[\"body_mass_index\"] > 25)\n    )\nexcept KeyError as e:\n    print(\"키 에러:\", e)\n키 에러: 'body_mass_index'\n하지만 걱정하지 마세요. 간단한 방법이 있습니다. assign() 메서드에 함수(전형적으로 lambda 함수)를 전달하면 DataFrame을 매개변수로 이 함수를 호출할 것입니다:\n(people\n     .assign(body_mass_index = lambda df: df[\"weight\"] / (df[\"height\"] / 100) ** 2)\n     .assign(overweight = lambda df: df[\"body_mass_index\"] > 25)\n)\n\n\n\n\n\n\n\n\n\nweight\n\n\nheight\n\n\nhobby\n\n\nage\n\n\nover 30\n\n\npets\n\n\nbody_mass_index\n\n\noverweight\n\n\n\n\n\n\nalice\n\n\n68\n\n\n172\n\n\nBiking\n\n\n33\n\n\nTrue\n\n\nNaN\n\n\n22.985398\n\n\nFalse\n\n\n\n\nbob\n\n\n83\n\n\n181\n\n\nDancing\n\n\n34\n\n\nTrue\n\n\n0.0\n\n\n25.335002\n\n\nTrue\n\n\n\n\ncharles\n\n\n112\n\n\n185\n\n\nNaN\n\n\n26\n\n\nFalse\n\n\n5.0\n\n\n32.724617\n\n\nTrue\n\n\n\n\n\n\npeople[\"body_mass_index\"]=people[\"weight\"]/(people[\"height\"])/100**2\npeople[\"overweight\"]=people[\"body_mass_index\"]>25\npeople\n\n\n\n\n\n\n\n\n\nweight\n\n\nheight\n\n\nhobby\n\n\nage\n\n\nover 30\n\n\npets\n\n\nbody_mass_index\n\n\noverweight\n\n\n\n\n\n\nalice\n\n\n68\n\n\n172\n\n\nBiking\n\n\n33\n\n\nTrue\n\n\nNaN\n\n\n0.000040\n\n\nFalse\n\n\n\n\nbob\n\n\n83\n\n\n181\n\n\nDancing\n\n\n34\n\n\nTrue\n\n\n0.0\n\n\n0.000046\n\n\nFalse\n\n\n\n\ncharles\n\n\n112\n\n\n185\n\n\nNaN\n\n\n26\n\n\nFalse\n\n\n5.0\n\n\n0.000061\n\n\nFalse\n\n\n\n\n\n\n문제가 해결되었군요!"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#표현식-평가",
+    "href": "posts/Pandas/pandas.html#표현식-평가",
+    "title": "Pandas",
+    "section": "표현식 평가",
+    "text": "표현식 평가\n판다스가 제공하는 뛰어난 기능 하나는 표현식 평가입니다. 이는 numexpr 라이브러리에 의존하기 때문에 설치가 되어 있어야 합니다.\npeople.eval(\"weight / (height/100) ** 2 > 25\")\nalice      False\nbob         True\ncharles     True\ndtype: bool\n할당 표현식도 지원됩니다. inplace=True로 지정하면 수정된 복사본을 만들지 않고 바로 DataFrame을 변경합니다:\npeople.eval(\"body_mass_index = weight / (height/100) ** 2\", inplace=True)\npeople\n\n\n\n\n\n\n\n\n\nweight\n\n\nheight\n\n\nhobby\n\n\nage\n\n\nover 30\n\n\npets\n\n\nbody_mass_index\n\n\noverweight\n\n\n\n\n\n\nalice\n\n\n68\n\n\n172\n\n\nBiking\n\n\n33\n\n\nTrue\n\n\nNaN\n\n\n22.985398\n\n\nFalse\n\n\n\n\nbob\n\n\n83\n\n\n181\n\n\nDancing\n\n\n34\n\n\nTrue\n\n\n0.0\n\n\n25.335002\n\n\nFalse\n\n\n\n\ncharles\n\n\n112\n\n\n185\n\n\nNaN\n\n\n26\n\n\nFalse\n\n\n5.0\n\n\n32.724617\n\n\nFalse\n\n\n\n\n\n\n'@'를 접두어로 사용하여 지역 변수나 전역 변수를 참조할 수 있습니다:\noverweight_threshold = 30\npeople.eval(\"overweight = body_mass_index > @overweight_threshold\", inplace=True)\npeople\n\n\n\n\n\n\n\n\n\nweight\n\n\nheight\n\n\nhobby\n\n\nage\n\n\nover 30\n\n\npets\n\n\nbody_mass_index\n\n\noverweight\n\n\n\n\n\n\nalice\n\n\n68\n\n\n172\n\n\nBiking\n\n\n33\n\n\nTrue\n\n\nNaN\n\n\n22.985398\n\n\nFalse\n\n\n\n\nbob\n\n\n83\n\n\n181\n\n\nDancing\n\n\n34\n\n\nTrue\n\n\n0.0\n\n\n25.335002\n\n\nFalse\n\n\n\n\ncharles\n\n\n112\n\n\n185\n\n\nNaN\n\n\n26\n\n\nFalse\n\n\n5.0\n\n\n32.724617\n\n\nTrue"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#dataframe-쿼리하기",
+    "href": "posts/Pandas/pandas.html#dataframe-쿼리하기",
+    "title": "Pandas",
+    "section": "DataFrame 쿼리하기",
+    "text": "DataFrame 쿼리하기\nquery() 메서드를 사용하면 쿼리 표현식에 기반하여 DataFrame을 필터링할 수 있습니다:\npeople.query(\"age > 30 and pets == 0\")\n\n\n\n\n\n\n\n\n\nweight\n\n\nheight\n\n\nhobby\n\n\nage\n\n\nover 30\n\n\npets\n\n\nbody_mass_index\n\n\noverweight\n\n\n\n\n\n\nbob\n\n\n83\n\n\n181\n\n\nDancing\n\n\n34\n\n\nTrue\n\n\n0.0\n\n\n25.335002\n\n\nFalse\n\n\n\n\n\n\npeople[(people[\"age\"]>30)&(people[\"pets\"]==0)]\n\n\n\n\n\n\n\n\n\nweight\n\n\nheight\n\n\nhobby\n\n\nage\n\n\nover 30\n\n\npets\n\n\nbody_mass_index\n\n\noverweight\n\n\n\n\n\n\nbob\n\n\n83\n\n\n181\n\n\nDancing\n\n\n34\n\n\nTrue\n\n\n0.0\n\n\n25.335002\n\n\nFalse"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#dataframe-정렬",
+    "href": "posts/Pandas/pandas.html#dataframe-정렬",
+    "title": "Pandas",
+    "section": "DataFrame 정렬",
+    "text": "DataFrame 정렬\nsort_index 메서드를 호출하여 DataFrame을 정렬할 수 있습니다. 기본적으로 인덱스 레이블을 기준으로 오름차순으로 행을 정렬합니다. 여기에서는 내림차순으로 정렬해 보죠:\npeople.sort_index(ascending=False)\n\n\n\n\n\n\n\n\n\nhobby\n\n\nheight\n\n\nweight\n\n\nage\n\n\nover 30\n\n\npets\n\n\nbody_mass_index\n\n\noverweight\n\n\n\n\n\n\ncharles\n\n\nNaN\n\n\n185\n\n\n112\n\n\n26\n\n\nFalse\n\n\n5.0\n\n\n32.724617\n\n\nTrue\n\n\n\n\nbob\n\n\nDancing\n\n\n181\n\n\n83\n\n\n34\n\n\nTrue\n\n\n0.0\n\n\n25.335002\n\n\nFalse\n\n\n\n\nalice\n\n\nBiking\n\n\n172\n\n\n68\n\n\n33\n\n\nTrue\n\n\nNaN\n\n\n22.985398\n\n\nFalse\n\n\n\n\n\n\nsort_index는 DataFrame의 정렬된 복사본을 반환합니다. people을 직접 수정하려면 inplace 매개변수를 True로 지정합니다. 또한 axis=1로 지정하여 열 대신 행을 정렬할 수 있습니다:\npeople.sort_index(axis=1, inplace=True)\npeople\n\n\n\n\n\n\n\n\n\nage\n\n\nbody_mass_index\n\n\nheight\n\n\nhobby\n\n\nover 30\n\n\noverweight\n\n\npets\n\n\nweight\n\n\n\n\n\n\nalice\n\n\n33\n\n\n22.985398\n\n\n172\n\n\nBiking\n\n\nTrue\n\n\nFalse\n\n\nNaN\n\n\n68\n\n\n\n\nbob\n\n\n34\n\n\n25.335002\n\n\n181\n\n\nDancing\n\n\nTrue\n\n\nFalse\n\n\n0.0\n\n\n83\n\n\n\n\ncharles\n\n\n26\n\n\n32.724617\n\n\n185\n\n\nNaN\n\n\nFalse\n\n\nTrue\n\n\n5.0\n\n\n112\n\n\n\n\n\n\n레이블이 아니라 값을 기준으로 DataFrame을 정렬하려면 sort_values에 정렬하려는 열을 지정합니다:\npeople.sort_values(by=\"age\", inplace=True)\npeople\n\n\n\n\n\n\n\n\n\nage\n\n\nbody_mass_index\n\n\nheight\n\n\nhobby\n\n\nover 30\n\n\noverweight\n\n\npets\n\n\nweight\n\n\n\n\n\n\ncharles\n\n\n26\n\n\n32.724617\n\n\n185\n\n\nNaN\n\n\nFalse\n\n\nTrue\n\n\n5.0\n\n\n112\n\n\n\n\nalice\n\n\n33\n\n\n22.985398\n\n\n172\n\n\nBiking\n\n\nTrue\n\n\nFalse\n\n\nNaN\n\n\n68\n\n\n\n\nbob\n\n\n34\n\n\n25.335002\n\n\n181\n\n\nDancing\n\n\nTrue\n\n\nFalse\n\n\n0.0\n\n\n83"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#dataframe-그래프-그리기",
+    "href": "posts/Pandas/pandas.html#dataframe-그래프-그리기",
+    "title": "Pandas",
+    "section": "DataFrame 그래프 그리기",
+    "text": "DataFrame 그래프 그리기\nSeries와 마찬가지로 판다스는 DataFrame 기반으로 멋진 그래프를 손쉽게 그릴 수 있습니다.\n예를 들어 plot 메서드를 호출하여 DataFrame의 데이터에서 선 그래프를 쉽게 그릴 수 있습니다:\npeople.plot(kind = \"line\", x = \"body_mass_index\", y = [\"height\", \"weight\"])\nplt.show()\n\n\n\npng\n\n\n맷플롯립의 함수가 지원하는 다른 매개변수를 사용할 수 있습니다. 예를 들어, 산점도를 그릴 때 맷플롯립의 scatter() 함수의 s 매개변수를 사용해 크기를 지정할 수 있습니다:\npeople.plot(kind = \"scatter\", x = \"height\", y = \"weight\", s=[40, 120, 200])\nplt.show()\n\n\n\npng\n\n\n선택할 수 있는 옵션이 많습니다. 판다스 문서의 시각화 페이지에서 마음에 드는 그래프를 찾아 예제 코드를 살펴 보세요."
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#dataframe-연산",
+    "href": "posts/Pandas/pandas.html#dataframe-연산",
+    "title": "Pandas",
+    "section": "DataFrame 연산",
+    "text": "DataFrame 연산\nDataFrame이 넘파이 배열을 흉내내려는 것은 아니지만 몇 가지 비슷한 점이 있습니다. 예제 DataFrame을 만들어 보죠:\ngrades_array = np.array([[8,8,9],[10,9,9],[4, 8, 2], [9, 10, 10]])\ngrades = pd.DataFrame(grades_array, columns=[\"sep\", \"oct\", \"nov\"], index=[\"alice\",\"bob\",\"charles\",\"darwin\"])\ngrades\n\n\n\n\n\n\n\n\n\nsep\n\n\noct\n\n\nnov\n\n\n\n\n\n\nalice\n\n\n8\n\n\n8\n\n\n9\n\n\n\n\nbob\n\n\n10\n\n\n9\n\n\n9\n\n\n\n\ncharles\n\n\n4\n\n\n8\n\n\n2\n\n\n\n\ndarwin\n\n\n9\n\n\n10\n\n\n10\n\n\n\n\n\n\nDataFrame에 넘파이 수학 함수를 적용하면 모든 값에 이 함수가 적용됩니다:\nnp.sqrt(grades)\n\n\n\n\n\n\n\n\n\nsep\n\n\noct\n\n\nnov\n\n\n\n\n\n\nalice\n\n\n2.828427\n\n\n2.828427\n\n\n3.000000\n\n\n\n\nbob\n\n\n3.162278\n\n\n3.000000\n\n\n3.000000\n\n\n\n\ncharles\n\n\n2.000000\n\n\n2.828427\n\n\n1.414214\n\n\n\n\ndarwin\n\n\n3.000000\n\n\n3.162278\n\n\n3.162278\n\n\n\n\n\n\n비슷하게 DataFrame에 하나의 값을 더하면 DataFrame의 모든 원소에 이 값이 더해집니다. 이를 브로드캐스팅이라고 합니다:\ngrades + 1\n\n\n\n\n\n\n\n\n\nsep\n\n\noct\n\n\nnov\n\n\n\n\n\n\nalice\n\n\n9\n\n\n9\n\n\n10\n\n\n\n\nbob\n\n\n11\n\n\n10\n\n\n10\n\n\n\n\ncharles\n\n\n5\n\n\n9\n\n\n3\n\n\n\n\ndarwin\n\n\n10\n\n\n11\n\n\n11\n\n\n\n\n\n\n물론 산술 연산(*,/,**…)과 조건 연산(>, ==…)을 포함해 모든 이항 연산에도 마찬가지 입니다:\ngrades >= 5\n\n\n\n\n\n\n\n\n\nsep\n\n\noct\n\n\nnov\n\n\n\n\n\n\nalice\n\n\nTrue\n\n\nTrue\n\n\nTrue\n\n\n\n\nbob\n\n\nTrue\n\n\nTrue\n\n\nTrue\n\n\n\n\ncharles\n\n\nFalse\n\n\nTrue\n\n\nFalse\n\n\n\n\ndarwin\n\n\nTrue\n\n\nTrue\n\n\nTrue\n\n\n\n\n\n\nDataFrame의 max, sum, mean 같은 집계 연산은 각 열에 적용되어 Series 객체가 반환됩니다:\ngrades.mean()\nsep    7.75\noct    8.75\nnov    7.50\ndtype: float64\nall 메서드도 집계 연산입니다: 모든 값이 True인지 아닌지 확인합니다. 모든 학생의 점수가 5 이상인 월을 찾아 보죠:\n(grades > 5).all()\nsep    False\noct     True\nnov    False\ndtype: bool\nMost of these functions take an optional axis parameter which lets you specify along which axis of the DataFrame you want the operation executed. The default is axis=0, meaning that the operation is executed vertically (on each column). You can set axis=1 to execute the operation horizontally (on each row). For example, let’s find out which students had all grades greater than 5:\n(grades > 5).all(axis = 1)\nalice       True\nbob         True\ncharles    False\ndarwin      True\ndtype: bool\nany 메서드는 하나라도 참이면 True를 반환합니다. 한 번이라도 10점을 받은 사람을 찾아 보죠:\n(grades == 10).any(axis = 1)\nalice      False\nbob         True\ncharles    False\ndarwin      True\ndtype: bool\nDataFrame에 Series 객체를 더하면 (또는 다른 이항 연산을 수행하면) 판다스는 DataFrame에 있는 모든 행에 이 연산을 브로드캐스팅합니다. 이는 Series 객체가 DataFrame의 행의 개수와 크기가 같을 때만 동작합니다. 예를 들어 DataFrame의 mean(Series 객체)을 빼보죠:\ngrades - grades.mean()  # grades - [7.75, 8.75, 7.50] 와 동일\n\n\n\n\n\n\n\n\n\nsep\n\n\noct\n\n\nnov\n\n\n\n\n\n\nalice\n\n\n0.25\n\n\n-0.75\n\n\n1.5\n\n\n\n\nbob\n\n\n2.25\n\n\n0.25\n\n\n1.5\n\n\n\n\ncharles\n\n\n-3.75\n\n\n-0.75\n\n\n-5.5\n\n\n\n\ndarwin\n\n\n1.25\n\n\n1.25\n\n\n2.5\n\n\n\n\n\n\n모든 9월 성적에서 7.75를 빼고, 10월 성적에서 8.75를 빼고, 11월 성적에서 7.50을 뺍니다. 이는 다음 DataFrame을 빼는 것과 같습니다:\npd.DataFrame([[7.75, 8.75, 7.50]]*4, index=grades.index, columns=grades.columns)\n\n\n\n\n\n\n\n\n\nsep\n\n\noct\n\n\nnov\n\n\n\n\n\n\nalice\n\n\n7.75\n\n\n8.75\n\n\n7.5\n\n\n\n\nbob\n\n\n7.75\n\n\n8.75\n\n\n7.5\n\n\n\n\ncharles\n\n\n7.75\n\n\n8.75\n\n\n7.5\n\n\n\n\ndarwin\n\n\n7.75\n\n\n8.75\n\n\n7.5\n\n\n\n\n\n\n모든 성적의 전체 평균을 빼고 싶다면 다음과 같은 방법을 사용합니다:\ngrades - grades.values.mean() # 모든 점수에서 전체 평균(8.00)을 뺍니다\n\n\n\n\n\n\n\n\n\nsep\n\n\noct\n\n\nnov\n\n\n\n\n\n\nalice\n\n\n0.0\n\n\n0.0\n\n\n1.0\n\n\n\n\nbob\n\n\n2.0\n\n\n1.0\n\n\n1.0\n\n\n\n\ncharles\n\n\n-4.0\n\n\n0.0\n\n\n-6.0\n\n\n\n\ndarwin\n\n\n1.0\n\n\n2.0\n\n\n2.0"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#자동-정렬-1",
+    "href": "posts/Pandas/pandas.html#자동-정렬-1",
+    "title": "Pandas",
+    "section": "자동 정렬",
+    "text": "자동 정렬\nSeries와 비슷하게 여러 개의 DataFrame에 대한 연산을 수행하면 판다스는 자동으로 행 인덱스 레이블로 정렬하지만 열 이름으로도 정렬할 수 있습니다. 10월부터 12월까지 보너스 포인트를 담은 DataFrame을 만들어 보겠습니다:\nbonus_array = np.array([[0,np.nan,2],[np.nan,1,0],[0, 1, 0], [3, 3, 0]])\nbonus_points = pd.DataFrame(bonus_array, columns=[\"oct\", \"nov\", \"dec\"], index=[\"bob\",\"colin\", \"darwin\", \"charles\"])\nbonus_points\n\n\n\n\n\n\n\n\n\noct\n\n\nnov\n\n\ndec\n\n\n\n\n\n\nbob\n\n\n0.0\n\n\nNaN\n\n\n2.0\n\n\n\n\ncolin\n\n\nNaN\n\n\n1.0\n\n\n0.0\n\n\n\n\ndarwin\n\n\n0.0\n\n\n1.0\n\n\n0.0\n\n\n\n\ncharles\n\n\n3.0\n\n\n3.0\n\n\n0.0\n\n\n\n\n\n\ngrades + bonus_points\n\n\n\n\n\n\n\n\n\ndec\n\n\nnov\n\n\noct\n\n\nsep\n\n\n\n\n\n\nalice\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\n\n\nbob\n\n\nNaN\n\n\nNaN\n\n\n9.0\n\n\nNaN\n\n\n\n\ncharles\n\n\nNaN\n\n\n5.0\n\n\n11.0\n\n\nNaN\n\n\n\n\ncolin\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\n\n\ndarwin\n\n\nNaN\n\n\n11.0\n\n\n10.0\n\n\nNaN\n\n\n\n\n\n\n덧셈 연산이 수행되었지만 너무 많은 원소가 NaN이 되었습니다. DataFrame을 정렬할 때 일부 열과 행이 한 쪽에만 있기 때문입니다. 다른 쪽에는 누란되었다고 간주합니다(NaN). NaN에 어떤 수를 더하면 NaN이 됩니다."
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#누락된-데이터-다루기",
+    "href": "posts/Pandas/pandas.html#누락된-데이터-다루기",
+    "title": "Pandas",
+    "section": "누락된 데이터 다루기",
+    "text": "누락된 데이터 다루기\n실제 데이터에서 누락된 데이터를 다루는 경우는 자주 발생합니다. 판다스는 누락된 데이터를 다룰 수 있는 몇 가지 방법을 제공합니다.\n위 데이터에 있는 문제를 해결해 보죠. 예를 들어, 누락된 데이터는 NaN이 아니라 0이 되어야 한다고 결정할 수 있습니다. fillna() 메서드를 사용해 모든 NaN 값을 어떤 값으로 바꿀 수 있습니다:\n(grades + bonus_points).fillna(0)\n\n\n\n\n\n\n\n\n\ndec\n\n\nnov\n\n\noct\n\n\nsep\n\n\n\n\n\n\nalice\n\n\n0.0\n\n\n0.0\n\n\n0.0\n\n\n0.0\n\n\n\n\nbob\n\n\n0.0\n\n\n0.0\n\n\n9.0\n\n\n0.0\n\n\n\n\ncharles\n\n\n0.0\n\n\n5.0\n\n\n11.0\n\n\n0.0\n\n\n\n\ncolin\n\n\n0.0\n\n\n0.0\n\n\n0.0\n\n\n0.0\n\n\n\n\ndarwin\n\n\n0.0\n\n\n11.0\n\n\n10.0\n\n\n0.0\n\n\n\n\n\n\n9월의 점수를 0으로 만드는 것은 공정하지 않습니다. 누락된 점수는 그대로 두고, 누락된 보너스 포인트는 0으로 바꿀 수 있습니다:\nfixed_bonus_points = bonus_points.fillna(0)\nfixed_bonus_points.insert(0, \"sep\", 0)\nfixed_bonus_points.loc[\"alice\"] = 0\ngrades + fixed_bonus_points\n\n\n\n\n\n\n\n\n\ndec\n\n\nnov\n\n\noct\n\n\nsep\n\n\n\n\n\n\nalice\n\n\nNaN\n\n\n9.0\n\n\n8.0\n\n\n8.0\n\n\n\n\nbob\n\n\nNaN\n\n\n9.0\n\n\n9.0\n\n\n10.0\n\n\n\n\ncharles\n\n\nNaN\n\n\n5.0\n\n\n11.0\n\n\n4.0\n\n\n\n\ncolin\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\n\n\ndarwin\n\n\nNaN\n\n\n11.0\n\n\n10.0\n\n\n9.0\n\n\n\n\n\n\n훨씬 낫네요: 일부 데이터를 꾸며냈지만 덜 불공정합니다.\n누락된 값을 다루는 또 다른 방법은 보간입니다. bonus_points DataFrame을 다시 보죠:\nbonus_points\n\n\n\n\n\n\n\n\n\noct\n\n\nnov\n\n\ndec\n\n\n\n\n\n\nbob\n\n\n0.0\n\n\nNaN\n\n\n2.0\n\n\n\n\ncolin\n\n\nNaN\n\n\n1.0\n\n\n0.0\n\n\n\n\ndarwin\n\n\n0.0\n\n\n1.0\n\n\n0.0\n\n\n\n\ncharles\n\n\n3.0\n\n\n3.0\n\n\n0.0\n\n\n\n\n\n\ninterpolate 메서드를 사용해 보죠. 기본적으로 수직 방향(axis=0)으로 보간합니다. 따라서 수평으로(axis=1)으로 보간하도록 지정합니다.\nbonus_points.interpolate(axis=1)\n\n\n\n\n\n\n\n\n\noct\n\n\nnov\n\n\ndec\n\n\n\n\n\n\nbob\n\n\n0.0\n\n\n1.0\n\n\n2.0\n\n\n\n\ncolin\n\n\nNaN\n\n\n1.0\n\n\n0.0\n\n\n\n\ndarwin\n\n\n0.0\n\n\n1.0\n\n\n0.0\n\n\n\n\ncharles\n\n\n3.0\n\n\n3.0\n\n\n0.0\n\n\n\n\n\n\nbob의 보너스 포인트는 10월에 0이고 12월에 2입니다. 11월을 보간하면 평균 보너스 포인트 1을 얻습니다. colin의 보너스 포인트는 11월에 1이지만 9월에 포인트는 얼마인지 모릅니다. 따라서 보간할 수 없고 10월의 포인트는 그대로 누락된 값으로 남아 있습니다. 이를 해결하려면 보간하기 전에 9월의 보너스 포인트를 0으로 설정해야 합니다.\nbetter_bonus_points = bonus_points.copy()\nbetter_bonus_points.insert(0, \"sep\", 0)\nbetter_bonus_points.loc[\"alice\"] = 0\nbetter_bonus_points = better_bonus_points.interpolate(axis=1)\nbetter_bonus_points\n\n\n\n\n\n\n\n\n\nsep\n\n\noct\n\n\nnov\n\n\ndec\n\n\n\n\n\n\nbob\n\n\n0.0\n\n\n0.0\n\n\n1.0\n\n\n2.0\n\n\n\n\ncolin\n\n\n0.0\n\n\n0.5\n\n\n1.0\n\n\n0.0\n\n\n\n\ndarwin\n\n\n0.0\n\n\n0.0\n\n\n1.0\n\n\n0.0\n\n\n\n\ncharles\n\n\n0.0\n\n\n3.0\n\n\n3.0\n\n\n0.0\n\n\n\n\nalice\n\n\n0.0\n\n\n0.0\n\n\n0.0\n\n\n0.0\n\n\n\n\n\n\n좋습니다. 이제 모든 보너스 포인트가 합리적으로 보간되었습니다. 최종 점수를 확인해 보죠:\ngrades + better_bonus_points\n\n\n\n\n\n\n\n\n\ndec\n\n\nnov\n\n\noct\n\n\nsep\n\n\n\n\n\n\nalice\n\n\nNaN\n\n\n9.0\n\n\n8.0\n\n\n8.0\n\n\n\n\nbob\n\n\nNaN\n\n\n10.0\n\n\n9.0\n\n\n10.0\n\n\n\n\ncharles\n\n\nNaN\n\n\n5.0\n\n\n11.0\n\n\n4.0\n\n\n\n\ncolin\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\n\n\ndarwin\n\n\nNaN\n\n\n11.0\n\n\n10.0\n\n\n9.0\n\n\n\n\n\n\n9월 열이 오른쪽에 추가되었는데 좀 이상합니다. 이는 더하려는 DataFrame이 정확히 같은 열을 가지고 있지 않기 때문입니다(grade DataFrame에는 \"dec\" 열이 없습니다). 따라서 판다스는 알파벳 순서로 최종 열을 정렬합니다. 이를 해결하려면 덧셈을 하기 전에 누락된 열을 추가하면 됩니다:\ngrades[\"dec\"] = np.nan\nfinal_grades = grades + better_bonus_points\nfinal_grades\n\n\n\n\n\n\n\n\n\nsep\n\n\noct\n\n\nnov\n\n\ndec\n\n\n\n\n\n\nalice\n\n\n8.0\n\n\n8.0\n\n\n9.0\n\n\nNaN\n\n\n\n\nbob\n\n\n10.0\n\n\n9.0\n\n\n10.0\n\n\nNaN\n\n\n\n\ncharles\n\n\n4.0\n\n\n11.0\n\n\n5.0\n\n\nNaN\n\n\n\n\ncolin\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\n\n\ndarwin\n\n\n9.0\n\n\n10.0\n\n\n11.0\n\n\nNaN\n\n\n\n\n\n\n12월과 colin에 대해 할 수 있는 것이 많지 않습니다. 보너스 포인트를 만드는 것이 나쁘지만 점수를 합리적으로 올릴 수는 없습니다(어떤 선생님들은 그럴 수 있지만). dropna() 메서드를 사용해 모두 NaN인 행을 삭제합니다:\nfinal_grades_clean = final_grades.dropna(how=\"all\")\nfinal_grades_clean\n\n\n\n\n\n\n\n\n\nsep\n\n\noct\n\n\nnov\n\n\ndec\n\n\n\n\n\n\nalice\n\n\n8.0\n\n\n8.0\n\n\n9.0\n\n\nNaN\n\n\n\n\nbob\n\n\n10.0\n\n\n9.0\n\n\n10.0\n\n\nNaN\n\n\n\n\ncharles\n\n\n4.0\n\n\n11.0\n\n\n5.0\n\n\nNaN\n\n\n\n\ndarwin\n\n\n9.0\n\n\n10.0\n\n\n11.0\n\n\nNaN\n\n\n\n\n\n\n그다음 axis 매개변수를 1로 지정하여 모두 NaN인 열을 삭제합니다:\nfinal_grades_clean = final_grades_clean.dropna(axis=1, how=\"all\")\nfinal_grades_clean\n\n\n\n\n\n\n\n\n\nsep\n\n\noct\n\n\nnov\n\n\n\n\n\n\nalice\n\n\n8.0\n\n\n8.0\n\n\n9.0\n\n\n\n\nbob\n\n\n10.0\n\n\n9.0\n\n\n10.0\n\n\n\n\ncharles\n\n\n4.0\n\n\n11.0\n\n\n5.0\n\n\n\n\ndarwin\n\n\n9.0\n\n\n10.0\n\n\n11.0"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#groupby로-집계하기",
+    "href": "posts/Pandas/pandas.html#groupby로-집계하기",
+    "title": "Pandas",
+    "section": "groupby로 집계하기",
+    "text": "groupby로 집계하기\nSQL과 비슷하게 판다스는 데이터를 그룹핑하고 각 그룹에 대해 연산을 수행할 수 있습니다.\n먼저 그루핑을 위해 각 사람의 데이터를 추가로 만들겠습니다. NaN 값을 어떻게 다루는지 보기 위해 final_grades DataFrame을 다시 사용하겠습니다:\nfinal_grades[\"hobby\"] = [\"Biking\", \"Dancing\", np.nan, \"Dancing\", \"Biking\"]\nfinal_grades\n\n\n\n\n\n\n\n\n\nsep\n\n\noct\n\n\nnov\n\n\ndec\n\n\nhobby\n\n\n\n\n\n\nalice\n\n\n8.0\n\n\n8.0\n\n\n9.0\n\n\nNaN\n\n\nBiking\n\n\n\n\nbob\n\n\n10.0\n\n\n9.0\n\n\n10.0\n\n\nNaN\n\n\nDancing\n\n\n\n\ncharles\n\n\n4.0\n\n\n11.0\n\n\n5.0\n\n\nNaN\n\n\nNaN\n\n\n\n\ncolin\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\nDancing\n\n\n\n\ndarwin\n\n\n9.0\n\n\n10.0\n\n\n11.0\n\n\nNaN\n\n\nBiking\n\n\n\n\n\n\nhobby로 이 DataFrame을 그룹핑해 보죠:\ngrouped_grades = final_grades.groupby(\"hobby\")\ngrouped_grades\n<pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fccd01f18d0>\n이제 hobby마다 평균 점수를 계산할 수 있습니다:\ngrouped_grades.mean()\n\n\n\n\n\n\n\n\n\nsep\n\n\noct\n\n\nnov\n\n\ndec\n\n\n\n\nhobby\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBiking\n\n\n8.5\n\n\n9.0\n\n\n10.0\n\n\nNaN\n\n\n\n\nDancing\n\n\n10.0\n\n\n9.0\n\n\n10.0\n\n\nNaN\n\n\n\n\n\n\n아주 쉽네요! 평균을 계산할 때 NaN 값은 그냥 무시됩니다."
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#피봇-테이블",
+    "href": "posts/Pandas/pandas.html#피봇-테이블",
+    "title": "Pandas",
+    "section": "피봇 테이블",
+    "text": "피봇 테이블\n판다스는 스프레드시트와 비슷하 피봇 테이블을 지원하여 데이터를 빠르게 요약할 수 있습니다. 어떻게 동작하는 알아 보기 위해 간단한 DataFrame을 만들어 보죠:\nbonus_points\n\n\n\n\n\n\n\n\n\noct\n\n\nnov\n\n\ndec\n\n\n\n\n\n\nbob\n\n\n0.0\n\n\nNaN\n\n\n2.0\n\n\n\n\ncolin\n\n\nNaN\n\n\n1.0\n\n\n0.0\n\n\n\n\ndarwin\n\n\n0.0\n\n\n1.0\n\n\n0.0\n\n\n\n\ncharles\n\n\n3.0\n\n\n3.0\n\n\n0.0\n\n\n\n\n\n\nmore_grades = final_grades_clean.stack().reset_index()\nmore_grades.columns = [\"name\", \"month\", \"grade\"]\nmore_grades[\"bonus\"] = [np.nan, np.nan, np.nan, 0, np.nan, 2, 3, 3, 0, 0, 1, 0]\nmore_grades\n\n\n\n\n\n\n\n\n\nname\n\n\nmonth\n\n\ngrade\n\n\nbonus\n\n\n\n\n\n\n0\n\n\nalice\n\n\nsep\n\n\n8.0\n\n\nNaN\n\n\n\n\n1\n\n\nalice\n\n\noct\n\n\n8.0\n\n\nNaN\n\n\n\n\n2\n\n\nalice\n\n\nnov\n\n\n9.0\n\n\nNaN\n\n\n\n\n3\n\n\nbob\n\n\nsep\n\n\n10.0\n\n\n0.0\n\n\n\n\n4\n\n\nbob\n\n\noct\n\n\n9.0\n\n\nNaN\n\n\n\n\n5\n\n\nbob\n\n\nnov\n\n\n10.0\n\n\n2.0\n\n\n\n\n6\n\n\ncharles\n\n\nsep\n\n\n4.0\n\n\n3.0\n\n\n\n\n7\n\n\ncharles\n\n\noct\n\n\n11.0\n\n\n3.0\n\n\n\n\n8\n\n\ncharles\n\n\nnov\n\n\n5.0\n\n\n0.0\n\n\n\n\n9\n\n\ndarwin\n\n\nsep\n\n\n9.0\n\n\n0.0\n\n\n\n\n10\n\n\ndarwin\n\n\noct\n\n\n10.0\n\n\n1.0\n\n\n\n\n11\n\n\ndarwin\n\n\nnov\n\n\n11.0\n\n\n0.0\n\n\n\n\n\n\n이제 이 DataFrame에 대해 pd.pivot_table() 함수를 호출하고 name 열로 그룹핑합니다. 기본적으로 pivot_table()은 수치 열의 평균을 계산합니다:\npd.pivot_table(more_grades, index=\"name\")\n\n\n\n\n\n\n\n\n\nbonus\n\n\ngrade\n\n\n\n\nname\n\n\n\n\n\n\n\n\n\n\nalice\n\n\nNaN\n\n\n8.333333\n\n\n\n\nbob\n\n\n1.000000\n\n\n9.666667\n\n\n\n\ncharles\n\n\n2.000000\n\n\n6.666667\n\n\n\n\ndarwin\n\n\n0.333333\n\n\n10.000000\n\n\n\n\n\n\n집계 함수를 aggfunc 매개변수로 바꿀 수 있습니다. 또한 집계 대상의 열을 리스트로 지정할 수 있습니다:\npd.pivot_table(more_grades, index=\"name\", values=[\"grade\",\"bonus\"], aggfunc=np.max)\n\n\n\n\n\n\n\n\n\nbonus\n\n\ngrade\n\n\n\n\nname\n\n\n\n\n\n\n\n\n\n\nalice\n\n\nNaN\n\n\n9.0\n\n\n\n\nbob\n\n\n2.0\n\n\n10.0\n\n\n\n\ncharles\n\n\n3.0\n\n\n11.0\n\n\n\n\ndarwin\n\n\n1.0\n\n\n11.0\n\n\n\n\n\n\ncolumns 매개변수를 지정하여 수평으로 집계할 수 있고 margins=True로 설정해 각 행과 열에 대해 전체 합을 계산할 수 있습니다:\npd.pivot_table(more_grades, index=\"name\", values=\"grade\", columns=\"month\", margins=True)\n\n\n\n\n\n\n\nmonth\n\n\nnov\n\n\noct\n\n\nsep\n\n\nAll\n\n\n\n\nname\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nalice\n\n\n9.00\n\n\n8.0\n\n\n8.00\n\n\n8.333333\n\n\n\n\nbob\n\n\n10.00\n\n\n9.0\n\n\n10.00\n\n\n9.666667\n\n\n\n\ncharles\n\n\n5.00\n\n\n11.0\n\n\n4.00\n\n\n6.666667\n\n\n\n\ndarwin\n\n\n11.00\n\n\n10.0\n\n\n9.00\n\n\n10.000000\n\n\n\n\nAll\n\n\n8.75\n\n\n9.5\n\n\n7.75\n\n\n8.666667\n\n\n\n\n\n\n마지막으로 여러 개의 인덱스나 열 이름을 지정하면 판다스가 다중 레벨 인덱스를 만듭니다:\npd.pivot_table(more_grades, index=(\"name\", \"month\"), margins=True)\n\n\n\n\n\n\n\n\n\n\n\nbonus\n\n\ngrade\n\n\n\n\nname\n\n\nmonth\n\n\n\n\n\n\n\n\n\n\nalice\n\n\nnov\n\n\nNaN\n\n\n9.00\n\n\n\n\noct\n\n\nNaN\n\n\n8.00\n\n\n\n\nsep\n\n\nNaN\n\n\n8.00\n\n\n\n\nbob\n\n\nnov\n\n\n2.000\n\n\n10.00\n\n\n\n\noct\n\n\nNaN\n\n\n9.00\n\n\n\n\nsep\n\n\n0.000\n\n\n10.00\n\n\n\n\ncharles\n\n\nnov\n\n\n0.000\n\n\n5.00\n\n\n\n\noct\n\n\n3.000\n\n\n11.00\n\n\n\n\nsep\n\n\n3.000\n\n\n4.00\n\n\n\n\ndarwin\n\n\nnov\n\n\n0.000\n\n\n11.00\n\n\n\n\noct\n\n\n1.000\n\n\n10.00\n\n\n\n\nsep\n\n\n0.000\n\n\n9.00\n\n\n\n\nAll\n\n\n\n\n1.125\n\n\n8.75"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#함수",
+    "href": "posts/Pandas/pandas.html#함수",
+    "title": "Pandas",
+    "section": "함수",
+    "text": "함수\n큰 DataFrame을 다룰 때 내용을 간단히 요약하는 것이 도움이 됩니다. 판다스는 이를 위한 몇 가지 함수를 제공합니다. 먼저 수치 값, 누락된 값, 텍스트 값이 섞인 큰 DataFrame을 만들어 보죠. 주피터 노트북은 이 DataFrame의 일부만 보여줍니다:\nmuch_data = np.fromfunction(lambda x,y: (x+y*y)%17*11, (10000, 26))\nlarge_df = pd.DataFrame(much_data, columns=list(\"ABCDEFGHIJKLMNOPQRSTUVWXYZ\"))\nlarge_df[large_df % 16 == 0] = np.nan\nlarge_df.insert(3,\"some_text\", \"Blabla\")\nlarge_df\n\n\n\n\n\n\n\n\n\nA\n\n\nB\n\n\nC\n\n\nsome_text\n\n\nD\n\n\nE\n\n\nF\n\n\nG\n\n\nH\n\n\nI\n\n\n…\n\n\nQ\n\n\nR\n\n\nS\n\n\nT\n\n\nU\n\n\nV\n\n\nW\n\n\nX\n\n\nY\n\n\nZ\n\n\n\n\n\n\n0\n\n\nNaN\n\n\n11.0\n\n\n44.0\n\n\nBlabla\n\n\n99.0\n\n\nNaN\n\n\n88.0\n\n\n22.0\n\n\n165.0\n\n\n143.0\n\n\n…\n\n\n11.0\n\n\nNaN\n\n\n11.0\n\n\n44.0\n\n\n99.0\n\n\nNaN\n\n\n88.0\n\n\n22.0\n\n\n165.0\n\n\n143.0\n\n\n\n\n1\n\n\n11.0\n\n\n22.0\n\n\n55.0\n\n\nBlabla\n\n\n110.0\n\n\nNaN\n\n\n99.0\n\n\n33.0\n\n\nNaN\n\n\n154.0\n\n\n…\n\n\n22.0\n\n\n11.0\n\n\n22.0\n\n\n55.0\n\n\n110.0\n\n\nNaN\n\n\n99.0\n\n\n33.0\n\n\nNaN\n\n\n154.0\n\n\n\n\n2\n\n\n22.0\n\n\n33.0\n\n\n66.0\n\n\nBlabla\n\n\n121.0\n\n\n11.0\n\n\n110.0\n\n\n44.0\n\n\nNaN\n\n\n165.0\n\n\n…\n\n\n33.0\n\n\n22.0\n\n\n33.0\n\n\n66.0\n\n\n121.0\n\n\n11.0\n\n\n110.0\n\n\n44.0\n\n\nNaN\n\n\n165.0\n\n\n\n\n3\n\n\n33.0\n\n\n44.0\n\n\n77.0\n\n\nBlabla\n\n\n132.0\n\n\n22.0\n\n\n121.0\n\n\n55.0\n\n\n11.0\n\n\nNaN\n\n\n…\n\n\n44.0\n\n\n33.0\n\n\n44.0\n\n\n77.0\n\n\n132.0\n\n\n22.0\n\n\n121.0\n\n\n55.0\n\n\n11.0\n\n\nNaN\n\n\n\n\n4\n\n\n44.0\n\n\n55.0\n\n\n88.0\n\n\nBlabla\n\n\n143.0\n\n\n33.0\n\n\n132.0\n\n\n66.0\n\n\n22.0\n\n\nNaN\n\n\n…\n\n\n55.0\n\n\n44.0\n\n\n55.0\n\n\n88.0\n\n\n143.0\n\n\n33.0\n\n\n132.0\n\n\n66.0\n\n\n22.0\n\n\nNaN\n\n\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n…\n\n\n\n\n9995\n\n\nNaN\n\n\nNaN\n\n\n33.0\n\n\nBlabla\n\n\n88.0\n\n\n165.0\n\n\n77.0\n\n\n11.0\n\n\n154.0\n\n\n132.0\n\n\n…\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\n33.0\n\n\n88.0\n\n\n165.0\n\n\n77.0\n\n\n11.0\n\n\n154.0\n\n\n132.0\n\n\n\n\n9996\n\n\nNaN\n\n\n11.0\n\n\n44.0\n\n\nBlabla\n\n\n99.0\n\n\nNaN\n\n\n88.0\n\n\n22.0\n\n\n165.0\n\n\n143.0\n\n\n…\n\n\n11.0\n\n\nNaN\n\n\n11.0\n\n\n44.0\n\n\n99.0\n\n\nNaN\n\n\n88.0\n\n\n22.0\n\n\n165.0\n\n\n143.0\n\n\n\n\n9997\n\n\n11.0\n\n\n22.0\n\n\n55.0\n\n\nBlabla\n\n\n110.0\n\n\nNaN\n\n\n99.0\n\n\n33.0\n\n\nNaN\n\n\n154.0\n\n\n…\n\n\n22.0\n\n\n11.0\n\n\n22.0\n\n\n55.0\n\n\n110.0\n\n\nNaN\n\n\n99.0\n\n\n33.0\n\n\nNaN\n\n\n154.0\n\n\n\n\n9998\n\n\n22.0\n\n\n33.0\n\n\n66.0\n\n\nBlabla\n\n\n121.0\n\n\n11.0\n\n\n110.0\n\n\n44.0\n\n\nNaN\n\n\n165.0\n\n\n…\n\n\n33.0\n\n\n22.0\n\n\n33.0\n\n\n66.0\n\n\n121.0\n\n\n11.0\n\n\n110.0\n\n\n44.0\n\n\nNaN\n\n\n165.0\n\n\n\n\n9999\n\n\n33.0\n\n\n44.0\n\n\n77.0\n\n\nBlabla\n\n\n132.0\n\n\n22.0\n\n\n121.0\n\n\n55.0\n\n\n11.0\n\n\nNaN\n\n\n…\n\n\n44.0\n\n\n33.0\n\n\n44.0\n\n\n77.0\n\n\n132.0\n\n\n22.0\n\n\n121.0\n\n\n55.0\n\n\n11.0\n\n\nNaN\n\n\n\n\n\n\n10000 rows × 27 columns\n\n\nhead() 메서드는 처음 5개 행을 반환합니다:\nlarge_df.head()\n\n\n\n\n\n\n\n\n\nA\n\n\nB\n\n\nC\n\n\nsome_text\n\n\nD\n\n\nE\n\n\nF\n\n\nG\n\n\nH\n\n\nI\n\n\n…\n\n\nQ\n\n\nR\n\n\nS\n\n\nT\n\n\nU\n\n\nV\n\n\nW\n\n\nX\n\n\nY\n\n\nZ\n\n\n\n\n\n\n0\n\n\nNaN\n\n\n11.0\n\n\n44.0\n\n\nBlabla\n\n\n99.0\n\n\nNaN\n\n\n88.0\n\n\n22.0\n\n\n165.0\n\n\n143.0\n\n\n…\n\n\n11.0\n\n\nNaN\n\n\n11.0\n\n\n44.0\n\n\n99.0\n\n\nNaN\n\n\n88.0\n\n\n22.0\n\n\n165.0\n\n\n143.0\n\n\n\n\n1\n\n\n11.0\n\n\n22.0\n\n\n55.0\n\n\nBlabla\n\n\n110.0\n\n\nNaN\n\n\n99.0\n\n\n33.0\n\n\nNaN\n\n\n154.0\n\n\n…\n\n\n22.0\n\n\n11.0\n\n\n22.0\n\n\n55.0\n\n\n110.0\n\n\nNaN\n\n\n99.0\n\n\n33.0\n\n\nNaN\n\n\n154.0\n\n\n\n\n2\n\n\n22.0\n\n\n33.0\n\n\n66.0\n\n\nBlabla\n\n\n121.0\n\n\n11.0\n\n\n110.0\n\n\n44.0\n\n\nNaN\n\n\n165.0\n\n\n…\n\n\n33.0\n\n\n22.0\n\n\n33.0\n\n\n66.0\n\n\n121.0\n\n\n11.0\n\n\n110.0\n\n\n44.0\n\n\nNaN\n\n\n165.0\n\n\n\n\n3\n\n\n33.0\n\n\n44.0\n\n\n77.0\n\n\nBlabla\n\n\n132.0\n\n\n22.0\n\n\n121.0\n\n\n55.0\n\n\n11.0\n\n\nNaN\n\n\n…\n\n\n44.0\n\n\n33.0\n\n\n44.0\n\n\n77.0\n\n\n132.0\n\n\n22.0\n\n\n121.0\n\n\n55.0\n\n\n11.0\n\n\nNaN\n\n\n\n\n4\n\n\n44.0\n\n\n55.0\n\n\n88.0\n\n\nBlabla\n\n\n143.0\n\n\n33.0\n\n\n132.0\n\n\n66.0\n\n\n22.0\n\n\nNaN\n\n\n…\n\n\n55.0\n\n\n44.0\n\n\n55.0\n\n\n88.0\n\n\n143.0\n\n\n33.0\n\n\n132.0\n\n\n66.0\n\n\n22.0\n\n\nNaN\n\n\n\n\n\n\n5 rows × 27 columns\n\n\n마지막 5개 행을 반환하는 tail() 함수도 있습니다. 원하는 행 개수를 전달할 수도 있습니다:\nlarge_df.tail(n=2)\n\n\n\n\n\n\n\n\n\nA\n\n\nB\n\n\nC\n\n\nsome_text\n\n\nD\n\n\nE\n\n\nF\n\n\nG\n\n\nH\n\n\nI\n\n\n…\n\n\nQ\n\n\nR\n\n\nS\n\n\nT\n\n\nU\n\n\nV\n\n\nW\n\n\nX\n\n\nY\n\n\nZ\n\n\n\n\n\n\n9998\n\n\n22.0\n\n\n33.0\n\n\n66.0\n\n\nBlabla\n\n\n121.0\n\n\n11.0\n\n\n110.0\n\n\n44.0\n\n\nNaN\n\n\n165.0\n\n\n…\n\n\n33.0\n\n\n22.0\n\n\n33.0\n\n\n66.0\n\n\n121.0\n\n\n11.0\n\n\n110.0\n\n\n44.0\n\n\nNaN\n\n\n165.0\n\n\n\n\n9999\n\n\n33.0\n\n\n44.0\n\n\n77.0\n\n\nBlabla\n\n\n132.0\n\n\n22.0\n\n\n121.0\n\n\n55.0\n\n\n11.0\n\n\nNaN\n\n\n…\n\n\n44.0\n\n\n33.0\n\n\n44.0\n\n\n77.0\n\n\n132.0\n\n\n22.0\n\n\n121.0\n\n\n55.0\n\n\n11.0\n\n\nNaN\n\n\n\n\n\n\n2 rows × 27 columns\n\n\ninfo() 메서드는 각 열의 내용을 요약하여 출력합니다:\nlarge_df.info()\n<class 'pandas.core.frame.DataFrame'>\nRangeIndex: 10000 entries, 0 to 9999\nData columns (total 27 columns):\n #   Column     Non-Null Count  Dtype  \n---  ------     --------------  -----  \n 0   A          8823 non-null   float64\n 1   B          8824 non-null   float64\n 2   C          8824 non-null   float64\n 3   some_text  10000 non-null  object \n 4   D          8824 non-null   float64\n 5   E          8822 non-null   float64\n 6   F          8824 non-null   float64\n 7   G          8824 non-null   float64\n 8   H          8822 non-null   float64\n 9   I          8823 non-null   float64\n 10  J          8823 non-null   float64\n 11  K          8822 non-null   float64\n 12  L          8824 non-null   float64\n 13  M          8824 non-null   float64\n 14  N          8822 non-null   float64\n 15  O          8824 non-null   float64\n 16  P          8824 non-null   float64\n 17  Q          8824 non-null   float64\n 18  R          8823 non-null   float64\n 19  S          8824 non-null   float64\n 20  T          8824 non-null   float64\n 21  U          8824 non-null   float64\n 22  V          8822 non-null   float64\n 23  W          8824 non-null   float64\n 24  X          8824 non-null   float64\n 25  Y          8822 non-null   float64\n 26  Z          8823 non-null   float64\ndtypes: float64(26), object(1)\nmemory usage: 2.1+ MB\n마지막으로 describe() 메서드는 각 열에 대한 주요 집계 연산을 수행한 결과를 보여줍니다:\nFinally, the describe() method gives a nice overview of the main aggregated values over each column: * count: null(NaN)이 아닌 값의 개수 * mean: null이 아닌 값의 평균 * std: null이 아닌 값의 표준 편차 * min: null이 아닌 값의 최솟값 * 25%, 50%, 75%: null이 아닌 값의 25번째, 50번째, 75번째 백분위수 * max: null이 아닌 값의 최댓값\nlarge_df.describe()\n\n\n\n\n\n\n\n\n\nA\n\n\nB\n\n\nC\n\n\nD\n\n\nE\n\n\nF\n\n\nG\n\n\nH\n\n\nI\n\n\nJ\n\n\n…\n\n\nQ\n\n\nR\n\n\nS\n\n\nT\n\n\nU\n\n\nV\n\n\nW\n\n\nX\n\n\nY\n\n\nZ\n\n\n\n\n\n\ncount\n\n\n8823.000000\n\n\n8824.000000\n\n\n8824.000000\n\n\n8824.000000\n\n\n8822.000000\n\n\n8824.000000\n\n\n8824.000000\n\n\n8822.000000\n\n\n8823.000000\n\n\n8823.000000\n\n\n…\n\n\n8824.000000\n\n\n8823.000000\n\n\n8824.000000\n\n\n8824.000000\n\n\n8824.000000\n\n\n8822.000000\n\n\n8824.000000\n\n\n8824.000000\n\n\n8822.000000\n\n\n8823.000000\n\n\n\n\nmean\n\n\n87.977559\n\n\n87.972575\n\n\n87.987534\n\n\n88.012466\n\n\n87.983791\n\n\n88.007480\n\n\n87.977561\n\n\n88.000000\n\n\n88.022441\n\n\n88.022441\n\n\n…\n\n\n87.972575\n\n\n87.977559\n\n\n87.972575\n\n\n87.987534\n\n\n88.012466\n\n\n87.983791\n\n\n88.007480\n\n\n87.977561\n\n\n88.000000\n\n\n88.022441\n\n\n\n\nstd\n\n\n47.535911\n\n\n47.535523\n\n\n47.521679\n\n\n47.521679\n\n\n47.535001\n\n\n47.519371\n\n\n47.529755\n\n\n47.536879\n\n\n47.535911\n\n\n47.535911\n\n\n…\n\n\n47.535523\n\n\n47.535911\n\n\n47.535523\n\n\n47.521679\n\n\n47.521679\n\n\n47.535001\n\n\n47.519371\n\n\n47.529755\n\n\n47.536879\n\n\n47.535911\n\n\n\n\nmin\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n…\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n11.000000\n\n\n\n\n25%\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n…\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n44.000000\n\n\n\n\n50%\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n…\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n88.000000\n\n\n\n\n75%\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n…\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n132.000000\n\n\n\n\nmax\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n…\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n165.000000\n\n\n\n\n\n\n8 rows × 26 columns"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#저장",
+    "href": "posts/Pandas/pandas.html#저장",
+    "title": "Pandas",
+    "section": "저장",
+    "text": "저장\nCSV, HTML, JSON로 저장해 보죠:\nmy_df.to_csv(\"my_df.csv\")\nmy_df.to_html(\"my_df.html\")\nmy_df.to_json(\"my_df.json\")\n저장된 내용을 확인해 보죠:\nfor filename in (\"my_df.csv\", \"my_df.html\", \"my_df.json\"):\n    print(\"#\", filename)\n    with open(filename, \"rt\") as f:\n        print(f.read())\n        print()\n# my_df.csv\n,hobby,weight,birthyear,children\nalice,Biking,68.5,1985,\nbob,Dancing,83.1,1984,3.0\n\n\n# my_df.html\n<table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>hobby</th>\n      <th>weight</th>\n      <th>birthyear</th>\n      <th>children</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>alice</th>\n      <td>Biking</td>\n      <td>68.5</td>\n      <td>1985</td>\n      <td>NaN</td>\n    </tr>\n    <tr>\n      <th>bob</th>\n      <td>Dancing</td>\n      <td>83.1</td>\n      <td>1984</td>\n      <td>3.0</td>\n    </tr>\n  </tbody>\n</table>\n\n# my_df.json\n{\"hobby\":{\"alice\":\"Biking\",\"bob\":\"Dancing\"},\"weight\":{\"alice\":68.5,\"bob\":83.1},\"birthyear\":{\"alice\":1985,\"bob\":1984},\"children\":{\"alice\":null,\"bob\":3.0}}\n인덱스는 (이름 없이) CSV 파일의 첫 번째 열에 저장되었습니다. HTML에서는 <th> 태그와 JSON에서는 키로 저장되었습니다.\n다른 포맷으로 저장하는 것도 비슷합니다. 하지만 일부 포맷은 추가적인 라이브러리 설치가 필요합니다. 예를 들어, 엑셀로 저장하려면 openpyxl 라이브러리가 필요합니다:\ntry:\n    my_df.to_excel(\"my_df.xlsx\", sheet_name='People')\nexcept ImportError as e:\n    print(e)\nNo module named 'openpyxl'"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#로딩",
+    "href": "posts/Pandas/pandas.html#로딩",
+    "title": "Pandas",
+    "section": "로딩",
+    "text": "로딩\nCSV 파일을 DataFrame으로 로드해 보죠:\nmy_df_loaded = pd.read_csv(\"my_df.csv\", index_col=0)\nmy_df_loaded\n\n\n\n\n\n\n\n\n\nhobby\n\n\nweight\n\n\nbirthyear\n\n\nchildren\n\n\n\n\n\n\nalice\n\n\nBiking\n\n\n68.5\n\n\n1985\n\n\nNaN\n\n\n\n\nbob\n\n\nDancing\n\n\n83.1\n\n\n1984\n\n\n3.0\n\n\n\n\n\n\n예상할 수 있듯이 read_json, read_html, read_excel 함수도 있습니다. 인터넷에서 데이터를 바로 읽을 수도 있습니다. 예를 들어 깃허브에서 1,000개의 U.S. 도시를 로드해 보죠:\nus_cities = None\ntry:\n    csv_url = \"https://raw.githubusercontent.com/plotly/datasets/master/us-cities-top-1k.csv\"\n    us_cities = pd.read_csv(csv_url, index_col=0)\n    us_cities = us_cities.head()\nexcept IOError as e:\n    print(e)\nus_cities\nHTTP Error 403: Forbidden\n이외에도 많은 옵션이 있습니다. 특히 datetime 포맷에 관련된 옵션이 많습니다. 더 자세한 내용은 온라인 문서를 참고하세요."
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#sql-조인",
+    "href": "posts/Pandas/pandas.html#sql-조인",
+    "title": "Pandas",
+    "section": "SQL 조인",
+    "text": "SQL 조인\n판다스의 강력한 기능 중 하나는 DataFrame에 대해 SQL 같은 조인(join)을 수행할 수 있는 것입니다. 여러 종류의 조인이 지원됩니다. 이너 조인(inner join), 레프트/라이트 아우터 조인(left/right outer join), 풀 조인(full join)입니다. 이에 대해 알아 보기 위해 간단한 DataFrame을 만들어 보죠:\ncity_loc = pd.DataFrame(\n    [\n        [\"CA\", \"San Francisco\", 37.781334, -122.416728],\n        [\"NY\", \"New York\", 40.705649, -74.008344],\n        [\"FL\", \"Miami\", 25.791100, -80.320733],\n        [\"OH\", \"Cleveland\", 41.473508, -81.739791],\n        [\"UT\", \"Salt Lake City\", 40.755851, -111.896657]\n    ], columns=[\"state\", \"city\", \"lat\", \"lng\"])\ncity_loc\n\n\n\n\n\n\n\n\n\nstate\n\n\ncity\n\n\nlat\n\n\nlng\n\n\n\n\n\n\n0\n\n\nCA\n\n\nSan Francisco\n\n\n37.781334\n\n\n-122.416728\n\n\n\n\n1\n\n\nNY\n\n\nNew York\n\n\n40.705649\n\n\n-74.008344\n\n\n\n\n2\n\n\nFL\n\n\nMiami\n\n\n25.791100\n\n\n-80.320733\n\n\n\n\n3\n\n\nOH\n\n\nCleveland\n\n\n41.473508\n\n\n-81.739791\n\n\n\n\n4\n\n\nUT\n\n\nSalt Lake City\n\n\n40.755851\n\n\n-111.896657\n\n\n\n\n\n\ncity_pop = pd.DataFrame(\n    [\n        [808976, \"San Francisco\", \"California\"],\n        [8363710, \"New York\", \"New-York\"],\n        [413201, \"Miami\", \"Florida\"],\n        [2242193, \"Houston\", \"Texas\"]\n    ], index=[3,4,5,6], columns=[\"population\", \"city\", \"state\"])\ncity_pop\n\n\n\n\n\n\n\n\n\npopulation\n\n\ncity\n\n\nstate\n\n\n\n\n\n\n3\n\n\n808976\n\n\nSan Francisco\n\n\nCalifornia\n\n\n\n\n4\n\n\n8363710\n\n\nNew York\n\n\nNew-York\n\n\n\n\n5\n\n\n413201\n\n\nMiami\n\n\nFlorida\n\n\n\n\n6\n\n\n2242193\n\n\nHouston\n\n\nTexas\n\n\n\n\n\n\n이제 merge() 함수를 사용해 이 DataFrame을 조인해 보죠:\npd.merge(left=city_loc, right=city_pop, on=\"city\")\n\n\n\n\n\n\n\n\n\nstate_x\n\n\ncity\n\n\nlat\n\n\nlng\n\n\npopulation\n\n\nstate_y\n\n\n\n\n\n\n0\n\n\nCA\n\n\nSan Francisco\n\n\n37.781334\n\n\n-122.416728\n\n\n808976\n\n\nCalifornia\n\n\n\n\n1\n\n\nNY\n\n\nNew York\n\n\n40.705649\n\n\n-74.008344\n\n\n8363710\n\n\nNew-York\n\n\n\n\n2\n\n\nFL\n\n\nMiami\n\n\n25.791100\n\n\n-80.320733\n\n\n413201\n\n\nFlorida\n\n\n\n\n\n\n두 DataFrame은 state란 이름의 열을 가지고 있으므로 state_x와 state_y로 이름이 바뀌었습니다.\n또한 Cleveland, Salt Lake City, Houston은 두 DataFrame에 모두 존재하지 않기 때문에 삭제되었습니다. SQL의 INNER JOIN과 동일합니다. 도시를 삭제하지 않고 NaN으로 채우는 FULL OUTER JOIN을 원하면 how=\"outer\"로 지정합니다:\nall_cities = pd.merge(left=city_loc, right=city_pop, on=\"city\", how=\"outer\")\nall_cities\n\n\n\n\n\n\n\n\n\nstate_x\n\n\ncity\n\n\nlat\n\n\nlng\n\n\npopulation\n\n\nstate_y\n\n\n\n\n\n\n0\n\n\nCA\n\n\nSan Francisco\n\n\n37.781334\n\n\n-122.416728\n\n\n808976.0\n\n\nCalifornia\n\n\n\n\n1\n\n\nNY\n\n\nNew York\n\n\n40.705649\n\n\n-74.008344\n\n\n8363710.0\n\n\nNew-York\n\n\n\n\n2\n\n\nFL\n\n\nMiami\n\n\n25.791100\n\n\n-80.320733\n\n\n413201.0\n\n\nFlorida\n\n\n\n\n3\n\n\nOH\n\n\nCleveland\n\n\n41.473508\n\n\n-81.739791\n\n\nNaN\n\n\nNaN\n\n\n\n\n4\n\n\nUT\n\n\nSalt Lake City\n\n\n40.755851\n\n\n-111.896657\n\n\nNaN\n\n\nNaN\n\n\n\n\n5\n\n\nNaN\n\n\nHouston\n\n\nNaN\n\n\nNaN\n\n\n2242193.0\n\n\nTexas\n\n\n\n\n\n\n물론 LEFT OUTER JOIN은 how=\"left\"로 지정할 수 있습니다. 왼쪽의 DataFrame에 있는 도시만 남습니다. 비슷하게 how=\"right\"는 오른쪽 DataFrame에 있는 도시만 결과에 남습니다. 예를 들면:\npd.merge(left=city_loc, right=city_pop, on=\"city\", how=\"right\")\n\n\n\n\n\n\n\n\n\nstate_x\n\n\ncity\n\n\nlat\n\n\nlng\n\n\npopulation\n\n\nstate_y\n\n\n\n\n\n\n0\n\n\nCA\n\n\nSan Francisco\n\n\n37.781334\n\n\n-122.416728\n\n\n808976\n\n\nCalifornia\n\n\n\n\n1\n\n\nNY\n\n\nNew York\n\n\n40.705649\n\n\n-74.008344\n\n\n8363710\n\n\nNew-York\n\n\n\n\n2\n\n\nFL\n\n\nMiami\n\n\n25.791100\n\n\n-80.320733\n\n\n413201\n\n\nFlorida\n\n\n\n\n3\n\n\nNaN\n\n\nHouston\n\n\nNaN\n\n\nNaN\n\n\n2242193\n\n\nTexas\n\n\n\n\n\n\n조인할 키가 DataFrame 인덱스라면 left_index=True나 right_index=True로 지정해야 합니다. 키 열의 이름이 다르면 left_on과 right_on을 사용합니다. 예를 들어:\ncity_pop2 = city_pop.copy()\ncity_pop2.columns = [\"population\", \"name\", \"state\"]\npd.merge(left=city_loc, right=city_pop2, left_on=\"city\", right_on=\"name\")\n\n\n\n\n\n\n\n\n\nstate_x\n\n\ncity\n\n\nlat\n\n\nlng\n\n\npopulation\n\n\nname\n\n\nstate_y\n\n\n\n\n\n\n0\n\n\nCA\n\n\nSan Francisco\n\n\n37.781334\n\n\n-122.416728\n\n\n808976\n\n\nSan Francisco\n\n\nCalifornia\n\n\n\n\n1\n\n\nNY\n\n\nNew York\n\n\n40.705649\n\n\n-74.008344\n\n\n8363710\n\n\nNew York\n\n\nNew-York\n\n\n\n\n2\n\n\nFL\n\n\nMiami\n\n\n25.791100\n\n\n-80.320733\n\n\n413201\n\n\nMiami\n\n\nFlorida"
+  },
+  {
+    "objectID": "posts/Pandas/pandas.html#연결",
+    "href": "posts/Pandas/pandas.html#연결",
+    "title": "Pandas",
+    "section": "연결",
+    "text": "연결\nDataFrame을 조인하는 대신 그냥 연결할 수도 있습니다. concat() 함수가 하는 일입니다:\nresult_concat = pd.concat([city_loc, city_pop])\nresult_concat\n\n\n\n\n\n\n\n\n\nstate\n\n\ncity\n\n\nlat\n\n\nlng\n\n\npopulation\n\n\n\n\n\n\n0\n\n\nCA\n\n\nSan Francisco\n\n\n37.781334\n\n\n-122.416728\n\n\nNaN\n\n\n\n\n1\n\n\nNY\n\n\nNew York\n\n\n40.705649\n\n\n-74.008344\n\n\nNaN\n\n\n\n\n2\n\n\nFL\n\n\nMiami\n\n\n25.791100\n\n\n-80.320733\n\n\nNaN\n\n\n\n\n3\n\n\nOH\n\n\nCleveland\n\n\n41.473508\n\n\n-81.739791\n\n\nNaN\n\n\n\n\n4\n\n\nUT\n\n\nSalt Lake City\n\n\n40.755851\n\n\n-111.896657\n\n\nNaN\n\n\n\n\n3\n\n\nCalifornia\n\n\nSan Francisco\n\n\nNaN\n\n\nNaN\n\n\n808976.0\n\n\n\n\n4\n\n\nNew-York\n\n\nNew York\n\n\nNaN\n\n\nNaN\n\n\n8363710.0\n\n\n\n\n5\n\n\nFlorida\n\n\nMiami\n\n\nNaN\n\n\nNaN\n\n\n413201.0\n\n\n\n\n6\n\n\nTexas\n\n\nHouston\n\n\nNaN\n\n\nNaN\n\n\n2242193.0\n\n\n\n\n\n\n이 연산은 (행을 따라) 수직적으로 데이터를 연결하고 (열을 따라) 수평으로 연결하지 않습니다. 이 예에서 동일한 인덱스를 가진 행이 있습니다(예를 들면 3). 판다스는 이를 우아하게 처리합니다:\nresult_concat.loc[3]\n\n\n\n\n\n\n\n\n\nstate\n\n\ncity\n\n\nlat\n\n\nlng\n\n\npopulation\n\n\n\n\n\n\n3\n\n\nOH\n\n\nCleveland\n\n\n41.473508\n\n\n-81.739791\n\n\nNaN\n\n\n\n\n3\n\n\nCalifornia\n\n\nSan Francisco\n\n\nNaN\n\n\nNaN\n\n\n808976.0\n\n\n\n\n\n\n또는 인덱스를 무시하도록 설정할 수 있습니다:\npd.concat([city_loc, city_pop], ignore_index=True)\n\n\n\n\n\n\n\n\n\nstate\n\n\ncity\n\n\nlat\n\n\nlng\n\n\npopulation\n\n\n\n\n\n\n0\n\n\nCA\n\n\nSan Francisco\n\n\n37.781334\n\n\n-122.416728\n\n\nNaN\n\n\n\n\n1\n\n\nNY\n\n\nNew York\n\n\n40.705649\n\n\n-74.008344\n\n\nNaN\n\n\n\n\n2\n\n\nFL\n\n\nMiami\n\n\n25.791100\n\n\n-80.320733\n\n\nNaN\n\n\n\n\n3\n\n\nOH\n\n\nCleveland\n\n\n41.473508\n\n\n-81.739791\n\n\nNaN\n\n\n\n\n4\n\n\nUT\n\n\nSalt Lake City\n\n\n40.755851\n\n\n-111.896657\n\n\nNaN\n\n\n\n\n5\n\n\nCalifornia\n\n\nSan Francisco\n\n\nNaN\n\n\nNaN\n\n\n808976.0\n\n\n\n\n6\n\n\nNew-York\n\n\nNew York\n\n\nNaN\n\n\nNaN\n\n\n8363710.0\n\n\n\n\n7\n\n\nFlorida\n\n\nMiami\n\n\nNaN\n\n\nNaN\n\n\n413201.0\n\n\n\n\n8\n\n\nTexas\n\n\nHouston\n\n\nNaN\n\n\nNaN\n\n\n2242193.0\n\n\n\n\n\n\n한 DataFrame에 열이 없을 때 NaN이 채워져 있는 것처럼 동작합니다. join=\"inner\"로 설정하면 양쪽의 DataFrame에 존재하는 열만 반환됩니다:\npd.concat([city_loc, city_pop], join=\"inner\")\n\n\n\n\n\n\n\n\n\nstate\n\n\ncity\n\n\n\n\n\n\n0\n\n\nCA\n\n\nSan Francisco\n\n\n\n\n1\n\n\nNY\n\n\nNew York\n\n\n\n\n2\n\n\nFL\n\n\nMiami\n\n\n\n\n3\n\n\nOH\n\n\nCleveland\n\n\n\n\n4\n\n\nUT\n\n\nSalt Lake City\n\n\n\n\n3\n\n\nCalifornia\n\n\nSan Francisco\n\n\n\n\n4\n\n\nNew-York\n\n\nNew York\n\n\n\n\n5\n\n\nFlorida\n\n\nMiami\n\n\n\n\n6\n\n\nTexas\n\n\nHouston\n\n\n\n\n\n\naxis=1로 설정하면 DataFrame을 수직이 아니라 수평으로 연결할 수 있습니다:\npd.concat([city_loc, city_pop], axis=1)\n\n\n\n\n\n\n\n\n\nstate\n\n\ncity\n\n\nlat\n\n\nlng\n\n\npopulation\n\n\ncity\n\n\nstate\n\n\n\n\n\n\n0\n\n\nCA\n\n\nSan Francisco\n\n\n37.781334\n\n\n-122.416728\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\n\n\n1\n\n\nNY\n\n\nNew York\n\n\n40.705649\n\n\n-74.008344\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\n\n\n2\n\n\nFL\n\n\nMiami\n\n\n25.791100\n\n\n-80.320733\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\n\n\n3\n\n\nOH\n\n\nCleveland\n\n\n41.473508\n\n\n-81.739791\n\n\n808976.0\n\n\nSan Francisco\n\n\nCalifornia\n\n\n\n\n4\n\n\nUT\n\n\nSalt Lake City\n\n\n40.755851\n\n\n-111.896657\n\n\n8363710.0\n\n\nNew York\n\n\nNew-York\n\n\n\n\n5\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\n413201.0\n\n\nMiami\n\n\nFlorida\n\n\n\n\n6\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\n2242193.0\n\n\nHouston\n\n\nTexas\n\n\n\n\n\n\n이 경우 인덱스가 잘 정렬되지 않기 때문에 의미가 없습니다(예를 들어 Cleveland와 San Francisco의 인덱스 레이블이 3이기 때문에 동일한 행에 놓여 있습니다). 이 DataFrame을 연결하기 전에 도시로 인덱스를 재설정해 보죠:\npd.concat([city_loc.set_index(\"city\"), city_pop.set_index(\"city\")], axis=1)\n\n\n\n\n\n\n\n\n\nstate\n\n\nlat\n\n\nlng\n\n\npopulation\n\n\nstate\n\n\n\n\n\n\nSan Francisco\n\n\nCA\n\n\n37.781334\n\n\n-122.416728\n\n\n808976.0\n\n\nCalifornia\n\n\n\n\nNew York\n\n\nNY\n\n\n40.705649\n\n\n-74.008344\n\n\n8363710.0\n\n\nNew-York\n\n\n\n\nMiami\n\n\nFL\n\n\n25.791100\n\n\n-80.320733\n\n\n413201.0\n\n\nFlorida\n\n\n\n\nCleveland\n\n\nOH\n\n\n41.473508\n\n\n-81.739791\n\n\nNaN\n\n\nNaN\n\n\n\n\nSalt Lake City\n\n\nUT\n\n\n40.755851\n\n\n-111.896657\n\n\nNaN\n\n\nNaN\n\n\n\n\nHouston\n\n\nNaN\n\n\nNaN\n\n\nNaN\n\n\n2242193.0\n\n\nTexas\n\n\n\n\n\n\nFULL OUTER JOIN을 수행한 것과 비슷합니다. 하지만 state 열이 state_x와 state_y로 바뀌지 않았고 city 열이 인덱스가 되었습니다.\nappend() 메서드는 DataFrame을 수직으로 연결하는 단축 메서드입니다:\ncity_loc.append(city_pop)\n\n\n\n\n\n\n\n\n\nstate\n\n\ncity\n\n\nlat\n\n\nlng\n\n\npopulation\n\n\n\n\n\n\n0\n\n\nCA\n\n\nSan Francisco\n\n\n37.781334\n\n\n-122.416728\n\n\nNaN\n\n\n\n\n1\n\n\nNY\n\n\nNew York\n\n\n40.705649\n\n\n-74.008344\n\n\nNaN\n\n\n\n\n2\n\n\nFL\n\n\nMiami\n\n\n25.791100\n\n\n-80.320733\n\n\nNaN\n\n\n\n\n3\n\n\nOH\n\n\nCleveland\n\n\n41.473508\n\n\n-81.739791\n\n\nNaN\n\n\n\n\n4\n\n\nUT\n\n\nSalt Lake City\n\n\n40.755851\n\n\n-111.896657\n\n\nNaN\n\n\n\n\n3\n\n\nCalifornia\n\n\nSan Francisco\n\n\nNaN\n\n\nNaN\n\n\n808976.0\n\n\n\n\n4\n\n\nNew-York\n\n\nNew York\n\n\nNaN\n\n\nNaN\n\n\n8363710.0\n\n\n\n\n5\n\n\nFlorida\n\n\nMiami\n\n\nNaN\n\n\nNaN\n\n\n413201.0\n\n\n\n\n6\n\n\nTexas\n\n\nHouston\n\n\nNaN\n\n\nNaN\n\n\n2242193.0\n\n\n\n\n\n\n판다스의 다른 메서드와 마찬가지로 append() 메서드는 실제 city_loc을 수정하지 않습니다. 복사본을 만들어 수정한 다음 반환합니다."
   },
   {
     "objectID": "posts/post-with-code/index.html",

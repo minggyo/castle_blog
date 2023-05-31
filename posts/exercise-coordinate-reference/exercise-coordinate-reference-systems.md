@@ -1,3 +1,9 @@
+---
+title: "exercise-coordinate-reference"
+date: "2023-05-31"
+categories: [code, analysis]
+---
+
 **This notebook is an exercise in the [Geospatial Analysis](https://www.kaggle.com/learn/geospatial-analysis) course.  You can reference the tutorial at [this link](https://www.kaggle.com/alexisbcook/coordinate-reference-systems).**
 
 ---

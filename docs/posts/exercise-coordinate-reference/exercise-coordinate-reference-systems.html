@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>castle_blog – exercise-coordinate-reference-systems</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">castle_blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+<p><strong>This notebook is an exercise in the <a href="https://www.kaggle.com/learn/geospatial-analysis">Geospatial Analysis</a> course. You can reference the tutorial at <a href="https://www.kaggle.com/alexisbcook/coordinate-reference-systems">this link</a>.</strong></p>
+<hr>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>You are a bird conservation expert and want to understand migration patterns of purple martins. In your research, you discover that these birds typically spend the summer breeding season in the eastern United States, and then migrate to South America for the winter. But since this bird is under threat of endangerment, you’d like to take a closer look at the locations that these birds are more likely to visit.</p>
+<center>
+<img src="https://storage.googleapis.com/kaggle-media/learn/images/qQcS0KM.png" width="1000"><br>
+</center>
+<p>There are several <a href="https://www.iucn.org/theme/protected-areas/about">protected areas</a> in South America, which operate under special regulations to ensure that species that migrate (or live) there have the best opportunity to thrive. You’d like to know if purple martins tend to visit these areas. To answer this question, you’ll use some recently collected data that tracks the year-round location of eleven different birds.</p>
+<p>Before you get started, run the code cell below to set everything up.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> LineString</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<section id="load-the-data." class="level3">
+<h3 class="anchored" data-anchor-id="load-the-data.">1) Load the data.</h3>
+<p>Run the next code cell (without changes) to load the GPS data into a pandas DataFrame <code>birds_df</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data and print the first 5 rows</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>birds_df <span class="op">=</span> pd.read_csv(<span class="vs">r"C:\Users\LG PC\Desktop\data_mining\archive\purple_martin.csv"</span>, parse_dates<span class="op">=</span>[<span class="st">'timestamp'</span>])</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"There are </span><span class="sc">{}</span><span class="st"> different birds in the dataset."</span>.<span class="bu">format</span>(birds_df[<span class="st">"tag-local-identifier"</span>].nunique()))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>birds_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>There are 11 different birds in the dataset.</code></pre>
+<div>
+
+
+<table class="dataframe table table-sm table-striped">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+timestamp
+</th>
+<th>
+location-long
+</th>
+<th>
+location-lat
+</th>
+<th>
+tag-local-identifier
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+2014-08-15 05:56:00
+</td>
+<td>
+-88.146014
+</td>
+<td>
+17.513049
+</td>
+<td>
+30448
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+2014-09-01 05:59:00
+</td>
+<td>
+-85.243501
+</td>
+<td>
+13.095782
+</td>
+<td>
+30448
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+2014-10-30 23:58:00
+</td>
+<td>
+-62.906089
+</td>
+<td>
+-7.852436
+</td>
+<td>
+30448
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+2014-11-15 04:59:00
+</td>
+<td>
+-61.776826
+</td>
+<td>
+-11.723898
+</td>
+<td>
+30448
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+2014-11-30 09:59:00
+</td>
+<td>
+-61.241538
+</td>
+<td>
+-11.612237
+</td>
+<td>
+30448
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+<p>There are 11 birds in the dataset, where each bird is identified by a unique value in the “tag-local-identifier” column. Each bird has several measurements, collected at different times of the year.</p>
+<p>Use the next code cell to create a GeoDataFrame <code>birds</code>.<br>
+- <code>birds</code> should have all of the columns from <code>birds_df</code>, along with a “geometry” column that contains Point objects with (longitude, latitude) locations.<br>
+- Set the CRS of <code>birds</code> to <code>{'init': 'epsg:4326'}</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>birds_df <span class="op">=</span> birds_df.rename(columns<span class="op">=</span>{<span class="st">'location-long'</span>: <span class="st">'longitude'</span>, <span class="st">'location-lat'</span>: <span class="st">'latitude'</span>})</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>birds_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+timestamp
+</th>
+<th>
+longitude
+</th>
+<th>
+latitude
+</th>
+<th>
+tag-local-identifier
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+2014-08-15 05:56:00
+</td>
+<td>
+-88.146014
+</td>
+<td>
+17.513049
+</td>
+<td>
+30448
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+2014-09-01 05:59:00
+</td>
+<td>
+-85.243501
+</td>
+<td>
+13.095782
+</td>
+<td>
+30448
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+2014-10-30 23:58:00
+</td>
+<td>
+-62.906089
+</td>
+<td>
+-7.852436
+</td>
+<td>
+30448
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+2014-11-15 04:59:00
+</td>
+<td>
+-61.776826
+</td>
+<td>
+-11.723898
+</td>
+<td>
+30448
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+2014-11-30 09:59:00
+</td>
+<td>
+-61.241538
+</td>
+<td>
+-11.612237
+</td>
+<td>
+30448
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here: Create the GeoDataFrame</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>birds <span class="op">=</span> gpd.GeoDataFrame(birds_df, geometry<span class="op">=</span>gpd.points_from_xy(birds_df.longitude, birds_df.latitude))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here: Set the CRS to {'init': 'epsg:4326'}</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>birds.crs <span class="op">=</span> {<span class="st">'init'</span>: <span class="st">'epsg:4326'</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>c:\Users\LG PC\anaconda3\envs\min\Lib\site-packages\pyproj\crs\crs.py:141: FutureWarning: '+init=&lt;authority&gt;:&lt;code&gt;' syntax is deprecated. '&lt;authority&gt;:&lt;code&gt;' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>birds.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+timestamp
+</th>
+<th>
+longitude
+</th>
+<th>
+latitude
+</th>
+<th>
+tag-local-identifier
+</th>
+<th>
+geometry
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+2014-08-15 05:56:00
+</td>
+<td>
+-88.146014
+</td>
+<td>
+17.513049
+</td>
+<td>
+30448
+</td>
+<td>
+POINT (-88.14601 17.51305)
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+2014-09-01 05:59:00
+</td>
+<td>
+-85.243501
+</td>
+<td>
+13.095782
+</td>
+<td>
+30448
+</td>
+<td>
+POINT (-85.24350 13.09578)
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+2014-10-30 23:58:00
+</td>
+<td>
+-62.906089
+</td>
+<td>
+-7.852436
+</td>
+<td>
+30448
+</td>
+<td>
+POINT (-62.90609 -7.85244)
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+2014-11-15 04:59:00
+</td>
+<td>
+-61.776826
+</td>
+<td>
+-11.723898
+</td>
+<td>
+30448
+</td>
+<td>
+POINT (-61.77683 -11.72390)
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+2014-11-30 09:59:00
+</td>
+<td>
+-61.241538
+</td>
+<td>
+-11.612237
+</td>
+<td>
+30448
+</td>
+<td>
+POINT (-61.24154 -11.61224)
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</section>
+<section id="plot-the-data." class="level3">
+<h3 class="anchored" data-anchor-id="plot-the-data.">2) Plot the data.</h3>
+<p>Next, we load in the <code>'naturalearth_lowres'</code> dataset from GeoPandas, and set <code>americas</code> to a GeoDataFrame containing the boundaries of all countries in the Americas (both North and South America). Run the next code cell without changes.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a GeoDataFrame with country boundaries in North/South America, print the first 5 rows</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>world <span class="op">=</span> gpd.read_file(gpd.datasets.get_path(<span class="st">'naturalearth_lowres'</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>americas <span class="op">=</span> world.loc[world[<span class="st">'continent'</span>].isin([<span class="st">'North America'</span>, <span class="st">'South America'</span>])]</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>americas.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+pop_est
+</th>
+<th>
+continent
+</th>
+<th>
+name
+</th>
+<th>
+iso_a3
+</th>
+<th>
+gdp_md_est
+</th>
+<th>
+geometry
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+3
+</th>
+<td>
+37589262.0
+</td>
+<td>
+North America
+</td>
+<td>
+Canada
+</td>
+<td>
+CAN
+</td>
+<td>
+1736425
+</td>
+<td>
+MULTIPOLYGON (((-122.84000 49.00000, -122.9742…
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+328239523.0
+</td>
+<td>
+North America
+</td>
+<td>
+United States of America
+</td>
+<td>
+USA
+</td>
+<td>
+21433226
+</td>
+<td>
+MULTIPOLYGON (((-122.84000 49.00000, -120.0000…
+</td>
+</tr>
+<tr>
+<th>
+9
+</th>
+<td>
+44938712.0
+</td>
+<td>
+South America
+</td>
+<td>
+Argentina
+</td>
+<td>
+ARG
+</td>
+<td>
+445445
+</td>
+<td>
+MULTIPOLYGON (((-68.63401 -52.63637, -68.25000…
+</td>
+</tr>
+<tr>
+<th>
+10
+</th>
+<td>
+18952038.0
+</td>
+<td>
+South America
+</td>
+<td>
+Chile
+</td>
+<td>
+CHL
+</td>
+<td>
+282318
+</td>
+<td>
+MULTIPOLYGON (((-68.63401 -52.63637, -68.63335…
+</td>
+</tr>
+<tr>
+<th>
+16
+</th>
+<td>
+11263077.0
+</td>
+<td>
+North America
+</td>
+<td>
+Haiti
+</td>
+<td>
+HTI
+</td>
+<td>
+14332
+</td>
+<td>
+POLYGON ((-71.71236 19.71446, -71.62487 19.169…
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+<p>Use the next code cell to create a single plot that shows both: (1) the country boundaries in the <code>americas</code> GeoDataFrame, and (2) all of the points in the <code>birds_gdf</code> GeoDataFrame.</p>
+<p>Don’t worry about any special styling here; just create a preliminary plot, as a quick sanity check that all of the data was loaded properly. In particular, you don’t have to worry about color-coding the points to differentiate between birds, and you don’t have to differentiate starting points from ending points. We’ll do that in the next part of the exercise.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> americas.plot(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>), color<span class="op">=</span><span class="st">'whitesmoke'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>birds.plot(markersize<span class="op">=</span><span class="dv">3</span>, ax<span class="op">=</span>ax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>&lt;Axes: &gt;</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="output_12_1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">png</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="where-does-each-bird-start-and-end-its-journey-part-1" class="level3">
+<h3 class="anchored" data-anchor-id="where-does-each-bird-start-and-end-its-journey-part-1">3) Where does each bird start and end its journey? (Part 1)</h3>
+<p>Now, we’re ready to look more closely at each bird’s path. Run the next code cell to create two GeoDataFrames: - <code>path_gdf</code> contains LineString objects that show the path of each bird. It uses the <code>LineString()</code> method to create a LineString object from a list of Point objects. - <code>start_gdf</code> contains the starting points for each bird.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GeoDataFrame showing path for each bird</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>path_df <span class="op">=</span> birds.groupby(<span class="st">"tag-local-identifier"</span>)[<span class="st">'geometry'</span>].<span class="bu">apply</span>(<span class="bu">list</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> x: LineString(x)).reset_index()</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>path_gdf <span class="op">=</span> gpd.GeoDataFrame(path_df, geometry<span class="op">=</span>path_df.geometry)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>path_gdf.crs <span class="op">=</span> {<span class="st">'init'</span> :<span class="st">'epsg:4326'</span>}</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># GeoDataFrame showing starting point for each bird</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>start_df <span class="op">=</span> birds.groupby(<span class="st">"tag-local-identifier"</span>)[<span class="st">'geometry'</span>].<span class="bu">apply</span>(<span class="bu">list</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="dv">0</span>]).reset_index()</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>start_gdf <span class="op">=</span> gpd.GeoDataFrame(start_df, geometry<span class="op">=</span>start_df.geometry)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>start_gdf.crs <span class="op">=</span> {<span class="st">'init'</span> :<span class="st">'epsg:4326'</span>}</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Show first five rows of GeoDataFrame</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>start_gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>c:\Users\LG PC\anaconda3\envs\min\Lib\site-packages\pyproj\crs\crs.py:141: FutureWarning: '+init=&lt;authority&gt;:&lt;code&gt;' syntax is deprecated. '&lt;authority&gt;:&lt;code&gt;' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)
+c:\Users\LG PC\anaconda3\envs\min\Lib\site-packages\pyproj\crs\crs.py:141: FutureWarning: '+init=&lt;authority&gt;:&lt;code&gt;' syntax is deprecated. '&lt;authority&gt;:&lt;code&gt;' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)</code></pre>
+<div>
+
+
+<table class="dataframe table table-sm table-striped">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+tag-local-identifier
+</th>
+<th>
+geometry
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+30048
+</td>
+<td>
+POINT (-90.12992 20.73242)
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+30054
+</td>
+<td>
+POINT (-93.60861 46.50563)
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+30198
+</td>
+<td>
+POINT (-80.31036 25.92545)
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+30263
+</td>
+<td>
+POINT (-76.78146 42.99209)
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+30275
+</td>
+<td>
+POINT (-76.78213 42.99207)
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+<p>Use the next code cell to create a GeoDataFrame <code>end_gdf</code> containing the final location of each bird.<br>
+- The format should be identical to that of <code>start_gdf</code>, with two columns (“tag-local-identifier” and “geometry”), where the “geometry” column contains Point objects. - Set the CRS of <code>end_gdf</code> to <code>{'init': 'epsg:4326'}</code>.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>end_df <span class="op">=</span> birds.groupby(<span class="st">"tag-local-identifier"</span>)[<span class="st">'geometry'</span>].<span class="bu">apply</span>(<span class="bu">list</span>).<span class="bu">apply</span>(<span class="kw">lambda</span> x: x[<span class="op">-</span><span class="dv">1</span>]).reset_index()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>end_gdf <span class="op">=</span> gpd.GeoDataFrame(start_df, geometry<span class="op">=</span>end_df.geometry)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>end_gdf.crs <span class="op">=</span> {<span class="st">'init'</span>: <span class="st">'epsg:4326'</span>}</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>end_gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>c:\Users\LG PC\anaconda3\envs\min\Lib\site-packages\pyproj\crs\crs.py:141: FutureWarning: '+init=&lt;authority&gt;:&lt;code&gt;' syntax is deprecated. '&lt;authority&gt;:&lt;code&gt;' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+  in_crs_string = _prepare_from_proj_string(in_crs_string)</code></pre>
+<div>
+
+
+<table class="dataframe table table-sm table-striped">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+tag-local-identifier
+</th>
+<th>
+geometry
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+30048
+</td>
+<td>
+POINT (-47.53632 -4.43758)
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+30054
+</td>
+<td>
+POINT (-62.47914 -5.03840)
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+30198
+</td>
+<td>
+POINT (-57.46417 -2.77617)
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+30263
+</td>
+<td>
+POINT (-50.19230 -5.70504)
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+30275
+</td>
+<td>
+POINT (-57.70404 -16.72336)
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</section>
+<section id="where-does-each-bird-start-and-end-its-journey-part-2" class="level3">
+<h3 class="anchored" data-anchor-id="where-does-each-bird-start-and-end-its-journey-part-2">4) Where does each bird start and end its journey? (Part 2)</h3>
+<p>Use the GeoDataFrames from the question above (<code>path_gdf</code>, <code>start_gdf</code>, and <code>end_gdf</code>) to visualize the paths of all birds on a single map. You may also want to use the <code>americas</code> GeoDataFrame.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> americas.plot(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>), color<span class="op">=</span><span class="st">'whitesmoke'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>path_gdf.plot(linewidth<span class="op">=</span><span class="dv">1</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>start_gdf.plot(markersize<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">"red"</span>, zorder<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>end_gdf.plot(markersize<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">"blue"</span>, zorder<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>&lt;Axes: &gt;</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="output_18_1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">png</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="where-are-the-protected-areas-in-south-america-part-1" class="level3">
+<h3 class="anchored" data-anchor-id="where-are-the-protected-areas-in-south-america-part-1">5) Where are the protected areas in South America? (Part 1)</h3>
+<p>It looks like all of the birds end up somewhere in South America. But are they going to protected areas?</p>
+<p>In the next code cell, you’ll create a GeoDataFrame <code>protected_areas</code> containing the locations of all of the protected areas in South America. The corresponding shapefile is located at filepath <code>protected_filepath</code>.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Path of the shapefile to load</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>protected_filepath <span class="op">=</span> <span class="vs">r"C:\Users\LG PC\Desktop\data_mining\archive\SAPA_Aug2019-shapefile\SAPA_Aug2019-shapefile\SAPA_Aug2019-shapefile-polygons.shp"</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>protected_areas <span class="op">=</span> gpd.read_file(protected_filepath)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>protected_areas.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+WDPAID
+</th>
+<th>
+WDPA_PID
+</th>
+<th>
+PA_DEF
+</th>
+<th>
+NAME
+</th>
+<th>
+ORIG_NAME
+</th>
+<th>
+DESIG
+</th>
+<th>
+DESIG_ENG
+</th>
+<th>
+DESIG_TYPE
+</th>
+<th>
+IUCN_CAT
+</th>
+<th>
+INT_CRIT
+</th>
+<th>
+…
+</th>
+<th>
+GOV_TYPE
+</th>
+<th>
+OWN_TYPE
+</th>
+<th>
+MANG_AUTH
+</th>
+<th>
+MANG_PLAN
+</th>
+<th>
+VERIF
+</th>
+<th>
+METADATAID
+</th>
+<th>
+SUB_LOC
+</th>
+<th>
+PARENT_ISO
+</th>
+<th>
+ISO3
+</th>
+<th>
+geometry
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+14067.0
+</td>
+<td>
+14067
+</td>
+<td>
+1
+</td>
+<td>
+Het Spaans Lagoen
+</td>
+<td>
+Het Spaans Lagoen
+</td>
+<td>
+Ramsar Site, Wetland of International Importance
+</td>
+<td>
+Ramsar Site, Wetland of International Importance
+</td>
+<td>
+International
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Not Reported
+</td>
+<td>
+…
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Management plan is not implemented and not ava…
+</td>
+<td>
+State Verified
+</td>
+<td>
+1856
+</td>
+<td>
+Not Reported
+</td>
+<td>
+NLD
+</td>
+<td>
+ABW
+</td>
+<td>
+POLYGON ((-69.97523 12.47379, -69.97523 12.473…
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+14003.0
+</td>
+<td>
+14003
+</td>
+<td>
+1
+</td>
+<td>
+Bubali Pond Bird Sanctuary
+</td>
+<td>
+Bubali Pond Bird Sanctuary
+</td>
+<td>
+Bird Sanctuary
+</td>
+<td>
+Bird Sanctuary
+</td>
+<td>
+National
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Not Applicable
+</td>
+<td>
+…
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Not Reported
+</td>
+<td>
+State Verified
+</td>
+<td>
+1899
+</td>
+<td>
+Not Reported
+</td>
+<td>
+NLD
+</td>
+<td>
+ABW
+</td>
+<td>
+POLYGON ((-70.04734 12.56329, -70.04615 12.563…
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+555624439.0
+</td>
+<td>
+555624439
+</td>
+<td>
+1
+</td>
+<td>
+Arikok National Park
+</td>
+<td>
+Arikok National Park
+</td>
+<td>
+National Park
+</td>
+<td>
+National Park
+</td>
+<td>
+National
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Not Applicable
+</td>
+<td>
+…
+</td>
+<td>
+Non-profit organisations
+</td>
+<td>
+Non-profit organisations
+</td>
+<td>
+Fundacion Parke Nacional Arikok
+</td>
+<td>
+Not Reported
+</td>
+<td>
+State Verified
+</td>
+<td>
+1899
+</td>
+<td>
+Not Reported
+</td>
+<td>
+NLD
+</td>
+<td>
+ABW
+</td>
+<td>
+MULTIPOLYGON (((-69.96302 12.48384, -69.96295 …
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+303894.0
+</td>
+<td>
+303894
+</td>
+<td>
+1
+</td>
+<td>
+Madidi
+</td>
+<td>
+Madidi
+</td>
+<td>
+Area Natural de Manejo Integrado
+</td>
+<td>
+Natural Integrated Management Area
+</td>
+<td>
+National
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Not Applicable
+</td>
+<td>
+…
+</td>
+<td>
+Federal or national ministry or agency
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Not Reported
+</td>
+<td>
+State Verified
+</td>
+<td>
+1860
+</td>
+<td>
+BO-L
+</td>
+<td>
+BOL
+</td>
+<td>
+BOL
+</td>
+<td>
+POLYGON ((-68.59060 -14.43388, -68.59062 -14.4…
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+303893.0
+</td>
+<td>
+303893
+</td>
+<td>
+1
+</td>
+<td>
+Apolobamba
+</td>
+<td>
+Apolobamba
+</td>
+<td>
+Area Natural de Manejo Integado Nacional
+</td>
+<td>
+National Natural Integrated Management Area
+</td>
+<td>
+National
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Not Applicable
+</td>
+<td>
+…
+</td>
+<td>
+Federal or national ministry or agency
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Not Reported
+</td>
+<td>
+Not Reported
+</td>
+<td>
+State Verified
+</td>
+<td>
+1860
+</td>
+<td>
+BO-L
+</td>
+<td>
+BOL
+</td>
+<td>
+BOL
+</td>
+<td>
+POLYGON ((-69.20949 -14.73334, -69.20130 -14.7…
+</td>
+</tr>
+</tbody>
+
+</table>
+<p>
+5 rows × 29 columns
+</p>
+</div>
+</section>
+<section id="where-are-the-protected-areas-in-south-america-part-2" class="level3">
+<h3 class="anchored" data-anchor-id="where-are-the-protected-areas-in-south-america-part-2">6) Where are the protected areas in South America? (Part 2)</h3>
+<p>Create a plot that uses the <code>protected_areas</code> GeoDataFrame to show the locations of the protected areas in South America. (<em>You’ll notice that some protected areas are on land, while others are in marine waters.</em>)</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Country boundaries in South America</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>south_america <span class="op">=</span> americas.loc[americas[<span class="st">'continent'</span>]<span class="op">==</span><span class="st">'South America'</span>]</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here: plot protected areas in South America</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> south_america.plot(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">10</span>), color<span class="op">=</span><span class="st">'whitesmoke'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>protected_areas.plot(ax<span class="op">=</span>ax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>&lt;Axes: &gt;</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="output_23_1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">png</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="what-percentage-of-south-america-is-protected" class="level3">
+<h3 class="anchored" data-anchor-id="what-percentage-of-south-america-is-protected">7) What percentage of South America is protected?</h3>
+<p>You’re interested in determining what percentage of South America is protected, so that you know how much of South America is suitable for the birds.</p>
+<p>As a first step, you calculate the total area of all protected lands in South America (not including marine area). To do this, you use the “REP_AREA” and “REP_M_AREA” columns, which contain the total area and total marine area, respectively, in square kilometers.</p>
+<p>Run the code cell below without changes.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>P_Area <span class="op">=</span> <span class="bu">sum</span>(protected_areas[<span class="st">'REP_AREA'</span>]<span class="op">-</span>protected_areas[<span class="st">'REP_M_AREA'</span>])</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"South America has </span><span class="sc">{}</span><span class="st"> square kilometers of protected areas."</span>.<span class="bu">format</span>(P_Area))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>South America has 5396761.9116883585 square kilometers of protected areas.</code></pre>
+<p>Then, to finish the calculation, you’ll use the <code>south_america</code> GeoDataFrame.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>south_america.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+pop_est
+</th>
+<th>
+continent
+</th>
+<th>
+name
+</th>
+<th>
+iso_a3
+</th>
+<th>
+gdp_md_est
+</th>
+<th>
+geometry
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+9
+</th>
+<td>
+44938712.0
+</td>
+<td>
+South America
+</td>
+<td>
+Argentina
+</td>
+<td>
+ARG
+</td>
+<td>
+445445
+</td>
+<td>
+MULTIPOLYGON (((-68.63401 -52.63637, -68.25000…
+</td>
+</tr>
+<tr>
+<th>
+10
+</th>
+<td>
+18952038.0
+</td>
+<td>
+South America
+</td>
+<td>
+Chile
+</td>
+<td>
+CHL
+</td>
+<td>
+282318
+</td>
+<td>
+MULTIPOLYGON (((-68.63401 -52.63637, -68.63335…
+</td>
+</tr>
+<tr>
+<th>
+20
+</th>
+<td>
+3398.0
+</td>
+<td>
+South America
+</td>
+<td>
+Falkland Is.
+</td>
+<td>
+FLK
+</td>
+<td>
+282
+</td>
+<td>
+POLYGON ((-61.20000 -51.85000, -60.00000 -51.2…
+</td>
+</tr>
+<tr>
+<th>
+28
+</th>
+<td>
+3461734.0
+</td>
+<td>
+South America
+</td>
+<td>
+Uruguay
+</td>
+<td>
+URY
+</td>
+<td>
+56045
+</td>
+<td>
+POLYGON ((-57.62513 -30.21629, -56.97603 -30.1…
+</td>
+</tr>
+<tr>
+<th>
+29
+</th>
+<td>
+211049527.0
+</td>
+<td>
+South America
+</td>
+<td>
+Brazil
+</td>
+<td>
+BRA
+</td>
+<td>
+1839758
+</td>
+<td>
+POLYGON ((-53.37366 -33.76838, -53.65054 -33.2…
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+<p>Calculate the total area of South America by following these steps: - Calculate the area of each country using the <code>area</code> attribute of each polygon (with EPSG 3035 as the CRS), and add up the results. The calculated area will be in units of square meters. - Convert your answer to have units of square kilometeters.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here: Calculate the total area of South America (in square kilometers)</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>south_america<span class="op">=</span>south_america.to_crs(epsg<span class="op">=</span><span class="dv">3035</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>totalArea <span class="op">=</span> south_america.loc[:, <span class="st">"AREA"</span>] <span class="op">=</span> south_america.geometry.area <span class="op">/</span> <span class="dv">10</span><span class="op">**</span><span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Run the code cell below to calculate the percentage of South America that is protected.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What percentage of South America is protected?</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>percentage_protected <span class="op">=</span> P_Area<span class="op">/</span>totalArea</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Approximately </span><span class="sc">{}% o</span><span class="st">f South America is protected.'</span>.<span class="bu">format</span>(<span class="bu">round</span>(percentage_protected<span class="op">*</span><span class="dv">100</span>, <span class="dv">2</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>Approximately 9        193.85
+10       663.08
+20     32963.98
+28      3050.55
+29        63.43
+30       497.39
+31       412.50
+32       468.51
+40       594.02
+41      2571.97
+42      3740.15
+44      2152.29
+156     1346.55
+dtype: float64% of South America is protected.</code></pre>
+</section>
+<section id="where-are-the-birds-in-south-america" class="level3">
+<h3 class="anchored" data-anchor-id="where-are-the-birds-in-south-america">8) Where are the birds in South America?</h3>
+<p>So, are the birds in protected areas?</p>
+<p>Create a plot that shows for all birds, all of the locations where they were discovered in South America. Also plot the locations of all protected areas in South America.</p>
+<p>To exclude protected areas that are purely marine areas (with no land component), you can use the “MARINE” column (and plot only the rows in <code>protected_areas[protected_areas['MARINE']!='2']</code>, instead of every row in the <code>protected_areas</code> GeoDataFrame).</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="keep-going" class="level1">
+<h1>Keep going</h1>
+<p>Create stunning <strong><a href="https://www.kaggle.com/alexisbcook/interactive-maps">interactive maps</a></strong> with your geospatial data.</p>
+<hr>
+<p><em>Have questions or comments? Visit the <a href="https://www.kaggle.com/learn/geospatial-analysis/discussion">course discussion forum</a> to chat with other learners.</em></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

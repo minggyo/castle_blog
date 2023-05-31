@@ -1,5 +1,5 @@
 ---
-title: "exercise-coordinate-reference"
+title: "coordinate-reference"
 date: "2023-05-31"
 categories: [code, analysis]
 ---
